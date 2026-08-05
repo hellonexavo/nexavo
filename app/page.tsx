@@ -454,7 +454,10 @@ export default function Home() {
 
         <div className="mt-16 grid gap-5 lg:grid-cols-3">
           {/* Dental */}
-          <article className="group overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
+          <a
+  href="/portfolio/novadent"
+  className="group block overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]"
+>
             <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-sky-100 via-white to-cyan-100 p-6 text-slate-950">
               <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-cyan-300/40 blur-3xl" />
 
@@ -536,7 +539,7 @@ export default function Home() {
                 </span>
               </div>
             </div>
-          </article>
+          </a>
 
           {/* Auto service */}
           <article className="group overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
