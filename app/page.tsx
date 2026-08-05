@@ -485,7 +485,6 @@ export default function Home() {
                 <h3 className="mt-4 max-w-sm text-4xl font-semibold leading-tight tracking-[-0.04em]">
                   Premium dental care, powered by AI.
                 </h3>
-
                 <p className="mt-4 max-w-sm text-sm leading-6 text-slate-600">
                   Online booking, clear services, and a 24/7 AI assistant for
                   modern patient support.
