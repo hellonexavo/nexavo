@@ -426,6 +426,266 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Portfolio */}
+      <section
+        id="portfolio"
+        className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:px-10"
+      >
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-violet-300">
+              Featured projects
+            </p>
+
+            <h2 className="mt-5 max-w-3xl text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
+              Concepts built to show
+              <span className="block text-white/35">
+                what your business could become.
+              </span>
+            </h2>
+          </div>
+
+          <p className="max-w-xl leading-7 text-white/50">
+            These portfolio concepts demonstrate how Nexavo combines premium
+            design, AI assistance, and practical automation for different
+            industries.
+          </p>
+        </div>
+
+        <div className="mt-16 grid gap-5 lg:grid-cols-3">
+          {/* Dental */}
+          <article className="group overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
+            <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-sky-100 via-white to-cyan-100 p-6 text-slate-950">
+              <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-cyan-300/40 blur-3xl" />
+
+              <div className="relative flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-semibold text-white">
+                    N
+                  </span>
+
+                  <div>
+                    <p className="text-sm font-semibold">NovaDent AI</p>
+                    <p className="text-xs text-slate-500">
+                      Premium dental care
+                    </p>
+                  </div>
+                </div>
+
+                <span className="rounded-full bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Concept
+                </span>
+              </div>
+
+              <div className="relative mt-12">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-700">
+                  Dental clinic website
+                </p>
+
+                <h3 className="mt-4 max-w-sm text-4xl font-semibold leading-tight tracking-[-0.04em]">
+                  Premium dental care, powered by AI.
+                </h3>
+
+                <p className="mt-4 max-w-sm text-sm leading-6 text-slate-600">
+                  Online booking, clear services, and a 24/7 AI assistant for
+                  modern patient support.
+                </p>
+
+                <div className="mt-7 flex gap-3">
+                  <span className="rounded-full bg-slate-950 px-5 py-3 text-xs font-semibold text-white">
+                    Book appointment
+                  </span>
+
+                  <span className="rounded-full border border-slate-300 bg-white/70 px-5 py-3 text-xs font-semibold">
+                    Talk to AI
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                    Healthcare
+                  </p>
+
+                  <h3 className="mt-2 text-xl font-medium">
+                    NovaDent AI Clinic
+                  </h3>
+                </div>
+
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/50 transition group-hover:border-white/25 group-hover:text-white">
+                  ↗
+                </span>
+              </div>
+
+              <p className="mt-4 leading-7 text-white/45">
+                A premium clinic concept with appointment booking, service
+                presentation, and AI-powered patient assistance.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2 text-xs text-white/40">
+                <span className="rounded-full border border-white/10 px-3 py-1.5">
+                  Web design
+                </span>
+                <span className="rounded-full border border-white/10 px-3 py-1.5">
+                  AI assistant
+                </span>
+                <span className="rounded-full border border-white/10 px-3 py-1.5">
+                  Booking flow
+                </span>
+              </div>
+            </div>
+          </article>
+
+          {/* Auto service */}
+          <article className="group overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
+            <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-zinc-950 via-zinc-900 to-orange-950 p-6">
+              <div className="absolute -right-20 top-10 h-56 w-56 rounded-full bg-orange-500/20 blur-3xl" />
+
+              <div className="relative flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-semibold">AutoFlow</p>
+                  <p className="text-xs text-white/40">Smart auto service</p>
+                </div>
+
+                <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white/45">
+                  Concept
+                </span>
+              </div>
+
+              <div className="relative mt-14">
+                <p className="text-xs uppercase tracking-[0.22em] text-orange-300">
+                  Auto service platform
+                </p>
+
+                <h3 className="mt-4 max-w-sm text-4xl font-semibold leading-tight tracking-[-0.04em]">
+                  Book service in minutes.
+                </h3>
+
+                <p className="mt-4 max-w-sm text-sm leading-6 text-white/50">
+                  Digital booking, service reminders, and instant customer
+                  support in one streamlined experience.
+                </p>
+
+                <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.05] p-4">
+                  <div className="flex items-center justify-between text-xs text-white/45">
+                    <span>Vehicle check</span>
+                    <span className="text-emerald-300">Available today</span>
+                  </div>
+
+                  <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
+                    <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-orange-500 to-amber-300" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                Automotive
+              </p>
+
+              <h3 className="mt-2 text-xl font-medium">
+                AutoFlow Service Platform
+              </h3>
+
+              <p className="mt-4 leading-7 text-white/45">
+                A modern booking experience for workshops with service
+                requests, customer communication, and smart reminders.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2 text-xs text-white/40">
+                <span className="rounded-full border border-white/10 px-3 py-1.5">
+                  Landing page
+                </span>
+                <span className="rounded-full border border-white/10 px-3 py-1.5">
+                  Online booking
+                </span>
+                <span className="rounded-full border border-white/10 px-3 py-1.5">
+                  Automation
+                </span>
+              </div>
+            </div>
+          </article>
+
+          {/* Restaurant */}
+          <article className="group overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
+            <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-stone-100 via-amber-50 to-orange-100 p-6 text-stone-950">
+              <div className="absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-orange-300/40 blur-3xl" />
+
+              <div className="relative flex items-center justify-between">
+                <div>
+                  <p className="font-serif text-lg font-semibold">Maison AI</p>
+                  <p className="text-xs text-stone-500">
+                    Modern dining experience
+                  </p>
+                </div>
+
+                <span className="rounded-full bg-white/70 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-500">
+                  Concept
+                </span>
+              </div>
+
+              <div className="relative mt-14">
+                <p className="text-xs uppercase tracking-[0.22em] text-orange-700">
+                  Restaurant website
+                </p>
+
+                <h3 className="mt-4 max-w-sm font-serif text-4xl leading-tight">
+                  Reservations made effortless.
+                </h3>
+
+                <p className="mt-4 max-w-sm text-sm leading-6 text-stone-600">
+                  A premium menu, online reservations, and AI-powered guest
+                  assistance.
+                </p>
+
+                <div className="mt-8 grid grid-cols-3 gap-2">
+                  {["Menu", "Reserve", "Ask AI"].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-2xl border border-stone-200 bg-white/70 px-3 py-3 text-center text-xs font-semibold"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                Hospitality
+              </p>
+
+              <h3 className="mt-2 text-xl font-medium">
+                Maison AI Restaurant
+              </h3>
+
+              <p className="mt-4 leading-7 text-white/45">
+                A refined restaurant concept with menu presentation, table
+                reservations, and an AI concierge for guests.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2 text-xs text-white/40">
+                <span className="rounded-full border border-white/10 px-3 py-1.5">
+                  Premium design
+                </span>
+                <span className="rounded-full border border-white/10 px-3 py-1.5">
+                  Reservations
+                </span>
+                <span className="rounded-full border border-white/10 px-3 py-1.5">
+                  AI concierge
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+
 
       {/* Contact */}
       <section
