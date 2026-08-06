@@ -21,7 +21,7 @@ export default function ProjectForm() {
       setStatus("sending");
 
       const response = await fetch(
-        "https://formsubmit.co/ajax/hello.nexavo@gmail.com",
+        "https://formsubmit.co/e2995854a9314ab34741c66d5891ec21",
         {
           method: "POST",
           body: formData,
