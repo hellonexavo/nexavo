@@ -542,7 +542,7 @@ export default function Home() {
           </a>
 
           {/* Auto service */}
-          <article className="group overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
+          <a href="/portfolio/autoflow" className="group block overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
             <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-zinc-950 via-zinc-900 to-orange-950 p-6">
               <div className="absolute -right-20 top-10 h-56 w-56 rounded-full bg-orange-500/20 blur-3xl" />
 
@@ -610,10 +610,11 @@ export default function Home() {
                 </span>
               </div>
             </div>
-          </article>
+          </a>
+          
 
           {/* Restaurant */}
-          <article className="group overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
+          <a href="/portfolio/maison" className="group block overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
             <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-stone-100 via-amber-50 to-orange-100 p-6 text-stone-950">
               <div className="absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-orange-300/40 blur-3xl" />
 
@@ -683,7 +684,7 @@ export default function Home() {
                 </span>
               </div>
             </div>
-          </article>
+          </a>
         </div>
       </section>
 
