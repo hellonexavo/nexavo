@@ -1,3 +1,4 @@
+import NexavoAssistant from "./components/NexavoAssistant";
 import ProjectForm from "./components/ProjectForm";const services = [
   {
     number: "01",
@@ -420,6 +421,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+    <NexavoAssistant />
     </main>
   );
 }
