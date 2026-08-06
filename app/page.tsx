@@ -1,739 +1,423 @@
-const services = [
+import ProjectForm from "./components/ProjectForm";const services = [
   {
     number: "01",
-    title: "Premium Websites",
+    title: "Business websites",
     description:
-      "High-converting websites designed to make your business look credible, modern, and valuable.",
+      "Premium, responsive websites designed to turn visitors into real customer enquiries.",
+    price: "From €99",
   },
   {
     number: "02",
-    title: "AI Assistants",
+    title: "AI assistants",
     description:
-      "Smart assistants that answer questions, capture leads, and support customers around the clock.",
+      "Smart assistants that answer questions, collect contacts, and support customers 24/7.",
+    price: "From €149",
   },
   {
     number: "03",
-    title: "Business Automation",
+    title: "Booking systems",
     description:
-      "Automated workflows that reduce repetitive work and give your team more time to grow.",
+      "Simple online booking for clinics, restaurants, workshops, and service businesses.",
+    price: "From €199",
   },
 ];
 
-const benefits = [
-  "Strategy-first approach",
-  "Premium responsive design",
-  "Fast and scalable development",
-  "AI-ready integrations",
+const projects = [
+  {
+    category: "Healthcare",
+    name: "NovaDent AI",
+    title: "Premium dental care, powered by AI.",
+    description:
+      "A clinic website with clear services, online appointments, and an AI patient assistant.",
+    href: "/portfolio/novadent",
+    gradient: "from-cyan-100 via-sky-50 to-white",
+    accent: "text-cyan-700",
+    tags: ["Website", "AI assistant", "Booking"],
+  },
+  {
+    category: "Automotive",
+    name: "AutoFlow",
+    title: "Car service without the usual friction.",
+    description:
+      "A modern workshop platform with service selection, instant estimates, and smart support.",
+    href: "/portfolio/autoflow",
+    gradient: "from-orange-950 via-stone-950 to-black",
+    accent: "text-orange-400",
+    tags: ["Landing page", "Automation", "Booking"],
+    dark: true,
+  },
+  {
+    category: "Hospitality",
+    name: "Maison AI",
+    title: "Reservations made effortless.",
+    description:
+      "A refined restaurant experience with a seasonal menu, reservations, and an AI concierge.",
+    href: "/portfolio/maison",
+    gradient: "from-amber-50 via-orange-50 to-white",
+    accent: "text-orange-700",
+    tags: ["Premium design", "Reservations", "AI concierge"],
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Tell us about your business",
+    description:
+      "Choose what you need and share the key information about your company.",
+  },
+  {
+    number: "02",
+    title: "We design your solution",
+    description:
+      "Nexavo creates the structure, visual design, content, and required automation.",
+  },
+  {
+    number: "03",
+    title: "Review and launch",
+    description:
+      "You approve the result, and we prepare the finished project for publication.",
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#050505] text-white">
-      {/* Background */}
-      <div className="pointer-events-none fixed inset-0">
-        <div className="absolute left-1/2 top-[-260px] h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-violet-600/20 blur-[140px]" />
-        <div className="absolute right-[-180px] top-[420px] h-[420px] w-[420px] rounded-full bg-blue-500/10 blur-[130px]" />
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-        />
-      </div>
+    <main className="min-h-screen overflow-hidden bg-[#070707] text-white">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#070707]/85 backdrop-blur-xl">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
+          <a href="#" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white font-semibold text-black">
+              N
+            </span>
 
-      {/* Navigation */}
-      <header className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <a
-          href="#"
-          className="flex items-center gap-3 text-sm font-semibold tracking-[0.22em]"
-        >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/[0.06] shadow-[0_0_30px_rgba(139,92,246,0.18)]">
-            N
-          </span>
-          NEXAVO
-        </a>
-
-        <nav className="hidden items-center gap-8 text-sm text-white/60 md:flex">
-          <a className="transition hover:text-white" href="#services">
-            Services
+            <div>
+              <p className="font-semibold tracking-tight">Nexavo</p>
+              <p className="text-[11px] text-white/40">
+                Websites & AI systems
+              </p>
+            </div>
           </a>
-          <a className="transition hover:text-white" href="#process">
-            Process
-          </a>
-          <a className="transition hover:text-white" href="#about">
-            About
-          </a>
-        </nav>
 
-        <a
-          href="#contact"
-          className="rounded-full border border-white/15 bg-white/[0.06] px-5 py-2.5 text-sm font-medium transition hover:border-white/30 hover:bg-white/10"
-        >
-          Start a project
-        </a>
-      </header>
+          <nav className="hidden items-center gap-8 text-sm text-white/60 md:flex">
+            <a href="#services" className="transition hover:text-white">
+              Services
+            </a>
+            <a href="#work" className="transition hover:text-white">
+              Portfolio
+            </a>
+            <a href="#process" className="transition hover:text-white">
+              Process
+            </a>
+          </nav>
 
-      {/* Hero */}
-      <section className="relative z-10 mx-auto flex min-h-[820px] max-w-7xl flex-col items-center justify-center px-6 pb-24 pt-20 text-center lg:px-10">
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-xs text-white/65 backdrop-blur-xl">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-          Now accepting selected projects
-        </div>
-
-        <h1 className="hero-title max-w-5xl text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl md:text-7xl lg:text-[96px]">
-  Premium websites and
-  <span className="block bg-gradient-to-r from-white via-violet-200 to-blue-300 bg-clip-text text-transparent">
-    AI systems that grow businesses.
-  </span>
-</h1>
-<div className="hero-effects pointer-events-none absolute inset-0 overflow-hidden">
-  <div className="hero-orbit hero-orbit-one" />
-  <div className="hero-orbit hero-orbit-two" />
-  <div className="hero-orbit hero-orbit-three" />
-
-  <div className="hero-light hero-light-one" />
-  <div className="hero-light hero-light-two" />
-</div>
-        <p className="mt-8 max-w-2xl text-pretty text-base leading-7 text-white/55 sm:text-lg">
-  Nexavo designs high-converting websites, intelligent AI assistants,
-  and automations that help modern businesses attract customers,
-  save time, and operate more efficiently.
-</p>
-
-        <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
           <a
             href="#contact"
-            className="group flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.02] hover:bg-white/90 sm:w-auto"
+            className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:scale-105"
           >
-            Start your project
-            <span className="transition group-hover:translate-x-1">→</span>
-          </a>
-
-          <a
-            href="#services"
-            className="w-full rounded-full border border-white/15 bg-white/[0.04] px-7 py-4 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/[0.08] sm:w-auto"
-          >
-            Explore our services
+            Start a project
           </a>
         </div>
-<div className="hero-trust mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs text-white/35">
-  <span>Strategy-led design</span>
-  <span className="hidden h-1 w-1 rounded-full bg-white/25 sm:block" />
-  <span>AI-ready development</span>
-  <span className="hidden h-1 w-1 rounded-full bg-white/25 sm:block" />
-  <span>Responsive on every device</span>
-</div>
-        {/* Product preview */}
-        <div className="relative mt-20 w-full max-w-5xl">
-          <div className="absolute inset-x-16 top-0 h-40 rounded-full bg-violet-500/20 blur-[90px]" />
+      </header>
 
-          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.045] p-2 shadow-[0_40px_120px_rgba(0,0,0,0.7)] backdrop-blur-2xl">
-            <div className="rounded-[22px] border border-white/[0.08] bg-[#09090b]">
-              <div className="flex items-center justify-between border-b border-white/[0.08] px-5 py-4">
-                <div className="flex gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                </div>
-                <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">
-                  Intelligent business system
-                </span>
-                <div className="w-12" />
-              </div>
+      <section className="relative px-6 pb-28 pt-40 lg:px-10 lg:pb-36 lg:pt-52">
+        <div className="absolute left-1/2 top-20 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-violet-700/20 blur-[140px]" />
+        <div className="absolute right-0 top-72 h-72 w-72 rounded-full bg-cyan-500/10 blur-[110px]" />
 
-              <div className="grid gap-4 p-5 md:grid-cols-[1.3fr_0.7fr] md:p-8">
-                <div className="rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.07] to-transparent p-6 text-left">
-                  <p className="text-xs uppercase tracking-[0.24em] text-violet-300/70">
-                    Growth overview
-                  </p>
-                  <h2 className="mt-4 max-w-md text-2xl font-medium tracking-tight sm:text-3xl">
-                    Your website should be your best salesperson.
-                  </h2>
+        <div className="relative mx-auto max-w-7xl">
+          <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-white/60">
+            <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            Available for new projects
+          </div>
 
-                  <div className="mt-10 flex h-36 items-end gap-2">
-                    {[34, 48, 42, 62, 58, 76, 72, 91, 86, 100].map(
-                      (height, index) => (
-                        <div
-                          key={index}
-                          className="flex-1 rounded-t-md bg-gradient-to-t from-violet-600/35 to-violet-300/90"
-                          style={{ height: `${height}%` }}
-                        />
-                      ),
-                    )}
-                  </div>
-                </div>
+          <h1 className="mt-9 max-w-6xl text-6xl font-semibold leading-[0.92] tracking-[-0.06em] sm:text-7xl lg:text-[106px]">
+            Websites and AI systems that help businesses{" "}
+            <span className="text-white/35">get more customers.</span>
+          </h1>
 
-                <div className="grid gap-4">
-                  <div className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5 text-left">
-                    <p className="text-sm text-white/45">AI response time</p>
-                    <p className="mt-3 text-4xl font-medium tracking-tight">
-                      1.2s
-                    </p>
-                    <p className="mt-2 text-xs text-emerald-300">
-                      Always available
-                    </p>
-                  </div>
+          <div className="mt-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <p className="max-w-xl text-lg leading-8 text-white/50">
+              Nexavo designs modern websites, booking experiences, and AI
+              assistants for ambitious small businesses.
+            </p>
 
-                  <div className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5 text-left">
-                    <p className="text-sm text-white/45">Automated workflows</p>
-                    <p className="mt-3 text-4xl font-medium tracking-tight">
-                      24/7
-                    </p>
-                    <p className="mt-2 text-xs text-blue-300">
-                      Less repetitive work
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#work"
+                className="rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-105"
+              >
+                View our work
+              </a>
+
+              <a
+                href="#services"
+                className="rounded-full border border-white/15 px-7 py-4 text-sm font-semibold transition hover:bg-white/10"
+              >
+                Explore services
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-3">
+            <div className="bg-[#0b0b0b] p-7">
+              <p className="text-3xl font-semibold">3</p>
+              <p className="mt-2 text-sm text-white/40">Showcase projects</p>
+            </div>
+
+            <div className="bg-[#0b0b0b] p-7">
+              <p className="text-3xl font-semibold">24/7</p>
+              <p className="mt-2 text-sm text-white/40">AI customer support</p>
+            </div>
+
+            <div className="bg-[#0b0b0b] p-7">
+              <p className="text-3xl font-semibold">Mobile-first</p>
+              <p className="mt-2 text-sm text-white/40">
+                Built for every screen
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services */}
       <section
         id="services"
-        className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:px-10"
+        className="border-y border-white/10 bg-white/[0.025] px-6 py-28 lg:px-10"
       >
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-violet-300">
-              What we build
-            </p>
-            <h2 className="mt-5 max-w-lg text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
-              Digital systems built for real business growth.
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-400">
+            What we build
+          </p>
+
+          <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <h2 className="max-w-3xl text-5xl font-semibold tracking-[-0.05em] sm:text-6xl">
+              Digital solutions built around your business.
             </h2>
+
+            <p className="max-w-md leading-7 text-white/45">
+              Start with one essential service and add more automation as your
+              business grows.
+            </p>
           </div>
 
-          <p className="max-w-xl text-base leading-7 text-white/50 lg:justify-self-end">
-            Every project combines clear strategy, premium design, modern
-            technology, and practical AI. The result is not only beautiful—it
-            is useful, fast, and designed to convert.
-          </p>
-        </div>
+          <div className="mt-16 grid gap-5 lg:grid-cols-3">
+            {services.map((service) => (
+              <article
+                key={service.title}
+                className="group rounded-[28px] border border-white/10 bg-[#0c0c0c] p-7 transition duration-300 hover:-translate-y-2 hover:border-white/20"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-white/30">
+                    {service.number}
+                  </span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/60">
+                    {service.price}
+                  </span>
+                </div>
 
-        <div className="mt-16 grid gap-4 lg:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.number}
-              className="group rounded-[26px] border border-white/[0.09] bg-white/[0.035] p-7 transition duration-300 hover:-translate-y-1 hover:border-violet-300/25 hover:bg-white/[0.06]"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-white/30">{service.number}</span>
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition group-hover:border-white/25 group-hover:text-white">
-                  ↗
-                </span>
-              </div>
+                <h3 className="mt-16 text-2xl font-semibold">
+                  {service.title}
+                </h3>
 
-              <h3 className="mt-20 text-2xl font-medium tracking-tight">
-                {service.title}
-              </h3>
-              <p className="mt-4 leading-7 text-white/45">
-                {service.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-      {/* AI Demo */}
-      <section
-        id="ai-demo"
-        className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:px-10"
-      >
-        <div className="mb-14 text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.28em] text-violet-300">
-            Nexavo intelligence
-          </p>
-
-          <h2 className="mx-auto mt-5 max-w-3xl text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
-            From a business problem
-            <span className="block text-white/35">
-              to a clear digital solution.
-            </span>
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl leading-7 text-white/50">
-            We combine strategy, design, AI, and automation to turn complex
-            business needs into practical systems that support growth.
-          </p>
-        </div>
-
-        <div className="ai-demo-shell relative overflow-hidden rounded-[32px] border border-white/[0.1] bg-white/[0.035] p-5 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur-2xl sm:p-8 lg:p-10">
-          <div className="ai-demo-glow pointer-events-none absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/15 blur-[120px]" />
-
-          <div className="relative grid items-stretch gap-5 lg:grid-cols-[1fr_auto_1fr_auto_1fr]">
-            {/* Business request */}
-            <div className="ai-step ai-step-one rounded-[24px] border border-white/[0.09] bg-black/25 p-6">
-              <div className="flex items-center justify-between">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-lg">
-                  👤
-                </span>
-
-                <span className="text-[10px] uppercase tracking-[0.25em] text-white/30">
-                  Business request
-                </span>
-              </div>
-
-              <p className="mt-10 text-sm text-white/40">Business owner</p>
-
-              <div className="mt-3 rounded-2xl rounded-tl-sm border border-white/[0.08] bg-white/[0.06] p-4">
-                <p className="leading-7 text-white/80">
-                  “I need more customers, but I do not know what my website
-                  should do.”
+                <p className="mt-4 leading-7 text-white/45">
+                  {service.description}
                 </p>
-              </div>
-            </div>
 
-            {/* Arrow */}
-            <div className="ai-connector hidden items-center justify-center lg:flex">
-              <span className="ai-arrow text-2xl text-violet-300">→</span>
-            </div>
-
-            {/* AI analysis */}
-            <div className="ai-step ai-step-two rounded-[24px] border border-violet-300/15 bg-violet-500/[0.07] p-6">
-              <div className="flex items-center justify-between">
-                <span className="ai-orb flex h-10 w-10 items-center justify-center rounded-full border border-violet-300/20 bg-violet-400/10 text-lg">
-                  ✦
-                </span>
-
-                <span className="text-[10px] uppercase tracking-[0.25em] text-violet-200/50">
-                  Nexavo AI
-                </span>
-              </div>
-
-              <p className="mt-10 text-sm text-white/40">
-                Analysing business needs
-              </p>
-
-              <div className="mt-5 space-y-3">
-                <div className="ai-analysis-row">
-                  <span>Market positioning</span>
-                  <span>Complete</span>
-                </div>
-
-                <div className="ai-analysis-row">
-                  <span>Customer journey</span>
-                  <span>Complete</span>
-                </div>
-
-                <div className="ai-analysis-row">
-                  <span>Growth opportunities</span>
-                  <span>Complete</span>
-                </div>
-              </div>
-
-              <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-white/[0.08]">
-                <div className="ai-progress h-full rounded-full bg-gradient-to-r from-violet-500 via-purple-300 to-blue-300" />
-              </div>
-            </div>
-
-            {/* Arrow */}
-            <div className="ai-connector hidden items-center justify-center lg:flex">
-              <span className="ai-arrow text-2xl text-blue-300">→</span>
-            </div>
-
-            {/* Solution */}
-            <div className="ai-step ai-step-three rounded-[24px] border border-white/[0.09] bg-black/25 p-6">
-              <div className="flex items-center justify-between">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-300/15 bg-emerald-400/10 text-lg">
-                  ✓
-                </span>
-
-                <span className="text-[10px] uppercase tracking-[0.25em] text-white/30">
-                  Growth system
-                </span>
-              </div>
-
-              <p className="mt-10 text-sm text-white/40">Solution ready</p>
-
-              <div className="mt-5 space-y-3">
-                {[
-                  "Premium conversion website",
-                  "24/7 AI customer assistant",
-                  "Automated lead capture",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.04] p-3"
-                  >
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-400/10 text-xs text-emerald-300">
-                      ✓
-                    </span>
-
-                    <span className="text-sm text-white/65">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="relative mt-6 flex flex-col gap-4 rounded-[22px] border border-white/[0.08] bg-black/25 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-sm font-medium text-white/80">
-                Your growth plan is ready.
-              </p>
-
-              <p className="mt-1 text-sm text-white/35">
-                Strategy, website, AI assistant, and automation in one system.
-              </p>
-            </div>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:scale-[1.02]"
-            >
-              Build my system
-              <span>→</span>
-            </a>
+                <a
+                  href="#contact"
+                  className="mt-9 inline-flex items-center gap-2 text-sm font-semibold"
+                >
+                  Request this service
+                  <span className="transition group-hover:translate-x-1">→</span>
+                </a>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-      
-      {/* Process */}
+
+      <section id="work" className="px-6 py-28 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-400">
+            Selected work
+          </p>
+
+          <div className="mt-6 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <h2 className="max-w-3xl text-5xl font-semibold tracking-[-0.05em] sm:text-6xl">
+              Explore our showcase projects.
+            </h2>
+
+            <p className="max-w-md leading-7 text-white/45">
+              Open each project to see how Nexavo can transform a complete
+              customer experience.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 lg:grid-cols-3">
+            {projects.map((project) => (
+              <a
+                key={project.name}
+                href={project.href}
+                className={`group overflow-hidden rounded-[30px] border border-white/10 bg-gradient-to-br ${project.gradient} transition duration-300 hover:-translate-y-2`}
+              >
+                <div
+                  className={`flex min-h-[410px] flex-col p-7 ${
+                    project.dark ? "text-white" : "text-stone-950"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <p className="font-semibold">{project.name}</p>
+
+                    <span
+                      className={`rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.2em] ${
+                        project.dark
+                          ? "border-white/15 text-white/50"
+                          : "border-black/10 text-black/45"
+                      }`}
+                    >
+                      Concept
+                    </span>
+                  </div>
+
+                  <div className="mt-auto">
+                    <p
+                      className={`text-xs font-semibold uppercase tracking-[0.22em] ${project.accent}`}
+                    >
+                      {project.category}
+                    </p>
+
+                    <h3 className="mt-5 text-4xl font-semibold leading-tight tracking-[-0.04em]">
+                      {project.title}
+                    </h3>
+
+                    <p
+                      className={`mt-5 leading-7 ${
+                        project.dark ? "text-white/50" : "text-black/55"
+                      }`}
+                    >
+                      {project.description}
+                    </p>
+
+                    <div className="mt-7 flex items-center justify-between">
+                      <span className="text-sm font-semibold">
+                        View project
+                      </span>
+
+                      <span
+                        className={`flex h-12 w-12 items-center justify-center rounded-full transition group-hover:translate-x-1 ${
+                          project.dark
+                            ? "bg-white text-black"
+                            : "bg-black text-white"
+                        }`}
+                      >
+                        →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section
         id="process"
-        className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:px-10"
+        className="border-y border-white/10 bg-white/[0.025] px-6 py-28 lg:px-10"
       >
-        <div className="overflow-hidden rounded-[32px] border border-white/[0.09] bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-8 sm:p-12 lg:p-16">
-          <div className="grid items-start gap-14 lg:grid-cols-2">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-blue-300">
-                Why Nexavo
-              </p>
-              <h2 className="mt-5 text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
-                Built to look premium.
-                <span className="block text-white/35">
-                  Designed to perform.
-                </span>
-              </h2>
-            </div>
-
-            <div className="space-y-4">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={benefit}
-                  className="flex items-center gap-4 border-b border-white/[0.08] pb-4"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-xs font-semibold text-black">
-                    {index + 1}
-                  </span>
-                  <p className="text-white/70">{benefit}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Portfolio */}
-      <section
-        id="portfolio"
-        className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:px-10"
-      >
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-violet-300">
-              Featured projects
-            </p>
-
-            <h2 className="mt-5 max-w-3xl text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
-              Concepts built to show
-              <span className="block text-white/35">
-                what your business could become.
-              </span>
-            </h2>
-          </div>
-
-          <p className="max-w-xl leading-7 text-white/50">
-            These portfolio concepts demonstrate how Nexavo combines premium
-            design, AI assistance, and practical automation for different
-            industries.
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-400">
+            Simple process
           </p>
-        </div>
 
-        <div className="mt-16 grid gap-5 lg:grid-cols-3">
-          {/* Dental */}
-          <a
-  href="/portfolio/novadent"
-  className="group block overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]"
->
-            <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-sky-100 via-white to-cyan-100 p-6 text-slate-950">
-              <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-cyan-300/40 blur-3xl" />
+          <h2 className="mt-6 max-w-3xl text-5xl font-semibold tracking-[-0.05em] sm:text-6xl">
+            From idea to launch in three clear steps.
+          </h2>
 
-              <div className="relative flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-semibold text-white">
-                    N
-                  </span>
-
-                  <div>
-                    <p className="text-sm font-semibold">NovaDent AI</p>
-                    <p className="text-xs text-slate-500">
-                      Premium dental care
-                    </p>
-                  </div>
-                </div>
-
-                <span className="rounded-full bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  Concept
-                </span>
-              </div>
-
-              <div className="relative mt-12">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-700">
-                  Dental clinic website
+          <div className="mt-16 grid gap-5 lg:grid-cols-3">
+            {steps.map((step) => (
+              <div
+                key={step.number}
+                className="rounded-[28px] border border-white/10 p-7"
+              >
+                <span className="text-sm text-white/30">{step.number}</span>
+                <h3 className="mt-16 text-2xl font-semibold">{step.title}</h3>
+                <p className="mt-4 leading-7 text-white/45">
+                  {step.description}
                 </p>
-
-                <h3 className="mt-4 max-w-sm text-4xl font-semibold leading-tight tracking-[-0.04em]">
-                  Premium dental care, powered by AI.
-                </h3>
-                <p className="mt-4 max-w-sm text-sm leading-6 text-slate-600">
-                  Online booking, clear services, and a 24/7 AI assistant for
-                  modern patient support.
-                </p>
-
-                <div className="mt-7 flex gap-3">
-                  <span className="rounded-full bg-slate-950 px-5 py-3 text-xs font-semibold text-white">
-                    Book appointment
-                  </span>
-
-                  <span className="rounded-full border border-slate-300 bg-white/70 px-5 py-3 text-xs font-semibold">
-                    Talk to AI
-                  </span>
-                </div>
               </div>
-            </div>
-
-            <div className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-white/30">
-                    Healthcare
-                  </p>
-
-                  <h3 className="mt-2 text-xl font-medium">
-                    NovaDent AI Clinic
-                  </h3>
-                </div>
-
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/50 transition group-hover:border-white/25 group-hover:text-white">
-                  ↗
-                </span>
-              </div>
-
-              <p className="mt-4 leading-7 text-white/45">
-                A premium clinic concept with appointment booking, service
-                presentation, and AI-powered patient assistance.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2 text-xs text-white/40">
-                <span className="rounded-full border border-white/10 px-3 py-1.5">
-                  Web design
-                </span>
-                <span className="rounded-full border border-white/10 px-3 py-1.5">
-                  AI assistant
-                </span>
-                <span className="rounded-full border border-white/10 px-3 py-1.5">
-                  Booking flow
-                </span>
-              </div>
-            </div>
-          </a>
-
-          {/* Auto service */}
-          <a href="/portfolio/autoflow" className="group block overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
-            <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-zinc-950 via-zinc-900 to-orange-950 p-6">
-              <div className="absolute -right-20 top-10 h-56 w-56 rounded-full bg-orange-500/20 blur-3xl" />
-
-              <div className="relative flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-semibold">AutoFlow</p>
-                  <p className="text-xs text-white/40">Smart auto service</p>
-                </div>
-
-                <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white/45">
-                  Concept
-                </span>
-              </div>
-
-              <div className="relative mt-14">
-                <p className="text-xs uppercase tracking-[0.22em] text-orange-300">
-                  Auto service platform
-                </p>
-
-                <h3 className="mt-4 max-w-sm text-4xl font-semibold leading-tight tracking-[-0.04em]">
-                  Book service in minutes.
-                </h3>
-
-                <p className="mt-4 max-w-sm text-sm leading-6 text-white/50">
-                  Digital booking, service reminders, and instant customer
-                  support in one streamlined experience.
-                </p>
-
-                <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.05] p-4">
-                  <div className="flex items-center justify-between text-xs text-white/45">
-                    <span>Vehicle check</span>
-                    <span className="text-emerald-300">Available today</span>
-                  </div>
-
-                  <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-orange-500 to-amber-300" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-white/30">
-                Automotive
-              </p>
-
-              <h3 className="mt-2 text-xl font-medium">
-                AutoFlow Service Platform
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/45">
-                A modern booking experience for workshops with service
-                requests, customer communication, and smart reminders.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2 text-xs text-white/40">
-                <span className="rounded-full border border-white/10 px-3 py-1.5">
-                  Landing page
-                </span>
-                <span className="rounded-full border border-white/10 px-3 py-1.5">
-                  Online booking
-                </span>
-                <span className="rounded-full border border-white/10 px-3 py-1.5">
-                  Automation
-                </span>
-              </div>
-            </div>
-          </a>
-          
-
-          {/* Restaurant */}
-          <a href="/portfolio/maison" className="group block overflow-hidden rounded-[28px] border border-white/[0.09] bg-white/[0.035]">
-            <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-stone-100 via-amber-50 to-orange-100 p-6 text-stone-950">
-              <div className="absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-orange-300/40 blur-3xl" />
-
-              <div className="relative flex items-center justify-between">
-                <div>
-                  <p className="font-serif text-lg font-semibold">Maison AI</p>
-                  <p className="text-xs text-stone-500">
-                    Modern dining experience
-                  </p>
-                </div>
-
-                <span className="rounded-full bg-white/70 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-500">
-                  Concept
-                </span>
-              </div>
-
-              <div className="relative mt-14">
-                <p className="text-xs uppercase tracking-[0.22em] text-orange-700">
-                  Restaurant website
-                </p>
-
-                <h3 className="mt-4 max-w-sm font-serif text-4xl leading-tight">
-                  Reservations made effortless.
-                </h3>
-
-                <p className="mt-4 max-w-sm text-sm leading-6 text-stone-600">
-                  A premium menu, online reservations, and AI-powered guest
-                  assistance.
-                </p>
-
-                <div className="mt-8 grid grid-cols-3 gap-2">
-                  {["Menu", "Reserve", "Ask AI"].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-2xl border border-stone-200 bg-white/70 px-3 py-3 text-center text-xs font-semibold"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-white/30">
-                Hospitality
-              </p>
-
-              <h3 className="mt-2 text-xl font-medium">
-                Maison AI Restaurant
-              </h3>
-
-              <p className="mt-4 leading-7 text-white/45">
-                A refined restaurant concept with menu presentation, table
-                reservations, and an AI concierge for guests.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2 text-xs text-white/40">
-                <span className="rounded-full border border-white/10 px-3 py-1.5">
-                  Premium design
-                </span>
-                <span className="rounded-full border border-white/10 px-3 py-1.5">
-                  Reservations
-                </span>
-                <span className="rounded-full border border-white/10 px-3 py-1.5">
-                  AI concierge
-                </span>
-              </div>
-            </div>
-          </a>
+            ))}
+          </div>
         </div>
       </section>
 
+      <section id="contact" className="px-6 py-28 lg:px-10">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[36px] border border-white/10 bg-gradient-to-br from-violet-600 via-violet-800 to-[#111] p-8 sm:p-12 lg:p-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">
+            Start your project
+          </p>
 
+          <div className="mt-7 flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
+            <div>
+              <h2 className="max-w-3xl text-5xl font-semibold leading-tight tracking-[-0.05em] sm:text-6xl">
+                Ready to build something valuable?
+              </h2>
 
-      {/* Contact */}
-      <section
-        id="contact"
-        className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:px-10"
-      >
-        <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white px-7 py-20 text-center text-black sm:px-12">
-          <div className="absolute left-1/2 top-[-220px] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-violet-300/70 blur-[110px]" />
-
-          <div className="relative">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black/40">
-              Start your project
-            </p>
-            <h2 className="mx-auto mt-6 max-w-3xl text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">
-              Ready to build something people remember?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl leading-7 text-black/55">
-              Tell us about your business, your goals, and what you want to
-              improve. We will turn the idea into a clear digital experience.
-            </p>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-white/60">
+                Tell us about your business. We will help you choose the right
+                website, booking system, or AI solution.
+              </p>
+            </div>
 
             <a
-              href="mailto:hello@nexavo.com"
-              className="mt-9 inline-flex items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-semibold text-white transition hover:scale-[1.02] hover:bg-black/85"
+              href="mailto:hello@nexavo.com?subject=New Nexavo project"
+              className="inline-flex shrink-0 items-center justify-center rounded-full bg-white px-8 py-5 font-semibold text-black transition hover:scale-105"
             >
-              hello@nexavo.com
-              <span>↗</span>
+              Start a project →
             </a>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 mx-auto flex max-w-7xl flex-col gap-5 px-6 pb-10 pt-8 text-sm text-white/35 sm:flex-row sm:items-center sm:justify-between lg:px-10">
-        <p>© 2026 Nexavo. Digital experiences for ambitious businesses.</p>
-        <div className="flex gap-6">
-          <a className="transition hover:text-white" href="#">
-            Instagram
-          </a>
-          <a className="transition hover:text-white" href="#">
-            LinkedIn
-          </a>
-          <a className="transition hover:text-white" href="#">
-            Upwork
-          </a>
+      <section id="request" className="px-6 pb-28 lg:px-10">
+  <div className="mx-auto grid max-w-7xl gap-10 rounded-[36px] border border-white/10 bg-white/[0.035] p-7 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:p-14">
+    <div>
+      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-400">
+        Project request
+      </p>
+
+      <h2 className="mt-6 text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">
+        Tell us what your business needs.
+      </h2>
+
+      <p className="mt-6 max-w-md leading-7 text-white/45">
+        Complete the short form. We will review your request and suggest the
+        most suitable website, booking system, or AI solution.
+      </p>
+
+      <div className="mt-10 space-y-4 text-sm text-white/55">
+        <p>✓ Clear proposal and starting price</p>
+        <p>✓ No obligation to purchase</p>
+        <p>✓ Response within one business day</p>
+      </div>
+    </div>
+
+    <ProjectForm />
+  </div>
+</section>
+      <footer className="border-t border-white/10 px-6 py-9 lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 text-sm text-white/35 sm:flex-row sm:items-center">
+          <p>© 2026 Nexavo. Websites and AI systems.</p>
+
+          <div className="flex gap-6">
+            <a href="#services" className="transition hover:text-white">
+              Services
+            </a>
+            <a href="#work" className="transition hover:text-white">
+              Portfolio
+            </a>
+            <a href="mailto:hello@nexavo.com" className="transition hover:text-white">
+              Contact
+            </a>
+          </div>
         </div>
       </footer>
     </main>
