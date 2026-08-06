@@ -368,7 +368,7 @@ export default function Home() {
             </div>
 
             <a
-              href="mailto:hello@nexavo.com?subject=New Nexavo project"
+              href="#request"
               className="inline-flex shrink-0 items-center justify-center rounded-full bg-white px-8 py-5 font-semibold text-black transition hover:scale-105"
             >
               Start a project →
