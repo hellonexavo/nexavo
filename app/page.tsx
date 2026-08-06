@@ -5,21 +5,21 @@ import ProjectForm from "./components/ProjectForm";const services = [
     title: "Business websites",
     description:
       "Premium, responsive websites designed to turn visitors into real customer enquiries.",
-    price: "From €99",
+    price: "Core service",
   },
   {
     number: "02",
     title: "AI assistants",
     description:
       "Smart assistants that answer questions, collect contacts, and support customers 24/7.",
-    price: "From €149",
+    price: "Optional add-on",
   },
   {
     number: "03",
     title: "Booking systems",
     description:
       "Simple online booking for clinics, restaurants, workshops, and service businesses.",
-    price: "From €199",
+    price: "Optional add-on",
   },
 ];
 
@@ -377,6 +377,115 @@ export default function Home() {
           </div>
         </div>
       </section>
+<section id="pricing" className="px-6 py-24 lg:px-10">
+  <div className="mx-auto max-w-7xl">
+    <div className="mb-12 max-w-2xl">
+      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-400">
+        Simple pricing
+      </p>
+
+      <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">
+        Choose the right solution for your business.
+      </h2>
+
+      <p className="mt-5 leading-7 text-white/50">
+        Clear starting prices. Every project is adapted to your business,
+        customers, and goals.
+      </p>
+    </div>
+
+    <div className="grid gap-6 lg:grid-cols-3">
+      <article className="flex flex-col rounded-[30px] border border-white/10 bg-white/[0.03] p-7">
+        <p className="text-sm font-medium text-white/45">STARTER</p>
+        <h3 className="mt-4 text-2xl font-semibold">Business page</h3>
+        <p className="mt-3 min-h-14 text-sm leading-6 text-white/50">
+          A professional one-page website for presenting your business online.
+        </p>
+
+        <p className="mt-8 text-4xl font-semibold">
+          €149
+          <span className="ml-2 text-sm font-normal text-white/40">from</span>
+        </p>
+
+        <div className="mt-8 space-y-3 text-sm text-white/65">
+          <p>✓ Mobile-friendly design</p>
+          <p>✓ Services and contact sections</p>
+          <p>✓ Contact buttons</p>
+          <p>✓ Online publication</p>
+        </div>
+
+        <a
+          href="#request"
+          className="mt-9 rounded-full border border-white/15 px-5 py-3 text-center text-sm font-semibold transition hover:bg-white hover:text-black"
+        >
+          Choose Starter
+        </a >
+      </article>
+
+      <article className="relative flex flex-col rounded-[30px] border border-violet-400/50 bg-violet-500/10 p-7 shadow-[0_0_60px_rgba(139,92,246,0.16)]">
+        <span className="absolute right-6 top-6 rounded-full bg-violet-400 px-3 py-1 text-xs font-semibold text-black">
+          MOST POPULAR
+        </span>
+
+        <p className="text-sm font-medium text-violet-300">GROWTH</p>
+        <h3 className="mt-4 text-2xl font-semibold">Website + assistant</h3>
+        <p className="mt-3 min-h-14 text-sm leading-6 text-white/55">
+          A complete business website with a contact form and smart assistant.
+        </p>
+
+        <p className="mt-8 text-4xl font-semibold">
+          €199
+          <span className="ml-2 text-sm font-normal text-white/40">from</span>
+        </p>
+
+        <div className="mt-8 space-y-3 text-sm text-white/70">
+          <p>✓ Everything in Starter</p>
+          <p>✓ Contact request form</p>
+          <p>✓ Smart online assistant</p>
+          <p>✓ Portfolio or gallery</p>
+        </div>
+
+        <a
+          href="#request"
+          className="mt-9 rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-black transition hover:scale-[1.02]"
+        >
+          Choose Growth
+        </a>
+      </article>
+
+      <article className="flex flex-col rounded-[30px] border border-white/10 bg-white/[0.03] p-7">
+        <p className="text-sm font-medium text-white/45">BUSINESS</p>
+        <h3 className="mt-4 text-2xl font-semibold">Custom solution</h3>
+        <p className="mt-3 min-h-14 text-sm leading-6 text-white/50">
+          A tailored solution with booking, automation, or advanced features.
+        </p>
+
+        <p className="mt-8 text-4xl font-semibold">
+          €349
+          <span className="ml-2 text-sm font-normal text-white/40">from</span>
+        </p>
+
+        <div className="mt-8 space-y-3 text-sm text-white/65">
+          <p>✓ Everything in Growth</p>
+          <p>✓ Booking or custom forms</p>
+          <p>✓ Business integrations</p>
+          <p>✓ Priority support</p>
+        </div>
+
+        <a
+          href="#request"
+          className="mt-9 rounded-full border border-white/15 px-5 py-3 text-center text-sm font-semibold transition hover:bg-white hover:text-black"
+        >
+          Discuss a project
+        </a>
+      </article>
+    </div>
+
+    <p className="mt-7 text-center text-sm text-white/35">
+      Final price depends on the project requirements. No hidden subscriptions.
+    </p>
+  </div>
+</section>
 
       <section id="request" className="px-6 pb-28 lg:px-10">
   <div className="mx-auto grid max-w-7xl gap-10 rounded-[36px] border border-white/10 bg-white/[0.035] p-7 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:p-14">

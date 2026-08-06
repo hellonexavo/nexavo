@@ -1,12 +1,32 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 export default function ProjectForm() {
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
+const [selectedService, setSelectedService] = useState("");
 
+useEffect(() => {
+  function handlePackageClick(event: MouseEvent) {
+    const element = (event.target as HTMLElement).closest<HTMLElement>(
+      "[data-package]"
+    );
+
+    const packageName = element?.dataset.package;
+
+    if (packageName) {
+      setSelectedService(packageName);
+    }
+  }
+
+  document.addEventListener("click", handlePackageClick);
+
+  return () => {
+    document.removeEventListener("click", handlePackageClick);
+  };
+}, []);
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -94,10 +114,22 @@ export default function ProjectForm() {
 
           <select
             required
-            name="service"
-            defaultValue=""
+           name="service"
+           value={selectedService}
+           onChange={(event) => setSelectedService(event.target.value)}
             className="w-full rounded-2xl border border-white/10 bg-black px-4 py-4 text-white outline-none transition focus:border-white/30"
           >
+            <option value="Starter package — €149">
+  Starter package — €149
+</option>
+
+<option value="Growth package — €199">
+  Growth package — €199
+</option>
+
+<option value="Business package — from €349">
+  Business package — from €349
+</option>
             <option value="" disabled>
               Select a service
             </option>
