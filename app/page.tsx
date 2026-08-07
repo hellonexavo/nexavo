@@ -1,5 +1,8 @@
+import Link from "next/link";
 import NexavoAssistant from "./components/NexavoAssistant";
-import ProjectForm from "./components/ProjectForm";const services = [
+import ProjectForm from "./components/ProjectForm";
+
+const services = [
   {
     number: "01",
     title: "Business websites",
@@ -85,15 +88,15 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#070707] text-white">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#070707]/85 backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
-          <a href="#" className="flex items-center gap-3">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-10">
+          <a href="#" className="flex min-w-0 items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white font-semibold text-black">
               N
             </span>
 
-            <div>
+            <div className="min-w-0">
               <p className="font-semibold tracking-tight">Nexavo</p>
-              <p className="text-[11px] text-white/40">
+              <p className="hidden text-[11px] text-white/40 sm:block">
                 Websites & AI systems
               </p>
             </div>
@@ -113,14 +116,14 @@ export default function Home() {
 
           <a
             href="#contact"
-            className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:scale-105"
+            className="shrink-0 rounded-full bg-white px-4 py-3 text-xs font-semibold text-black transition hover:scale-105 sm:px-5 sm:text-sm"
           >
             Start a project
           </a>
         </div>
       </header>
 
-      <section className="relative px-6 pb-28 pt-40 lg:px-10 lg:pb-36 lg:pt-52">
+      <section className="relative min-w-0 px-6 pb-28 pt-36 lg:px-10 lg:pb-36 lg:pt-52">
         <div className="absolute left-1/2 top-20 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-violet-700/20 blur-[140px]" />
         <div className="absolute right-0 top-72 h-72 w-72 rounded-full bg-cyan-500/10 blur-[110px]" />
 
@@ -130,7 +133,7 @@ export default function Home() {
             Available for new projects
           </div>
 
-          <h1 className="mt-9 max-w-6xl text-6xl font-semibold leading-[0.92] tracking-[-0.06em] sm:text-7xl lg:text-[106px]">
+          <h1 className="mt-9 max-w-6xl break-words text-5xl font-semibold leading-[0.94] tracking-[-0.055em] sm:text-7xl lg:text-[106px]">
             Websites and AI systems that help businesses{" "}
             <span className="text-white/35">get more customers.</span>
           </h1>
@@ -254,7 +257,7 @@ export default function Home() {
 
           <div className="mt-16 grid gap-6 lg:grid-cols-3">
             {projects.map((project) => (
-              <a
+              <Link
                 key={project.name}
                 href={project.href}
                 className={`group overflow-hidden rounded-[30px] border border-white/10 bg-gradient-to-br ${project.gradient} transition duration-300 hover:-translate-y-2`}
@@ -314,7 +317,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

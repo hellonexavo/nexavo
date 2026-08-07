@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const services = [
   {
     title: "Diagnostics",
@@ -31,14 +33,14 @@ const benefits = [
 export default function AutoFlowPage() {
   return (
     <main className="min-h-screen bg-[#090909] text-white">
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <a href="#" className="flex items-center gap-3">
+      <header className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-6 sm:px-6 lg:px-10">
+        <a href="#" className="flex min-w-0 items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500 text-sm font-black text-black">
             A
           </span>
-          <div>
+          <div className="min-w-0">
             <p className="text-sm font-semibold">AutoFlow</p>
-            <p className="text-xs text-white/40">Smart auto service</p>
+            <p className="hidden text-xs text-white/40 sm:block">Smart auto service</p>
           </div>
         </a>
 
@@ -56,7 +58,7 @@ export default function AutoFlowPage() {
 
         <a
           href="#booking"
-          className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:scale-[1.02]"
+          className="shrink-0 rounded-full bg-white px-4 py-3 text-xs font-semibold text-black transition hover:scale-[1.02] sm:px-5 sm:text-sm"
         >
           Book service
         </a>
@@ -66,14 +68,14 @@ export default function AutoFlowPage() {
         <div className="absolute left-[10%] top-10 h-80 w-80 rounded-full bg-orange-500/15 blur-[120px]" />
         <div className="absolute right-[-80px] top-20 h-96 w-96 rounded-full bg-red-500/10 blur-[130px]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
+        <div className="relative mx-auto grid min-w-0 max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="min-w-0">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-xs text-white/60">
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
               Same-day service available
             </div>
 
-            <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-8 max-w-3xl break-words text-4xl font-semibold leading-[1] tracking-[-0.05em] sm:text-6xl lg:text-7xl">
               Car service without
               <span className="block text-orange-400">the usual friction.</span>
             </h1>
@@ -99,7 +101,7 @@ export default function AutoFlowPage() {
               </a>
             </div>
 
-            <div className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-white/10 pt-6">
+            <div className="mt-10 grid max-w-xl grid-cols-3 gap-2 border-t border-white/10 pt-6 sm:gap-4">
               <div>
                 <p className="text-2xl font-semibold">4.9/5</p>
                 <p className="mt-1 text-xs text-white/35">Customer rating</p>
@@ -115,7 +117,7 @@ export default function AutoFlowPage() {
             </div>
           </div>
 
-          <div className="rounded-[34px] border border-white/10 bg-white/[0.04] p-4 shadow-[0_35px_100px_rgba(0,0,0,0.55)]">
+          <div className="min-w-0 rounded-[34px] border border-white/10 bg-white/[0.04] p-4 shadow-[0_35px_100px_rgba(0,0,0,0.55)]">
             <div className="rounded-[26px] bg-gradient-to-br from-zinc-900 via-zinc-950 to-orange-950 p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -328,9 +330,9 @@ export default function AutoFlowPage() {
 
       <footer className="mx-auto flex max-w-7xl flex-col gap-4 px-6 pb-10 text-sm text-white/35 sm:flex-row sm:items-center sm:justify-between lg:px-10">
         <p>AutoFlow — portfolio concept created by Nexavo.</p>
-        <a href="/" className="font-medium text-white/70 hover:text-orange-400">
+        <Link href="/" className="font-medium text-white/70 hover:text-orange-400">
           Back to Nexavo →
-        </a>
+        </Link>
       </footer>
     </main>
   );

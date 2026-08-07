@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const dishes = [
   {
     name: "Truffle Tagliolini",
@@ -27,7 +29,7 @@ export default function MaisonPage() {
   return (
     <main className="min-h-screen bg-[#f5efe4] text-[#21180f]">
       <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-7 lg:px-10">
-        <a href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#21180f] font-serif text-xl text-white">
             M
           </span>
@@ -36,7 +38,7 @@ export default function MaisonPage() {
             <p className="font-serif text-lg font-semibold">Maison AI</p>
             <p className="text-xs text-stone-500">Modern dining experience</p>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 text-sm md:flex">
           <a href="#menu" className="transition hover:opacity-50">
@@ -223,9 +225,9 @@ export default function MaisonPage() {
       <footer className="border-t border-stone-300 px-6 py-8 lg:px-10">
         <div className="mx-auto flex max-w-7xl items-center justify-between text-sm text-stone-500">
           <p>Maison AI — portfolio concept created by Nexavo.</p>
-          <a href="/" className="transition hover:text-[#21180f]">
+          <Link href="/" className="transition hover:text-[#21180f]">
             Back to Nexavo →
-          </a>
+          </Link>
         </div>
       </footer>
     </main>

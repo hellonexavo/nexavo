@@ -49,9 +49,7 @@ export default function ProjectForm() {
 
   return (
     <form
-  
-  action="https://formsubmit.co/hello.nexavo@gmail.com"
-  method="POST"
+      onSubmit={handleSubmit}
       className="rounded-[30px] border border-white/10 bg-black/25 p-6 backdrop-blur-sm sm:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">

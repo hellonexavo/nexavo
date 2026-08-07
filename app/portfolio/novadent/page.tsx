@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const services = [
   {
     title: "Dental Implants",
@@ -31,15 +33,15 @@ const benefits = [
 export default function NovaDentPage() {
   return (
     <main className="min-h-screen bg-[#f7fbfc] text-slate-950">
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <a href="#" className="flex items-center gap-3">
+      <header className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-6 sm:px-6 lg:px-10">
+        <a href="#" className="flex min-w-0 items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white">
             N
           </span>
 
-          <div>
+          <div className="min-w-0">
             <p className="text-sm font-semibold">NovaDent AI</p>
-            <p className="text-xs text-slate-500">Premium dental care</p>
+            <p className="hidden text-xs text-slate-500 sm:block">Premium dental care</p>
           </div>
         </a>
 
@@ -57,7 +59,7 @@ export default function NovaDentPage() {
 
         <a
           href="#booking"
-          className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:scale-[1.02]"
+          className="shrink-0 rounded-full bg-slate-950 px-4 py-3 text-xs font-semibold text-white transition hover:scale-[1.02] sm:px-5 sm:text-sm"
         >
           Book appointment
         </a>
@@ -67,14 +69,14 @@ export default function NovaDentPage() {
         <div className="absolute left-[-120px] top-20 h-72 w-72 rounded-full bg-cyan-300/30 blur-[100px]" />
         <div className="absolute right-[-80px] top-0 h-80 w-80 rounded-full bg-sky-300/25 blur-[110px]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
+        <div className="relative mx-auto grid min-w-0 max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="min-w-0">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-white/70 px-4 py-2 text-xs font-medium text-cyan-800 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
               New patients welcome
             </div>
 
-            <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-8 max-w-3xl break-words text-4xl font-semibold leading-[1] tracking-[-0.05em] sm:text-6xl lg:text-7xl">
               Premium dental care,
               <span className="block text-cyan-700">powered by AI.</span>
             </h1>
@@ -100,7 +102,7 @@ export default function NovaDentPage() {
               </a>
             </div>
 
-            <div className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-slate-200 pt-6">
+            <div className="mt-10 grid max-w-xl grid-cols-3 gap-2 border-t border-slate-200 pt-6 sm:gap-4">
               <div>
                 <p className="text-2xl font-semibold">4.9/5</p>
                 <p className="mt-1 text-xs text-slate-500">Patient rating</p>
@@ -116,7 +118,7 @@ export default function NovaDentPage() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative min-w-0">
             <div className="rounded-[34px] border border-white/80 bg-white/75 p-4 shadow-[0_35px_100px_rgba(15,23,42,0.13)] backdrop-blur-xl">
               <div className="rounded-[26px] bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 p-6 text-white">
                 <div className="flex items-center justify-between">
@@ -334,12 +336,12 @@ export default function NovaDentPage() {
 
       <footer className="mx-auto flex max-w-7xl flex-col gap-4 px-6 pb-10 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-10">
         <p>NovaDent AI — portfolio concept created by Nexavo.</p>
-        <a
+        <Link
           href="/"
           className="font-medium text-slate-800 transition hover:text-cyan-700"
         >
           Back to Nexavo →
-        </a>
+        </Link>
       </footer>
     </main>
   );
