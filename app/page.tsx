@@ -20,10 +20,10 @@ const projects = [
     capabilities: ["Treatment catalogue", "Appointment request", "Patient assistant"], result: "Designed for considered, trust-led decisions",
   },
   {
-    category: "Automotive", name: "AutoFlow", title: "A workshop experience built around the job at hand.",
-    description: "A focused service-business concept that helps drivers understand options and send a useful project request.",
+    category: "Auto service booking & estimates", name: "Autoflow", title: "A clearer route from vehicle issue to workshop visit.",
+    description: "An auto-service concept with service selection, vehicle details, interactive estimates, and booking enquiries.",
     href: "/portfolio/autoflow", gradient: "from-orange-950 via-stone-950 to-black", accent: "text-orange-400", dark: true,
-    capabilities: ["Service selection", "Budget qualification", "Request workflow"], result: "Designed for faster, better-qualified enquiries",
+    capabilities: ["Service catalogue", "Vehicle-based estimate", "Booking enquiry"], result: "Designed for clearer, better-qualified workshop requests",
   },
   {
     category: "Restaurant menu & reservations", name: "Maison", title: "An elegant restaurant journey, from menu to table.",
