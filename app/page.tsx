@@ -26,10 +26,10 @@ const projects = [
     capabilities: ["Service selection", "Budget qualification", "Request workflow"], result: "Designed for faster, better-qualified enquiries",
   },
   {
-    category: "Hospitality", name: "Maison AI", title: "A refined digital front door for a restaurant.",
-    description: "A hospitality concept that brings atmosphere, menu discovery, and reservation intent into one experience.",
+    category: "Restaurant menu & reservations", name: "Maison", title: "An elegant restaurant journey, from menu to table.",
+    description: "A restaurant website concept with an interactive menu, demo order experience, and table reservation flow.",
     href: "/portfolio/maison", gradient: "from-amber-50 via-orange-50 to-white", accent: "text-orange-700",
-    capabilities: ["Seasonal menu", "Reservation journey", "Digital concierge"], result: "Designed to turn interest into a planned visit",
+    capabilities: ["Interactive menu", "Demo ordering", "Table reservations"], result: "Designed to move guests from discovery to a planned visit",
   },
 ];
 
