@@ -31,6 +31,12 @@ const projects = [
     href: "/portfolio/maison", gradient: "from-amber-50 via-orange-50 to-white", accent: "text-orange-700",
     capabilities: ["Interactive menu", "Demo ordering", "Table reservations"], result: "Designed to move guests from discovery to a planned visit",
   },
+  {
+    category: "Booking and instant quote web application", name: "Nexavo Booking", title: "From cleaning estimate to confirmed demo booking.",
+    description: "A fictional cleaning-business application with live quote calculations, scheduling, bilingual booking, and an owner dashboard.",
+    href: "/portfolio/nexavo-booking", gradient: "from-cyan-50 via-slate-50 to-white", accent: "text-cyan-700",
+    capabilities: ["Instant quote calculator", "Customer booking flow", "Owner dashboard demo"], result: "Designed to turn service choices into organised booking requests",
+  },
 ];
 
 const steps = [
@@ -97,7 +103,7 @@ export default function Home() {
 
       <section id="work" className="scroll-mt-20 px-5 py-24 sm:px-6 sm:py-28 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-7 md:grid-cols-[1fr_0.42fr] md:items-end"><div><p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-400">Selected work</p><h2 className="mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">Three industries. Three different customer journeys.</h2></div><p className="leading-7 text-white/45">Explore each concept to see how structure, content, and functionality change with the business.</p></div>
+          <div className="grid gap-7 md:grid-cols-[1fr_0.42fr] md:items-end"><div><p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-400">Selected work</p><h2 className="mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">Four businesses. Four different customer journeys.</h2></div><p className="leading-7 text-white/45">Explore each concept to see how structure, content, and functionality change with the business.</p></div>
           <div className="mt-14 space-y-5 lg:mt-16">
             {projects.map((project, index) => (
               <Link key={project.name} href={project.href} className={`group block overflow-hidden rounded-[30px] border border-white/10 bg-gradient-to-br ${project.gradient}`}>
