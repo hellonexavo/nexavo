@@ -33,7 +33,7 @@ useEffect(() => {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    formData.append("_subject", "New Nexavo project request");
+    formData.append("_subject", "New YY Builds project request");
     formData.append("_template", "table");
     formData.append("_captcha", "false");
 
@@ -119,16 +119,16 @@ useEffect(() => {
            onChange={(event) => setSelectedService(event.target.value)}
             className="w-full rounded-2xl border border-white/10 bg-black px-4 py-4 text-white outline-none transition focus:border-white/30"
           >
-            <option value="Starter package — €149">
-  Starter package — €149
+            <option value="Starter — €199">
+  Starter — €199
 </option>
 
-<option value="Growth package — €199">
-  Growth package — €199
+<option value="Business — €349">
+  Business — €349
 </option>
 
-<option value="Business package — from €349">
-  Business package — from €349
+<option value="Custom — From €499">
+  Custom — From €499
 </option>
             <option value="" disabled>
               Select a service

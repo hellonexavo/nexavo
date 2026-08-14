@@ -22,13 +22,13 @@ export default function HomeHeader() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#070707]/90 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.08] bg-[#070709]/75 backdrop-blur-2xl">
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-5 sm:h-20 sm:px-6 lg:px-10">
-        <a href="#top" onClick={() => setMenuOpen(false)} className="flex min-w-0 items-center gap-3" aria-label="Nexavo home">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white font-semibold text-black">N</span>
+        <a href="#top" onClick={() => setMenuOpen(false)} className="flex min-w-0 items-center gap-3" aria-label="YY Builds home">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.07] text-sm font-semibold text-white">YY</span>
           <span className="min-w-0">
-            <span className="block font-semibold tracking-tight">Nexavo</span>
-            <span className="hidden text-[11px] text-white/40 sm:block">Practical digital systems</span>
+            <span className="block font-semibold tracking-tight">YY Builds</span>
+            <span className="hidden text-[11px] text-white/40 sm:block">Websites • AI • Automation</span>
           </span>
         </a>
 
@@ -39,7 +39,7 @@ export default function HomeHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href="#request" className="hidden rounded-full bg-white px-5 py-3 text-sm font-semibold text-black hover:scale-[1.03] sm:inline-flex">Start a project</a>
+          <a href="#request" className="hidden rounded-full bg-white px-5 py-3 text-sm font-semibold text-black hover:scale-[1.03] sm:inline-flex">Start a project <span className="ml-2">↗</span></a>
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}

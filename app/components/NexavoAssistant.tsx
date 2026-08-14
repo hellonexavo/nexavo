@@ -78,9 +78,9 @@ export default function NexavoAssistant() {
         className="fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full border border-white/15 bg-white px-5 py-4 font-semibold text-black shadow-2xl transition hover:scale-105"
       >
         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-sm text-white">
-          N
+          YY
         </span>
-        Ask Nexavo AI
+        Ask YY AI
       </button>
 
       {isOpen && (
@@ -89,11 +89,11 @@ export default function NexavoAssistant() {
             <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white font-semibold text-black">
-                  N
+                  YY
                 </span>
 
                 <div>
-                  <p className="font-semibold">Nexavo Assistant</p>
+                  <p className="font-semibold">YY AI Assistant</p>
                   <p className="flex items-center gap-2 text-xs text-white/40">
                     <span className="h-2 w-2 rounded-full bg-emerald-400" />
                     Online
@@ -113,7 +113,7 @@ export default function NexavoAssistant() {
 
             <div className="overflow-y-auto p-5">
               <div className="max-w-[88%] rounded-2xl rounded-tl-sm bg-white/10 p-4 text-sm leading-6 text-white/75">
-                Hi! I’m the Nexavo digital consultant. I can help you choose
+                Hi! I’m the YY Builds digital consultant. I can help you choose
                 the right solution for your business.
               </div>
 
@@ -255,7 +255,7 @@ export default function NexavoAssistant() {
             </div>
 
             <div className="border-t border-white/10 px-5 py-3 text-center text-[11px] text-white/30">
-              Nexavo digital project consultant
+              YY Builds · Yurii Yanishevskyi
             </div>
           </div>
         </div>

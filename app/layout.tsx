@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nexavo",
-  description: "Premium websites and AI systems for modern businesses.",
+  title: "YY Builds — Websites, AI & Automation",
+  description: "YY Builds creates premium websites, booking systems, AI tools and automations for modern businesses.",
 };
 
 export default function RootLayout({

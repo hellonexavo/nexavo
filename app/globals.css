@@ -22,7 +22,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   margin: 0;
 }
 /* Nexavo premium motion */
@@ -415,5 +415,307 @@ article {
 
   .hero-light {
     opacity: 0.7;
+  }
+}
+
+/* Nexavo homepage */
+
+.nexavo-home {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(40, 32, 67, 0.14), transparent 28%),
+    #070709;
+}
+
+.hero-section {
+  isolation: isolate;
+}
+
+.hero-spotlight {
+  position: absolute;
+  left: 50%;
+  top: -360px;
+  width: min(1100px, 100vw);
+  height: 900px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 62%);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 9999px;
+  filter: blur(130px);
+  opacity: 0.28;
+}
+
+.hero-glow-purple {
+  left: 13%;
+  top: 20%;
+  background: #6d42d8;
+}
+
+.hero-glow-blue {
+  right: 7%;
+  top: 38%;
+  width: 340px;
+  height: 340px;
+  background: #295da7;
+  opacity: 0.18;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to bottom, black 15%, transparent 82%);
+}
+
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border-radius: 9999px;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.button-primary {
+  background: #fff;
+  color: #09090b;
+  box-shadow: 0 12px 40px rgba(255,255,255,.06);
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 45px rgba(255,255,255,.12);
+}
+
+.button-secondary {
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.025);
+  color: rgba(255,255,255,.85);
+}
+
+.button-secondary:hover {
+  border-color: rgba(255,255,255,.28);
+  background: rgba(255,255,255,.07);
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: rgba(196,181,253,.88);
+}
+
+.section-heading {
+  display: grid;
+  gap: 28px;
+}
+
+.section-heading h2 {
+  max-width: 900px;
+  margin-top: 22px;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.055em;
+}
+
+.section-heading > p {
+  max-width: 450px;
+  color: rgba(255,255,255,.43);
+  line-height: 1.75;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 30px;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .7;
+  transition: opacity 400ms ease, transform 600ms cubic-bezier(.22,1,.36,1);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.project-card article {
+  position: relative;
+  z-index: 1;
+}
+
+.project-light {
+  color: #121216;
+  border-color: rgba(255,255,255,.28);
+}
+
+.project-light::before {
+  background: linear-gradient(145deg, #f5f5f4, #d8d7d5);
+}
+
+.project-cyan::before {
+  background: radial-gradient(circle at 85% 15%, rgba(34,211,238,.25), transparent 32%), linear-gradient(145deg, #f4f8f8, #d8e6e7);
+}
+
+.project-warm::before {
+  background: radial-gradient(circle at 85% 15%, rgba(217,119,6,.2), transparent 34%), linear-gradient(145deg, #f9f5ed, #e5ddd0);
+}
+
+.project-blue::before {
+  background: radial-gradient(circle at 85% 15%, rgba(37,99,235,.18), transparent 34%), linear-gradient(145deg, #f3f6f8, #d9e2e8);
+}
+
+.project-dark {
+  color: #fff;
+  background: #0b0b0d;
+}
+
+.project-orange::before {
+  background: radial-gradient(circle at 85% 15%, rgba(234,88,12,.25), transparent 34%), linear-gradient(145deg, #171311, #070707);
+}
+
+.project-pill {
+  border: 1px solid currentColor;
+  border-radius: 9999px;
+  padding: 7px 11px;
+  font-size: 10px;
+  font-weight: 600;
+  opacity: .43;
+}
+
+.project-arrow {
+  display: flex;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  border-radius: 9999px;
+  transition: transform 350ms cubic-bezier(.22,1,.36,1);
+}
+
+.project-card:hover .project-arrow {
+  transform: translate(3px, -3px);
+}
+
+.service-card {
+  transform: none !important;
+}
+
+.service-card:hover {
+  background: rgba(255,255,255,.018);
+  box-shadow: none;
+}
+
+.service-icon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 9999px;
+  color: rgba(255,255,255,.5);
+}
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  min-height: 590px;
+  flex-direction: column;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 28px;
+  background: rgba(255,255,255,.022);
+  padding: 30px;
+}
+
+.pricing-card ul + a {
+  margin-top: auto;
+}
+
+.pricing-card-featured {
+  border-color: rgba(167,139,250,.48);
+  background: linear-gradient(180deg, rgba(139,92,246,.12), rgba(255,255,255,.028) 48%);
+  box-shadow: 0 28px 90px rgba(76,29,149,.14);
+}
+
+.popular-badge {
+  position: absolute;
+  right: 24px;
+  top: 22px;
+  border-radius: 9999px;
+  background: #ddd6fe;
+  padding: 7px 11px;
+  color: #171024;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.final-cta {
+  background: linear-gradient(145deg, rgba(23,19,35,.98), rgba(9,9,12,.98));
+}
+
+.final-cta-glow {
+  position: absolute;
+  right: -100px;
+  top: -180px;
+  width: 500px;
+  height: 500px;
+  border-radius: 9999px;
+  background: rgba(109,66,216,.25);
+  filter: blur(130px);
+}
+
+.nexavo-home footer a:hover {
+  color: rgba(255,255,255,.85);
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .38fr);
+    align-items: end;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    min-height: 780px;
+  }
+
+  .hero-glow {
+    width: 280px;
+    height: 280px;
+    filter: blur(100px);
+  }
+
+  .project-card article {
+    min-height: 510px;
+  }
+
+  .pricing-card {
+    min-height: 0;
+    padding: 26px;
   }
 }

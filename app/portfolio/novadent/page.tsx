@@ -284,7 +284,7 @@ export default function NovaDentPage() {
       </section>
 
       <footer className="border-t border-slate-200 px-6 py-8 lg:px-10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-medium text-slate-700">NovaDent AI · Fictional portfolio demo</p><p className="mt-1">No real clinic, clinicians, reviews, availability, or patient data.</p></div><Link href="/" className="font-semibold text-slate-800 hover:text-cyan-700">Back to Nexavo →</Link></div>
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-medium text-slate-700">NovaDent AI · Fictional portfolio demo</p><p className="mt-1">No real clinic, clinicians, reviews, availability, or patient data.</p></div><Link href="/" className="font-semibold text-slate-800 hover:text-cyan-700">Back to YY Builds →</Link></div>
       </footer>
     </main>
   );
