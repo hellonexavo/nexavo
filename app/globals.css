@@ -25,7 +25,7 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   margin: 0;
 }
-/* Nexavo premium motion */
+/* YY Builds premium motion */
 
 html {
   scroll-behavior: smooth;
@@ -149,7 +149,7 @@ article {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}/* Nexavo AI demo */
+}/* YY Builds AI demo */
 
 @keyframes aiStepReveal {
   0% {
@@ -280,7 +280,7 @@ article {
   box-shadow:
     0 45px 140px rgba(0, 0, 0, 0.65),
     0 0 70px rgba(139, 92, 246, 0.08);
-}/* Nexavo premium hero */
+}/* YY Builds premium hero */
 
 .hero-effects {
   z-index: -1;
@@ -418,7 +418,7 @@ article {
   }
 }
 
-/* Nexavo homepage */
+/* YY Builds homepage */
 
 .nexavo-home {
   background:

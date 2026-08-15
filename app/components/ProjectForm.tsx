@@ -62,12 +62,12 @@ useEffect(() => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-[30px] border border-white/10 bg-black/25 p-6 backdrop-blur-xl sm:p-8"
+      className="rounded-[30px] border border-white/10 bg-black/25 p-5 backdrop-blur-xl sm:p-6"
     >
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2">
 
         <label className="block">
-          <span className="mb-2 block text-sm text-white/60">
+          <span className="mb-1.5 block text-sm text-white/60">
             Your name
           </span>
 
@@ -76,12 +76,12 @@ useEffect(() => {
             name="name"
             type="text"
             placeholder="John Smith"
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-white outline-none transition placeholder:text-white/25 focus:border-white/30"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-white outline-none transition placeholder:text-white/25 focus:border-white/30"
           />
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-sm text-white/60">
+          <span className="mb-1.5 block text-sm text-white/60">
             Email
           </span>
 
@@ -90,12 +90,12 @@ useEffect(() => {
             name="email"
             type="email"
             placeholder="john@company.com"
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-white outline-none transition placeholder:text-white/25 focus:border-white/30"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-white outline-none transition placeholder:text-white/25 focus:border-white/30"
           />
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-sm text-white/60">
+          <span className="mb-1.5 block text-sm text-white/60">
             Company
           </span>
 
@@ -103,12 +103,12 @@ useEffect(() => {
             name="company"
             type="text"
             placeholder="Company name"
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-white outline-none transition placeholder:text-white/25 focus:border-white/30"
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-white outline-none transition placeholder:text-white/25 focus:border-white/30"
           />
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-sm text-white/60">
+          <span className="mb-1.5 block text-sm text-white/60">
             What do you need?
           </span>
 
@@ -117,7 +117,7 @@ useEffect(() => {
            name="service"
            value={selectedService}
            onChange={(event) => setSelectedService(event.target.value)}
-            className="w-full rounded-2xl border border-white/10 bg-black px-4 py-4 text-white outline-none transition focus:border-white/30"
+            className="w-full rounded-2xl border border-white/10 bg-black px-4 py-3.5 text-white outline-none transition focus:border-white/30"
           >
             <option value="Starter — €199">
   Starter — €199
@@ -152,14 +152,14 @@ useEffect(() => {
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-sm text-white/60">
+          <span className="mb-1.5 block text-sm text-white/60">
             Budget
           </span>
 
           <select
             name="budget"
             defaultValue=""
-            className="w-full rounded-2xl border border-white/10 bg-black px-4 py-4 text-white outline-none transition focus:border-white/30"
+            className="w-full rounded-2xl border border-white/10 bg-black px-4 py-3.5 text-white outline-none transition focus:border-white/30"
           >
             <option value="" disabled>
               Select budget
@@ -172,14 +172,14 @@ useEffect(() => {
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-sm text-white/60">
+          <span className="mb-1.5 block text-sm text-white/60">
             Timeline
           </span>
 
           <select
             name="timeline"
             defaultValue=""
-            className="w-full rounded-2xl border border-white/10 bg-black px-4 py-4 text-white outline-none transition focus:border-white/30"
+            className="w-full rounded-2xl border border-white/10 bg-black px-4 py-3.5 text-white outline-none transition focus:border-white/30"
           >
             <option value="" disabled>
               When do you need it?
@@ -194,21 +194,21 @@ useEffect(() => {
         </label>
       </div>
 
-      <label className="mt-5 block">
-        <span className="mb-2 block text-sm text-white/60">
+      <label className="mt-4 block">
+        <span className="mb-1.5 block text-sm text-white/60">
           Tell us about your project
         </span>
 
         <textarea
           required
           name="message"
-          rows={6}
+          rows={4}
           placeholder="Tell us what you want to build, improve, or automate..."
-          className="w-full resize-none rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-white outline-none transition placeholder:text-white/25 focus:border-white/30"
+          className="w-full resize-none rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-white outline-none transition placeholder:text-white/25 focus:border-white/30"
         />
       </label>
 
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-white/40">
           We usually reply within one business day.
         </p>
@@ -216,7 +216,7 @@ useEffect(() => {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="rounded-full bg-white px-7 py-4 font-semibold text-black transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-full bg-white px-7 py-3.5 font-semibold text-black transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50"
         >
           {status === "sending"
             ? "Sending..."
