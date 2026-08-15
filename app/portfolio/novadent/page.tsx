@@ -286,8 +286,8 @@ export default function NovaDentPage() {
 
       <section className="px-6 pb-24 lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col gap-7 rounded-[30px] bg-slate-950 p-7 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">A YY Builds portfolio concept</p><h2 className="mt-3 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">Want a professional site like this?</h2><p className="mt-2 text-sm text-white/45">Start a premium website project for your own business.</p></div>
-          <PurchaseButton productId="premium-website" className="shrink-0">Start this type of project</PurchaseButton>
+          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">A YY Builds portfolio concept</p><h2 className="mt-3 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">Want a site like this?</h2><p className="mt-2 text-sm text-white/45">Start a premium website project for your own business.</p></div>
+          <PurchaseButton productId="premium-website" className="shrink-0">Start a similar project</PurchaseButton>
         </div>
       </section>
 

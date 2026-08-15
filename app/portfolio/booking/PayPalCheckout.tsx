@@ -1,6 +1,6 @@
 "use client";
 
-import PayPalButtons, { type PaymentResult } from "@/app/components/PayPalButtons";
+import PayPalButtons, { type PaymentResult } from "./PayPalButtons";
 import type { BookingPaymentInput } from "@/app/lib/booking-payment";
 
 type Props = {
@@ -38,10 +38,10 @@ export default function PayPalCheckout({
         </dl>
       </div>
 
-      <p className="my-4 rounded-xl bg-cyan-50 px-4 py-3 text-center text-xs font-semibold text-cyan-900">Test payment — no real money will be charged.</p>
+      <p className="my-4 rounded-xl bg-cyan-50 px-4 py-3 text-center text-xs font-semibold text-cyan-900">Demo payment — no real money will be charged.</p>
       <PayPalButtons
         clientId={clientId}
-        selection={{ kind: "booking", booking }}
+        booking={booking}
         beforeCreate={validateBooking}
         incompleteMessage="Complete the booking details above before starting payment."
         onSuccess={onPaymentSuccess}

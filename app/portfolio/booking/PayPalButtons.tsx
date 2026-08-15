@@ -2,13 +2,13 @@
 
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
-import type { PaymentSelection } from "@/app/lib/payment-selection";
+import type { BookingPaymentInput } from "@/app/lib/booking-payment";
 
 export type PaymentResult = { orderID: string; captureID: string; status: string };
 
 type Props = {
   clientId: string;
-  selection: PaymentSelection;
+  booking: BookingPaymentInput;
   onSuccess: (result: PaymentResult) => void;
   beforeCreate?: () => boolean;
   incompleteMessage?: string;
@@ -47,7 +47,7 @@ async function responseJson<T>(response: Response): Promise<T> {
 
 export default function PayPalButtons({
   clientId,
-  selection,
+  booking,
   onSuccess,
   beforeCreate,
   incompleteMessage = "Complete the required details before starting payment.",
@@ -80,7 +80,7 @@ export default function PayPalButtons({
       const response = await fetch("/api/paypal/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ selection }),
+        body: JSON.stringify({ booking }),
       });
       const order = await responseJson<{ id: string }>(response);
       if (active) setStatus("idle");
@@ -94,7 +94,7 @@ export default function PayPalButtons({
         const response = await fetch("/api/paypal/capture-order", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ orderID: data.orderID, selection }),
+          body: JSON.stringify({ orderID: data.orderID, booking }),
         });
         const result = await responseJson<PaymentResult>(response);
         if (active) onSuccess(result);
@@ -157,7 +157,7 @@ export default function PayPalButtons({
       active = false;
       for (const button of buttons) void button.close?.();
     };
-  }, [beforeCreate, incompleteMessage, onSuccess, renderKey, sdkReady, selection]);
+  }, [beforeCreate, booking, incompleteMessage, onSuccess, renderKey, sdkReady]);
 
   const loading = status === "creating" || status === "capturing";
   const mutedText = theme === "dark" ? "text-white/45" : "text-slate-500";
