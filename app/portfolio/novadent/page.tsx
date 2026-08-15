@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import teamHero from "../../../public/novadent/team-hero.png";
 import AppointmentForm from "./components/AppointmentForm";
+import PurchaseButton from "@/app/components/PurchaseButton";
 
 export const metadata: Metadata = {
   title: "NovaDent AI | Premium Dental Care Demo",
@@ -280,6 +281,13 @@ export default function NovaDentPage() {
       <section className="px-6 pb-24 lg:px-10">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[36px] bg-cyan-300 px-7 py-16 text-center sm:px-12 sm:py-20">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-900/60">Ready when you are</p><h2 className="mx-auto mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">Make your next dental visit feel effortless.</h2><p className="mx-auto mt-6 max-w-xl leading-7 text-slate-700">Request a demo appointment or speak with the fictional NovaDent team.</p><div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><a href="#booking" className="inline-flex min-h-12 items-center justify-center rounded-full bg-slate-950 px-7 py-4 text-sm font-semibold text-white">Book appointment</a><a href={clinicPhoneHref} className="inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-900/20 bg-white/60 px-7 py-4 text-sm font-semibold text-slate-950">Call clinic</a></div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-24 lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-7 rounded-[30px] bg-slate-950 p-7 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
+          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">A YY Builds portfolio concept</p><h2 className="mt-3 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">Want a professional site like this?</h2><p className="mt-2 text-sm text-white/45">Start a premium website project for your own business.</p></div>
+          <PurchaseButton productId="premium-website" className="shrink-0">Start this type of project</PurchaseButton>
         </div>
       </section>
 

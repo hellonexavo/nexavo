@@ -7,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function NexavoBookingPage() {
-  return <BookingExperience currentYear={new Date().getFullYear()} />;
+  return (
+    <BookingExperience
+      currentYear={new Date().getFullYear()}
+      paypalClientId={process.env.PAYPAL_CLIENT_ID ?? ""}
+    />
+  );
 }

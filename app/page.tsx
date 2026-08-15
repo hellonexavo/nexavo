@@ -2,6 +2,8 @@ import Link from "next/link";
 import HomeHeader from "./components/HomeHeader";
 import NexavoAssistant from "./components/NexavoAssistant";
 import ProjectForm from "./components/ProjectForm";
+import PurchaseButton from "./components/PurchaseButton";
+import { formatEuro, products, type ProductId } from "./lib/products";
 
 const services = [
   ["01", "Business websites", "Fast, polished websites that make your business look credible and turn visits into real enquiries.", "Landing pages · Multi-page sites · SEO foundations"],
@@ -23,10 +25,22 @@ const steps = [
   ["03", "Your website goes live", "After your review and refinements, we handle the final setup and launch your new website."],
 ];
 
-const packages = [
-  { name: "Starter", price: "€199", value: "Starter — €199", description: "A sharp, focused online presence for a small business.", features: ["One-page business website", "Mobile responsive", "Contact / enquiry form", "Basic SEO setup", "Deployment included", "1 revision"], action: "Choose Starter" },
-  { name: "Business", price: "€349", value: "Business — €349", description: "A complete website built to generate and handle enquiries.", features: ["Up to 5 pages", "Booking or enquiry system", "Service / product catalogue", "WhatsApp or email integration", "SEO structure", "2 revisions"], action: "Choose Business", featured: true },
-  { name: "Custom", price: "€499", value: "Custom — From €499", description: "A tailored digital experience for more advanced needs.", features: ["Custom business website", "Advanced booking flows", "AI assistant or automation", "Custom integrations", "Advanced UI / animations", "Priority support"], action: "Discuss Custom", prefix: "From" },
+type PricingPackage = {
+  id: ProductId;
+  name: string;
+  value: string;
+  action: string;
+  description: string;
+  price: number;
+  features: readonly string[];
+  featured?: boolean;
+  prefix?: string;
+};
+
+const packages: PricingPackage[] = [
+  { ...products["starter-website"], name: "Starter", value: "Starter — €199", action: "Choose Starter" },
+  { ...products["business-website"], name: "Business", value: "Business — €349", action: "Choose Business", featured: true },
+  { ...products["premium-website"], name: "Custom", value: "Custom — From €499", action: "Discuss Custom", prefix: "From" },
 ];
 
 export default function Home() {
@@ -44,7 +58,7 @@ export default function Home() {
             <div className="lg:pb-2"><p className="text-base leading-7 text-white/55 sm:text-lg sm:leading-8">Modern, mobile-first websites with booking, contact forms, catalogues and smart automations — designed, built and launched for your business.</p><p className="mt-6 text-sm font-medium text-white/80">For restaurants, clinics, local services, car and beauty businesses, consultants, and growing companies.</p></div>
           </div>
           <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-8 lg:mt-16 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-col gap-3 sm:flex-row"><a href="#request" className="button-primary">Start your website <span>↗</span></a><a href="#work" className="button-secondary">View our work <span>↓</span></a></div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap"><PurchaseButton productId="starter-website">Start & Pay</PurchaseButton><a href="#request" className="button-secondary">Start a project <span>↗</span></a><a href="#work" className="button-secondary">View our work <span>↓</span></a></div>
             <div className="flex items-baseline gap-3"><span className="text-xs uppercase tracking-[0.2em] text-white/35">Websites from</span><span className="text-3xl font-semibold tracking-[-0.04em]">€199</span></div>
           </div>
           <p className="mt-7 text-xs tracking-wide text-white/38 sm:text-sm">Fast launch <span className="mx-2 text-white/15">•</span> Mobile-first <span className="mx-2 text-white/15">•</span> Clear pricing <span className="mx-2 text-white/15">•</span> No unnecessary complexity</p>
@@ -90,7 +104,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Clear pricing" title="A professional website, without the agency-sized bill." copy="Choose a focused starting point. We’ll confirm your exact scope before any work begins." />
           <div className="mt-14 grid items-stretch gap-5 lg:mt-20 lg:grid-cols-3">
-            {packages.map((item) => <article key={item.name} className={`pricing-card ${item.featured ? "pricing-card-featured" : ""}`}>{item.featured && <span className="popular-badge">Most popular</span>}<p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">{item.name}</p><div className="mt-8 flex items-end gap-2">{item.prefix && <span className="mb-2 text-sm text-white/40">{item.prefix}</span>}<span className="text-5xl font-semibold tracking-[-0.055em]">{item.price}</span>{!item.prefix && <span className="mb-2 text-xs text-white/30">one-time</span>}</div><p className="mt-5 min-h-12 text-sm leading-6 text-white/45">{item.description}</p><div className="my-8 h-px bg-white/10" /><ul className="space-y-4 text-sm text-white/67">{item.features.map((feature) => <li key={feature} className="flex gap-3"><span className="text-violet-300">✓</span><span>{feature}</span></li>)}</ul><a href="#request" data-package={item.value} className={item.featured ? "button-primary mt-10" : "button-secondary mt-10"}>{item.action} <span>→</span></a></article>)}
+            {packages.map((item) => <article key={item.name} className={`pricing-card ${item.featured ? "pricing-card-featured" : ""}`}>{item.featured && <span className="popular-badge">Most popular</span>}<p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">{item.name}</p><div className="mt-8 flex items-end gap-2">{item.prefix && <span className="mb-2 text-sm text-white/40">{item.prefix}</span>}<span className="text-5xl font-semibold tracking-[-0.055em]">{formatEuro(item.price)}</span>{!item.prefix && <span className="mb-2 text-xs text-white/30">one-time</span>}</div><p className="mt-5 min-h-12 text-sm leading-6 text-white/45">{item.description}</p><div className="my-8 h-px bg-white/10" /><ul className="space-y-4 text-sm text-white/67">{item.features.map((feature) => <li key={feature} className="flex gap-3"><span className="text-violet-300">✓</span><span>{feature}</span></li>)}</ul><div className="mt-auto space-y-3 pt-10"><PurchaseButton productId={item.id} className="w-full">Buy this service</PurchaseButton><a href="#request" data-package={item.value} className="button-secondary w-full">{item.action} <span>→</span></a></div></article>)}
           </div>
           <p className="mt-7 text-center text-sm text-white/30">One-time project pricing. Final cost depends on the agreed scope.</p>
         </div>
