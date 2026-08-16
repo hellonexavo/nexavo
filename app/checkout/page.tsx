@@ -3,8 +3,8 @@ import { getProduct, productIds, products } from "@/app/lib/products";
 import { createPageMetadata } from "@/app/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Choose a Package — YY Builds",
-  description: "Choose a YY Builds website, AI, automation, or custom project package and request payment details after project review.",
+  title: "Choose a Service — YY Builds",
+  description: "Choose a YY Builds website or business automation service and send your project request for personal review.",
   path: "/checkout",
 });
 
@@ -15,12 +15,12 @@ export default async function CheckoutPage({
 }) {
   const params = await searchParams;
   const requestedId = Array.isArray(params.product) ? params.product[0] : params.product;
-  const selectedProduct = getProduct(requestedId) ?? products["starter-website"];
+  const selectedProduct = getProduct(requestedId);
   const catalogue = productIds.map((id) => products[id]);
   return (
     <CheckoutExperience
       products={catalogue}
-      initialProductId={selectedProduct.id}
+      initialProductId={selectedProduct?.id}
     />
   );
 }

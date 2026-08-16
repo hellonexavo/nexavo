@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navigation = [
@@ -39,7 +40,7 @@ export default function HomeHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href="#request" className="hidden rounded-full bg-white px-5 py-3 text-sm font-semibold text-black hover:scale-[1.03] sm:inline-flex">Start a project <span className="ml-2">↗</span></a>
+          <Link href="/checkout" className="hidden rounded-full bg-white px-5 py-3 text-sm font-semibold text-black hover:-translate-y-0.5 sm:inline-flex">Start a project <span className="ml-2">↗</span></Link>
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
@@ -62,7 +63,7 @@ export default function HomeHeader() {
             {navigation.map((item) => (
               <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className="border-b border-white/10 py-4 text-lg text-white/75 last:border-0">{item.label}</a>
             ))}
-            <a href="#request" onClick={() => setMenuOpen(false)} className="mt-3 flex items-center justify-center rounded-full bg-white px-5 py-4 font-semibold text-black">Tell us what you need →</a>
+            <Link href="/checkout" onClick={() => setMenuOpen(false)} className="mt-3 flex items-center justify-center rounded-full bg-white px-5 py-4 font-semibold text-black">Start a project →</Link>
           </nav>
         </div>
       )}

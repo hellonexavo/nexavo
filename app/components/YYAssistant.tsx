@@ -1,11 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { assistantStarters, type AssistantMessage } from "@/app/lib/assistant";
 
-const welcome: AssistantMessage = { role: "assistant", content: "Hi — I’m YY AI. Tell me what you want to improve, and I’ll help you choose between a Starter Website, Business Website, AI & Automation, or a custom project." };
+const welcome: AssistantMessage = { role: "assistant", content: "Hi — I’m YY AI. Tell me what you want to improve, and I’ll help you choose between a website and business automation, then find the right service level." };
 
 export default function YYAssistant() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<AssistantMessage[]>([welcome]);
   const [input, setInput] = useState("");
@@ -43,12 +45,11 @@ export default function YYAssistant() {
 
   function startProject() {
     setIsOpen(false);
-    window.dispatchEvent(new CustomEvent("yy-service-select", { detail: "AI & Automation — From €149" }));
-    window.setTimeout(() => document.getElementById("request")?.scrollIntoView({ behavior: "smooth" }), 100);
+    router.push("/checkout");
   }
 
   return <>
-    <button type="button" onClick={() => setIsOpen(true)} className="fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full border border-white/15 bg-white px-4 py-3.5 font-semibold text-black shadow-2xl transition hover:scale-105 sm:px-5" aria-label="Open YY AI Assistant"><span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-sm text-white">YY</span><span>Ask YY AI</span></button>
+    <button type="button" onClick={() => setIsOpen(true)} className="fixed bottom-4 right-4 z-50 flex items-center gap-3 rounded-full border border-white/15 bg-white p-3.5 font-semibold text-black shadow-2xl transition hover:-translate-y-0.5 sm:bottom-5 sm:right-5 sm:px-5" aria-label="Open YY AI Assistant"><span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-sm text-white">YY</span><span className="hidden sm:inline">Ask YY AI</span></button>
 
     {isOpen && <div className="fixed inset-0 z-[60] flex items-end justify-end bg-black/60 p-3 backdrop-blur-sm sm:p-6" role="dialog" aria-modal="true" aria-label="YY AI Assistant">
       <div className="flex max-h-[min(760px,90vh)] w-full max-w-md flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#101012] text-white shadow-[0_30px_100px_rgba(0,0,0,.65)]">
@@ -67,7 +68,7 @@ export default function YYAssistant() {
         <div className="border-t border-white/10 p-4">
           {demoMode && <p className="mb-3 text-center text-[11px] text-white/35">Guided demo mode — project requests still go directly to YY Builds.</p>}
           <form onSubmit={submit} className="flex gap-2"><label className="sr-only" htmlFor="yy-assistant-message">Message</label><input id="yy-assistant-message" value={input} onChange={(event) => setInput(event.target.value)} maxLength={1200} placeholder="Ask about your project…" className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/[0.05] px-4 py-3 text-sm outline-none placeholder:text-white/25 focus:border-violet-300/40" /><button type="submit" disabled={!input.trim() || status === "loading"} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white font-semibold text-black disabled:opacity-40" aria-label="Send message">↑</button></form>
-          <button type="button" onClick={startProject} className="mt-3 w-full rounded-full border border-white/12 px-5 py-3 text-sm font-semibold text-white/75 hover:bg-white/[0.07]">Start a Project <span className="ml-2 text-violet-300">↗</span></button>
+          <button type="button" onClick={startProject} className="mt-3 w-full rounded-full border border-white/12 px-5 py-3 text-sm font-semibold text-white/75 hover:bg-white/[0.07]">Start a project <span className="ml-2 text-violet-300">↗</span></button>
         </div>
       </div>
     </div>}
