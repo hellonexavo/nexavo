@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "YY Builds — Websites, AI & Automation",
-  description: "YY Builds creates premium websites, booking systems, AI tools and automations for modern businesses.",
+  description: "YY Builds creates modern websites, AI tools and simple automations for small businesses.",
 };
 
 export default function RootLayout({

@@ -10,7 +10,7 @@ type Props = {
 
 export default function PurchaseButton({
   productId,
-  children = "Start & Pay",
+  children = "Request this package",
   className = "",
   variant = "light",
 }: Props) {

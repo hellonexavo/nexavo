@@ -31,7 +31,7 @@ html {
   scroll-behavior: smooth;
 }
 
-@keyframes nexavoFadeUp {
+@keyframes yyFadeUp {
   from {
     opacity: 0;
     transform: translateY(28px);
@@ -43,7 +43,7 @@ html {
   }
 }
 
-@keyframes nexavoFadeIn {
+@keyframes yyFadeIn {
   from {
     opacity: 0;
   }
@@ -53,7 +53,7 @@ html {
   }
 }
 
-@keyframes nexavoFloat {
+@keyframes yyFloat {
   0%,
   100% {
     transform: translate3d(0, 0, 0) scale(1);
@@ -64,7 +64,7 @@ html {
   }
 }
 
-@keyframes nexavoGridMove {
+@keyframes yyGridMove {
   from {
     background-position: 0 0;
   }
@@ -75,11 +75,11 @@ html {
 }
 
 header {
-  animation: nexavoFadeIn 0.8s ease-out both;
+  animation: yyFadeIn 0.8s ease-out both;
 }
 
 section:first-of-type > * {
-  animation: nexavoFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: yyFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 section:first-of-type > *:nth-child(1) {
@@ -115,15 +115,15 @@ article:hover {
 }
 
 main > div:first-child > div:first-child {
-  animation: nexavoFloat 9s ease-in-out infinite;
+  animation: yyFloat 9s ease-in-out infinite;
 }
 
 main > div:first-child > div:nth-child(2) {
-  animation: nexavoFloat 12s ease-in-out infinite reverse;
+  animation: yyFloat 12s ease-in-out infinite reverse;
 }
 
 main > div:first-child > div:last-child {
-  animation: nexavoGridMove 18s linear infinite;
+  animation: yyGridMove 18s linear infinite;
 }
 
 a,
@@ -420,7 +420,7 @@ article {
 
 /* YY Builds homepage */
 
-.nexavo-home {
+.yy-home {
   background:
     radial-gradient(circle at 50% 0%, rgba(40, 32, 67, 0.14), transparent 28%),
     #070709;
@@ -729,7 +729,7 @@ article {
   filter: blur(130px);
 }
 
-.nexavo-home footer a:hover {
+.yy-home footer a:hover {
   color: rgba(255,255,255,.85);
 }
 

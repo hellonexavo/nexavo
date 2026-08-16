@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { formSubmitEndpoint } from "@/app/lib/contact";
 
 export default function ProjectForm() {
   const [status, setStatus] = useState<
@@ -22,9 +23,15 @@ useEffect(() => {
   }
 
   document.addEventListener("click", handlePackageClick);
+  function handleServiceSelect(event: Event) {
+    const service = (event as CustomEvent<string>).detail;
+    if (service) setSelectedService(service);
+  }
+  window.addEventListener("yy-service-select", handleServiceSelect);
 
   return () => {
     document.removeEventListener("click", handlePackageClick);
+    window.removeEventListener("yy-service-select", handleServiceSelect);
   };
 }, []);
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -41,7 +48,7 @@ useEffect(() => {
       setStatus("sending");
 
       const response = await fetch(
-        "https://formsubmit.co/e2995854a9314ab34741c66d5891ec21",
+        formSubmitEndpoint,
         {
           method: "POST",
           body: formData,
@@ -119,31 +126,22 @@ useEffect(() => {
            onChange={(event) => setSelectedService(event.target.value)}
             className="w-full rounded-2xl border border-white/10 bg-black px-4 py-3.5 text-white outline-none transition focus:border-white/30"
           >
-            <option value="Starter — €199">
-  Starter — €199
+            <option value="Starter Website — €199">
+  Starter Website — €199
 </option>
 
-<option value="Business — €349">
-  Business — €349
+<option value="Business Website — From €349">
+  Business Website — From €349
 </option>
 
-<option value="Custom — From €499">
-  Custom — From €499
-</option>
             <option value="" disabled>
               Select a service
             </option>
-            <option value="Business website">
-              Business website
+            <option value="AI & Automation — From €149">
+              AI & Automation — From €149
             </option>
-            <option value="AI assistant">
-              AI assistant
-            </option>
-            <option value="Booking system">
-              Booking system
-            </option>
-            <option value="AI automation">
-              AI automation
+            <option value="Custom Project — Custom quote">
+              Custom Project — Custom quote
             </option>
             <option value="Other">
               Other

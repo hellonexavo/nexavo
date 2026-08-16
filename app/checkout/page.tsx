@@ -4,7 +4,7 @@ import { getProduct, productIds, products } from "@/app/lib/products";
 
 export const metadata: Metadata = {
   title: "Choose a Package — YY Builds",
-  description: "Choose a YY Builds website package and request secure bank-transfer payment details.",
+  description: "Choose a YY Builds website, AI, automation, or custom project package and request payment details after project review.",
 };
 
 export default async function CheckoutPage({

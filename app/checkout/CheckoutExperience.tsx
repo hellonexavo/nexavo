@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useMemo, useState } from "react";
 import type { ProductId } from "@/app/lib/products";
+import { formSubmitEndpoint } from "@/app/lib/contact";
 
 type CheckoutProduct = {
   id: ProductId;
@@ -18,7 +19,7 @@ type Props = {
 };
 
 function priceLabel(price: number | null) {
-  if (price === null) return "Request quote";
+  if (price === null) return "Custom quote";
   return new Intl.NumberFormat("en-NL", {
     style: "currency",
     currency: "EUR",
@@ -51,7 +52,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
 
     try {
       setStatus("sending");
-      const response = await fetch("https://formsubmit.co/e2995854a9314ab34741c66d5891ec21", {
+      const response = await fetch(formSubmitEndpoint, {
         method: "POST",
         body: formData,
       });

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "A fictional cleaning-business booking and instant quote web application created as a YY Builds portfolio demo.",
 };
 
-export default function NexavoBookingPage() {
+export default function YYBookingPage() {
   return (
     <BookingExperience
       currentYear={new Date().getFullYear()}

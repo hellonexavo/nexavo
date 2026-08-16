@@ -2,23 +2,23 @@ export const products = {
   "starter-website": {
     id: "starter-website",
     name: "Starter Website",
-    description: "A focused one-page website that gives a small business a polished, credible online presence.",
+    description: "A professional one-page website that gives a small business a clear, credible online presence.",
     price: 199,
-    features: ["One-page business website", "Mobile responsive", "Contact / enquiry form", "Basic SEO setup", "Deployment included", "1 revision"],
+    features: ["Professional one-page website", "Mobile responsive", "Contact / enquiry form", "Basic SEO", "Deployment", "1 revision"],
   },
   "business-website": {
     id: "business-website",
     name: "Business Website",
-    description: "A complete multi-page website designed to generate enquiries and make services easy to understand.",
+    description: "A stronger multi-section or small multi-page website built to present the business and generate useful enquiries.",
     price: 349,
-    features: ["Up to 5 pages", "Booking or enquiry system", "Service / product catalogue", "WhatsApp or email integration", "SEO structure", "2 revisions"],
+    features: ["Multi-section or small multi-page website", "Stronger business presentation", "Enquiry / quote flow", "Mobile responsive", "Basic SEO", "Deployment"],
   },
-  "premium-website": {
-    id: "premium-website",
-    name: "Premium Website",
-    description: "A tailored business website with advanced presentation, interactions, and conversion-focused functionality.",
-    price: 499,
-    features: ["Custom business website", "Advanced UI and animations", "Conversion-focused page flows", "Custom integrations", "Advanced SEO structure", "Priority support"],
+  "ai-automation": {
+    id: "ai-automation",
+    name: "AI & Automation",
+    description: "A focused AI assistant, lead-capture tool, or simple automation configured around a practical business need.",
+    price: 149,
+    features: ["AI assistant / chat integration", "Lead capture", "Simple business automation", "Custom integrations depending on project"],
   },
   "custom-project": {
     id: "custom-project",
@@ -34,7 +34,12 @@ export type Product = (typeof products)[ProductId];
 
 export const productIds = Object.keys(products) as ProductId[];
 
+const legacyProductAliases: Record<string, ProductId> = {
+  "premium-website": "business-website",
+};
+
 export function getProduct(productId: string | undefined) {
+  if (productId && legacyProductAliases[productId]) return products[legacyProductAliases[productId]];
   if (!productId || !productIds.includes(productId as ProductId)) return null;
   return products[productId as ProductId];
 }

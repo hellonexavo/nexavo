@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { formSubmitEndpoint } from "@/app/lib/contact";
 
 const bookingServices = [
   "Oil & Filter Service",
@@ -45,7 +46,7 @@ export default function ProjectForm({ selectedServices = [] }: { selectedService
       setErrorMessage("");
 
       const response = await fetch(
-        "https://formsubmit.co/ajax/hello.nexavo@gmail.com",
+        formSubmitEndpoint,
         {
           method: "POST",
           headers: {
