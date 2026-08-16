@@ -163,9 +163,10 @@ useEffect(() => {
               Select budget
             </option>
             <option value="€100–€300">€100–€300</option>
-            <option value="€300–€700">€300–€700</option>
-            <option value="€700–€1500">€700–€1500</option>
-            <option value="€1500+">€1500+</option>
+            <option value="€300–€500">€300–€500</option>
+            <option value="€500–€1,000">€500–€1,000</option>
+            <option value="€1,000+">€1,000+</option>
+            <option value="Not sure yet">Not sure yet</option>
           </select>
         </label>
 
