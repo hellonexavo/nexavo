@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import CheckoutExperience from "./CheckoutExperience";
 import { getProduct, productIds, products } from "@/app/lib/products";
+import { createPageMetadata } from "@/app/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Choose a Package — YY Builds",
   description: "Choose a YY Builds website, AI, automation, or custom project package and request payment details after project review.",
-};
+  path: "/checkout",
+});
 
 export default async function CheckoutPage({
   searchParams,

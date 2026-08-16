@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import AutoflowExperience from "./AutoflowExperience";
+import { createPageMetadata } from "@/app/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Autoflow — Auto-Service Website Concept",
+export const metadata = createPageMetadata({
+  title: "AutoFlow — Automotive Website Demo | YY Builds",
   description:
-    "An interactive auto-service website concept with service filtering, vehicle details, demo estimates, and booking enquiries.",
-};
+    "Explore AutoFlow, a fictional automotive website demo by YY Builds with service filtering, vehicle details, estimates, and booking enquiries.",
+  path: "/portfolio/autoflow",
+});
 
 export default function AutoflowPage() {
   return <AutoflowExperience />;

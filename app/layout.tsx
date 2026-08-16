@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { siteUrl, socialImage } from "./lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "YY Builds — Websites, AI & Automation",
-  description: "YY Builds creates modern websites, AI tools and simple automations for small businesses.",
+  metadataBase: new URL(siteUrl),
+  title: "YY Builds | Websites, AI & Automation for Small Businesses",
+  description: "YY Builds creates modern websites, booking and enquiry flows, AI assistants and simple business automations for small businesses.",
+  applicationName: "YY Builds",
+  creator: "Yurii Yanishevskyi",
+  publisher: "YY Builds",
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "YY Builds",
+    title: "YY Builds | Websites, AI & Automation for Small Businesses",
+    description: "YY Builds creates modern websites, booking and enquiry flows, AI assistants and simple business automations for small businesses.",
+    images: [{ url: socialImage, width: 1200, height: 630, alt: "YY Builds — Websites, AI & Automation" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "YY Builds | Websites, AI & Automation for Small Businesses",
+    description: "YY Builds creates modern websites, booking and enquiry flows, AI assistants and simple business automations for small businesses.",
+    images: [socialImage],
+  },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
 import BookingExperience from "./BookingExperience";
+import { createPageMetadata } from "@/app/lib/seo";
 
-export const metadata: Metadata = {
-  title: "YY Booking — Booking & Payments Demo",
-  description: "A fictional cleaning-business booking and instant quote web application created as a YY Builds portfolio demo.",
-};
+export const metadata = createPageMetadata({
+  title: "YY Booking — Booking System Demo | YY Builds",
+  description: "Explore YY Booking, a fictional cleaning-business booking, quote, and sandbox payment demonstration created by YY Builds.",
+  path: "/portfolio/booking",
+});
 
 export default function YYBookingPage() {
   return (

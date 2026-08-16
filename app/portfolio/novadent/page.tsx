@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import teamHero from "../../../public/novadent/team-hero.png";
 import AppointmentForm from "./components/AppointmentForm";
 import PurchaseButton from "@/app/components/PurchaseButton";
+import { createPageMetadata } from "@/app/lib/seo";
 
-export const metadata: Metadata = {
-  title: "NovaDent AI | Premium Dental Care Demo",
+export const metadata = createPageMetadata({
+  title: "NovaDent — Dental Website Demo | YY Builds",
   description:
-    "A fictional premium dental clinic demo with services, team profiles, opening hours, and appointment booking UX.",
-};
+    "Explore NovaDent, a fictional dental website demo by YY Builds with treatment information, team profiles, and appointment enquiry UX.",
+  path: "/portfolio/novadent",
+});
 
 // DEMO CONTENT: All names, reviews, contact details, hours, and addresses below are fictional.
 const clinicPhoneDisplay = "+1 (555) 014-2890";
