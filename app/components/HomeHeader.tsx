@@ -40,7 +40,7 @@ export default function HomeHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/checkout" className="hidden rounded-full bg-white px-5 py-3 text-sm font-semibold text-black hover:-translate-y-0.5 sm:inline-flex">Start a project <span className="ml-2">↗</span></Link>
+          <Link href="/checkout" className="hidden rounded-full border border-white/15 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white/85 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.08] sm:inline-flex">Start a project <span className="ml-2 text-violet-300">↗</span></Link>
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}

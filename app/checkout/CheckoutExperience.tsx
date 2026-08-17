@@ -74,7 +74,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-300/10 text-2xl text-emerald-300">✓</div>
           <p className="mt-7 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300">YY Builds project request</p>
           <h1 className="mt-5 text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">Request received</h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/55">We&apos;ve received your project request. We&apos;ll review it and reply with clear next steps.</p>
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/55">We&apos;ll review your request and reply with a recommended scope, timeline, and pricing.</p>
           <div className="mx-auto mt-8 max-w-lg rounded-2xl border border-white/10 bg-black/20 p-5 text-left"><p className="text-xs uppercase tracking-[0.16em] text-white/35">Selected service</p><p className="mt-2 text-lg font-semibold">{product?.name ?? "Not sure yet"}</p>{product && <p className="mt-1 text-white/45">{priceLabel(product.price)}</p>}</div>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row"><Link href="/" className="button-primary">Back to YY Builds <span>→</span></Link><button type="button" onClick={() => setStatus("idle")} className="button-secondary">Send another request</button></div>
         </div>
@@ -102,7 +102,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
               <div className="flex flex-col gap-5 border-b border-white/10 pb-7 sm:flex-row sm:items-end sm:justify-between"><div><p className="text-xs uppercase tracking-[0.18em] text-white/35">Selected service</p><h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">{product.name}</h2></div><p className="text-4xl font-semibold tracking-[-0.05em]">{priceLabel(product.price)}</p></div>
               <p className="mt-6 max-w-2xl leading-7 text-white/48">{product.description}</p>
               <div className="mt-8"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">What is included</p><ul className="mt-5 grid gap-4 text-sm text-white/68 sm:grid-cols-2">{product.features.map((feature) => <li key={feature} className="flex gap-3"><span className="text-violet-300">✓</span><span>{feature}</span></li>)}</ul></div>
-            </article> : <div className="mt-5 rounded-[28px] border border-white/10 bg-white/[0.035] p-6 text-sm leading-7 text-white/48 sm:p-8">Not sure which package fits? Tell us about your goals and we&apos;ll recommend the clearest starting point.</div>}
+            </article> : <div className="mt-5 rounded-[28px] border border-white/10 bg-white/[0.035] p-6 text-sm leading-7 text-white/48 sm:p-8">Not sure which service fits? Tell us about your goals and we&apos;ll recommend the clearest starting point.</div>}
 
             <div className="mt-5 rounded-[24px] border border-white/10 bg-white/[0.025] p-6">
               <div className="flex items-start gap-4"><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-violet-300/20 bg-violet-300/10 text-violet-200">↗</span><div><p className="text-xs font-semibold uppercase tracking-[0.16em] text-violet-300">Payment method</p><p className="mt-2 font-semibold">Bank transfer</p><p className="mt-2 max-w-2xl text-sm leading-6 text-white/45">After we confirm your project, we&apos;ll send the payment details and instructions to your email.</p><p className="mt-3 text-xs text-white/28">No bank account or card details are displayed or collected on this website.</p></div></div>
@@ -110,7 +110,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
           </section>
 
           <aside className="rounded-[30px] border border-white/10 bg-white/[0.045] p-6 shadow-[0_35px_100px_rgba(0,0,0,.35)] sm:p-8 lg:sticky lg:top-8">
-            <div><p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">Project details</p><h2 className="mt-2 text-2xl font-semibold">Request a project review</h2><p className="mt-3 text-sm leading-6 text-white/42">We&apos;ll review your request before sending an invoice or payment instructions.</p></div>
+            <div><p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">Project details</p><h2 className="mt-2 text-2xl font-semibold">Request a project review</h2><p className="mt-3 text-sm leading-6 text-white/42">We&apos;ll reply with a recommended scope, timeline, and pricing before any work or payment.</p></div>
             <form onSubmit={submitRequest} aria-busy={status === "sending"} className="mt-7 space-y-4">
               <CheckoutField label="Full name" name="name" autoComplete="name" required />
               <CheckoutField label="Email" name="email" type="email" autoComplete="email" required />
@@ -121,7 +121,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
               </div>
               <label className="block text-sm font-medium text-white/60">Project description<span className="ml-1 text-violet-300" aria-hidden="true">*</span><textarea required name="project_description" rows={5} placeholder="Tell us about your business, goals, and what you need." className="premium-field mt-2 resize-y" /></label>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm"><div className="flex justify-between gap-4"><span className="text-white/40">Service</span><span className="text-right font-semibold">{product?.name ?? "Not sure yet"}</span></div><div className="mt-3 flex justify-between gap-4 border-t border-white/10 pt-3"><span className="text-white/55">{product ? "Starting price" : "Next step"}</span><span className="text-lg font-semibold">{product ? priceLabel(product.price) : "Personal recommendation"}</span></div></div>
-              {status === "error" && <div role="alert" className="rounded-2xl border border-rose-300/20 bg-rose-300/[0.08] p-4 text-sm text-rose-100">The request could not be sent. Please check your connection and try again.</div>}
+              {status === "error" && <div role="alert" className="rounded-2xl border border-rose-300/20 bg-rose-300/[0.08] p-4 text-sm text-rose-100">The request could not be sent. Please try again in a moment.</div>}
               <button type="submit" disabled={status === "sending"} className="button-primary w-full disabled:cursor-not-allowed disabled:opacity-50">{status === "sending" ? "Sending request…" : "Send project request"} <span>→</span></button>
               <p className="text-center text-[11px] leading-5 text-white/28">Submitting this form does not charge you or create an automatic payment.</p>
             </form>

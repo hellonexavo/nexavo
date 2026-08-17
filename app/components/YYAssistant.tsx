@@ -49,7 +49,7 @@ export default function YYAssistant() {
   }
 
   return <>
-    <button type="button" onClick={() => setIsOpen(true)} className="fixed bottom-4 right-4 z-50 flex items-center gap-3 rounded-full border border-white/15 bg-white p-3.5 font-semibold text-black shadow-2xl transition hover:-translate-y-0.5 sm:bottom-5 sm:right-5 sm:px-5" aria-label="Open YY AI Assistant"><span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-sm text-white">YY</span><span className="hidden sm:inline">Ask YY AI</span></button>
+    <button type="button" onClick={() => setIsOpen(true)} className="yy-assistant-trigger fixed z-50 flex items-center gap-2 rounded-full border border-white/15 bg-[#121216]/95 p-1.5 text-xs font-semibold text-white/75 shadow-[0_10px_30px_rgba(0,0,0,.3)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:border-white/25 hover:text-white sm:pr-4" aria-label="Open YY AI Assistant"><span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-[11px] text-white">YY</span><span className="hidden sm:inline">Ask YY AI</span></button>
 
     {isOpen && <div className="fixed inset-0 z-[60] flex items-end justify-end bg-black/60 p-3 backdrop-blur-sm sm:p-6" role="dialog" aria-modal="true" aria-label="YY AI Assistant">
       <div className="flex max-h-[min(760px,90vh)] w-full max-w-md flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#101012] text-white shadow-[0_30px_100px_rgba(0,0,0,.65)]">

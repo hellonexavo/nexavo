@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "YY Builds | Websites, AI & Automation for Small Businesses",
-  description: "YY Builds creates modern websites, booking and enquiry flows, AI assistants and simple business automations for small businesses.",
+  description: "YY Builds creates professional websites, practical AI assistants, and business automations for small businesses.",
   applicationName: "YY Builds",
   creator: "Yurii Yanishevskyi",
   publisher: "YY Builds",
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "YY Builds",
     title: "YY Builds | Websites, AI & Automation for Small Businesses",
-    description: "YY Builds creates modern websites, booking and enquiry flows, AI assistants and simple business automations for small businesses.",
+    description: "YY Builds creates professional websites, practical AI assistants, and business automations for small businesses.",
     images: [{ url: socialImage, width: 1200, height: 630, alt: "YY Builds — Websites, AI & Automation" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "YY Builds | Websites, AI & Automation for Small Businesses",
-    description: "YY Builds creates modern websites, booking and enquiry flows, AI assistants and simple business automations for small businesses.",
+    description: "YY Builds creates professional websites, practical AI assistants, and business automations for small businesses.",
     images: [socialImage],
   },
   icons: {
