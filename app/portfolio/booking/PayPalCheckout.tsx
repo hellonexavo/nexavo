@@ -34,7 +34,7 @@ export default function PayPalCheckout({
         <dl className="space-y-3 text-sm">
           <div className="flex justify-between gap-4"><dt className="text-slate-500">Service</dt><dd className="text-right font-semibold text-slate-900">{serviceName}</dd></div>
           <div className="flex justify-between gap-4"><dt className="text-slate-500">Property size</dt><dd className="font-semibold text-slate-900">{booking.size} m²</dd></div>
-          <div className="flex justify-between gap-4 border-t border-slate-200 pt-3"><dt className="font-semibold text-slate-700">Final total</dt><dd className="text-lg font-bold text-slate-950">{formattedTotal}</dd></div>
+          <div className="flex justify-between gap-4 border-t border-slate-200 pt-3"><dt className="font-semibold text-slate-700">Final total</dt><dd className="invisible text-lg font-bold text-slate-950" aria-hidden="true">{formattedTotal}</dd></div>
         </dl>
       </div>
 

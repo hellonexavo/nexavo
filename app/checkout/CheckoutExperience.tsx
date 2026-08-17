@@ -17,6 +17,9 @@ type Props = {
   initialProductId?: ProductId;
 };
 
+// Flip this to true to restore public price and budget displays.
+const showPublicPrices = false;
+
 function priceLabel(price: number) {
   const formattedPrice = new Intl.NumberFormat("en-NL", {
     style: "currency",
@@ -42,7 +45,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
     if (status === "sending") return;
 
     const formData = new FormData(event.currentTarget);
-    const selectedPackage = product ? `${product.name} — ${priceLabel(product.price)}` : "Not sure yet";
+    const selectedPackage = product ? `${product.name}${showPublicPrices ? ` — ${priceLabel(product.price)}` : ""}` : "Not sure yet";
 
     try {
       setStatus("sending");
@@ -75,7 +78,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
           <p className="mt-7 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300">YY Builds project request</p>
           <h1 className="mt-5 text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">Request received</h1>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/55">We&apos;ll review your request and reply with a recommended scope, timeline, and pricing.</p>
-          <div className="mx-auto mt-8 max-w-lg rounded-2xl border border-white/10 bg-black/20 p-5 text-left"><p className="text-xs uppercase tracking-[0.16em] text-white/35">Selected service</p><p className="mt-2 text-lg font-semibold">{product?.name ?? "Not sure yet"}</p>{product && <p className="mt-1 text-white/45">{priceLabel(product.price)}</p>}</div>
+          <div className="mx-auto mt-8 max-w-lg rounded-2xl border border-white/10 bg-black/20 p-5 text-left"><p className="text-xs uppercase tracking-[0.16em] text-white/35">Selected service</p><p className="mt-2 text-lg font-semibold">{product?.name ?? "Not sure yet"}</p>{product && <p className="invisible mt-1 text-white/45" aria-hidden="true">{priceLabel(product.price)}</p>}</div>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row"><Link href="/" className="button-primary">Back to YY Builds <span>→</span></Link><button type="button" onClick={() => setStatus("idle")} className="button-secondary">Send another request</button></div>
         </div>
       </main>
@@ -96,10 +99,10 @@ export default function CheckoutExperience({ products, initialProductId }: Props
             <h1 className="mt-6 max-w-3xl text-5xl font-semibold leading-[.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">Start your project with a clear next step.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/48">Select a YY Builds service, review what is included, and share your project details. Every project is reviewed personally before payment.</p>
 
-            <label className="mt-10 block max-w-xl text-sm font-semibold text-white/65">Selected service<select value={productId} onChange={(event) => selectProduct(event.target.value as ProductId | "")} className="premium-select mt-3"><option value="">Not sure yet — help me choose</option>{products.map((item) => <option key={item.id} value={item.id}>{item.name} — {priceLabel(item.price)}</option>)}</select></label>
+            <label className="mt-10 block max-w-xl text-sm font-semibold text-white/65">Selected service<select value={productId} onChange={(event) => selectProduct(event.target.value as ProductId | "")} className="premium-select mt-3"><option value="">Not sure yet — help me choose</option>{products.map((item) => <option key={item.id} value={item.id}>{item.name}{showPublicPrices ? ` — ${priceLabel(item.price)}` : ""}</option>)}</select></label>
 
             {product ? <article className="mt-5 rounded-[28px] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
-              <div className="flex flex-col gap-5 border-b border-white/10 pb-7 sm:flex-row sm:items-end sm:justify-between"><div><p className="text-xs uppercase tracking-[0.18em] text-white/35">Selected service</p><h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">{product.name}</h2></div><p className="text-4xl font-semibold tracking-[-0.05em]">{priceLabel(product.price)}</p></div>
+              <div className="flex flex-col gap-5 border-b border-white/10 pb-7 sm:flex-row sm:items-end sm:justify-between"><div><p className="text-xs uppercase tracking-[0.18em] text-white/35">Selected service</p><h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">{product.name}</h2></div><p className="invisible text-4xl font-semibold tracking-[-0.05em]" aria-hidden="true">{priceLabel(product.price)}</p></div>
               <p className="mt-6 max-w-2xl leading-7 text-white/48">{product.description}</p>
               <div className="mt-8"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">What is included</p><ul className="mt-5 grid gap-4 text-sm text-white/68 sm:grid-cols-2">{product.features.map((feature) => <li key={feature} className="flex gap-3"><span className="text-violet-300">✓</span><span>{feature}</span></li>)}</ul></div>
             </article> : <div className="mt-5 rounded-[28px] border border-white/10 bg-white/[0.035] p-6 text-sm leading-7 text-white/48 sm:p-8">Not sure which service fits? Tell us about your goals and we&apos;ll recommend the clearest starting point.</div>}
@@ -116,11 +119,11 @@ export default function CheckoutExperience({ products, initialProductId }: Props
               <CheckoutField label="Email" name="email" type="email" autoComplete="email" required />
               <CheckoutField label="Company / business name" name="company" autoComplete="organization" />
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="block text-sm font-medium text-white/60">Budget<span className="ml-1 text-white/25">(optional)</span><select name="budget" defaultValue="" className="premium-select mt-2"><option value="">Select a budget</option><option value="Not sure yet">Not sure yet</option><option value="Under €300">Under €300</option><option value="€300–€500">€300–€500</option><option value="€500–€1,000">€500–€1,000</option><option value="€1,000–€2,500">€1,000–€2,500</option><option value="€2,500+">€2,500+</option></select></label>
+                <label className="block text-sm font-medium text-white/60">Budget<span className="ml-1 text-white/25">(optional)</span><select name="budget" defaultValue="" className="premium-select mt-2"><option value="">Select a budget</option><option value="Not sure yet">Not sure yet</option>{showPublicPrices && <><option value="Under €300">Under €300</option><option value="€300–€500">€300–€500</option><option value="€500–€1,000">€500–€1,000</option><option value="€1,000–€2,500">€1,000–€2,500</option><option value="€2,500+">€2,500+</option></>}</select></label>
                 <label className="block text-sm font-medium text-white/60">Timeline<span className="ml-1 text-white/25">(optional)</span><select name="preferred_timeline" defaultValue="" className="premium-select mt-2"><option value="">Select a timeline</option><option value="As soon as possible">As soon as possible</option><option value="1–2 weeks">1–2 weeks</option><option value="2–4 weeks">2–4 weeks</option><option value="Flexible">Flexible</option></select></label>
               </div>
               <label className="block text-sm font-medium text-white/60">Project description<span className="ml-1 text-violet-300" aria-hidden="true">*</span><textarea required name="project_description" rows={5} placeholder="Tell us about your business, goals, and what you need." className="premium-field mt-2 resize-y" /></label>
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm"><div className="flex justify-between gap-4"><span className="text-white/40">Service</span><span className="text-right font-semibold">{product?.name ?? "Not sure yet"}</span></div><div className="mt-3 flex justify-between gap-4 border-t border-white/10 pt-3"><span className="text-white/55">{product ? "Starting price" : "Next step"}</span><span className="text-lg font-semibold">{product ? priceLabel(product.price) : "Personal recommendation"}</span></div></div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm"><div className="flex justify-between gap-4"><span className="text-white/40">Service</span><span className="text-right font-semibold">{product?.name ?? "Not sure yet"}</span></div><div className="mt-3 flex justify-between gap-4 border-t border-white/10 pt-3"><span className={product ? "invisible text-white/55" : "text-white/55"}>{product ? "Starting price" : "Next step"}</span><span className={product ? "invisible text-lg font-semibold" : "text-lg font-semibold"}>{product ? priceLabel(product.price) : "Personal recommendation"}</span></div></div>
               {status === "error" && <div role="alert" className="rounded-2xl border border-rose-300/20 bg-rose-300/[0.08] p-4 text-sm text-rose-100">The request could not be sent. Please try again in a moment.</div>}
               <button type="submit" disabled={status === "sending"} className="button-primary w-full disabled:cursor-not-allowed disabled:opacity-50">{status === "sending" ? "Sending request…" : "Send project request"} <span>→</span></button>
               <p className="text-center text-[11px] leading-5 text-white/28">Submitting this form does not charge you or create an automatic payment.</p>
