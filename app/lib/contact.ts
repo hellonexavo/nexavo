@@ -4,4 +4,8 @@ export const contactDetails = {
   website: "yybuilds.com",
 } as const;
 
-export const formSubmitEndpoint = `https://formsubmit.co/ajax/${contactDetails.email}`;
+export const socialLinks: { instagram: string; tiktok: string; facebook: string | null } = {
+  instagram: "https://www.instagram.com/yybuilds.studio/",
+  tiktok: "https://www.tiktok.com/@yybuilds.studio",
+  facebook: "https://www.facebook.com/share/1Exqprw7oR/?mibextid=wwXIfr",
+};

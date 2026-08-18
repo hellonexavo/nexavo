@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { BusinessService } from "@/config/business";
 import { BookingIcon } from "@/components/booking/icons";
 
@@ -28,6 +28,8 @@ export function BookingFlow({ businessName, cancellationPolicy, services, dates,
   const [confirmationEmailSent, setConfirmationEmailSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [website, setWebsite] = useState("");
+  const formStartedAt = useRef(0);
   const selected = activeServices.find((service) => service.id === serviceId) ?? activeServices[0];
   const selectedDate = dates.find((item) => item.value === date);
   const canContinue = (() => {
@@ -38,12 +40,16 @@ export function BookingFlow({ businessName, cancellationPolicy, services, dates,
     return true;
   })();
 
+  useEffect(() => { formStartedAt.current = Date.now(); }, []);
+
   function resetBooking() {
     setStep(0);
     setDetails(emptyDetails);
     setConfirmedBookingId("");
     setConfirmationEmailSent(false);
     setError("");
+    setWebsite("");
+    formStartedAt.current = Date.now();
   }
 
   async function confirmBooking() {
@@ -54,7 +60,7 @@ export function BookingFlow({ businessName, cancellationPolicy, services, dates,
       const response = await fetch("/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...details, serviceId, date, time }),
+        body: JSON.stringify({ ...details, serviceId, date, time, website, startedAt: formStartedAt.current }),
       });
       const result = await response.json() as { error?: string; booking?: { reference: string }; emailSent?: boolean };
       if (!response.ok || !result.booking) throw new Error(result.error || "We couldn't confirm your booking. Please try again.");
@@ -82,6 +88,7 @@ export function BookingFlow({ businessName, cancellationPolicy, services, dates,
     <StepProgress current={step} />
     <div className="grid lg:grid-cols-[1fr_240px]">
       <form onSubmit={(event) => { event.preventDefault(); if (step === 4) void confirmBooking(); else if (canContinue) { setError(""); setStep((current) => Math.min(4, current + 1)); } }} className="min-w-0 p-5 sm:p-8">
+        <label className="sr-only" aria-hidden="true">Website<input name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} /></label>
         {step === 0 && <StepSection eyebrow="Step 1 of 5" title="Choose a service" description="Select the appointment that best fits your needs."><div className="space-y-3">{activeServices.map((service) => <button key={service.id} type="button" aria-pressed={serviceId === service.id} onClick={() => setServiceId(service.id)} className={`flex w-full items-center justify-between rounded-xl border p-4 text-left transition-all ${serviceId === service.id ? "border-[#347662] bg-[#f3f8f6] ring-1 ring-[#347662]" : "border-slate-200 hover:border-slate-300"}`}><span><span className="block font-semibold text-slate-900">{service.name}</span><span className="mt-1 block text-sm text-slate-500">{service.description} · {service.durationMinutes} min</span></span><span className="ml-4 font-semibold text-slate-800">${service.price}</span></button>)}</div></StepSection>}
         {step === 1 && <StepSection eyebrow="Step 2 of 5" title="Select a date" description="All times are shown in the business timezone."><div className="mb-4 flex items-center justify-between"><p className="font-semibold text-slate-800">August 2026</p><span className="text-xs text-slate-400">6 days available</span></div><div className="grid grid-cols-3 gap-2 sm:grid-cols-6">{dates.map((item) => <button key={item.value} type="button" aria-pressed={date === item.value} aria-label={item.label} onClick={() => setDate(item.value)} className={`rounded-xl border px-3 py-3 text-center ${date === item.value ? "border-[#174b3e] bg-[#174b3e] text-white" : "border-slate-200 text-slate-700 hover:border-slate-300"}`}><span className="block text-[11px] uppercase opacity-70">{item.day}</span><span className="mt-1 block text-lg font-semibold">{item.date}</span></button>)}</div></StepSection>}
         {step === 2 && <StepSection eyebrow="Step 3 of 5" title="Choose a time" description={`Available times for ${selectedDate?.label ?? "your selected date"}.`}><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{timeSlots.map((slot) => <button key={slot.time} type="button" disabled={!slot.available} aria-pressed={time === slot.time} onClick={() => setTime(slot.time)} className={`rounded-lg border px-3 py-3 text-sm font-medium ${!slot.available ? "cursor-not-allowed border-slate-100 bg-slate-50 text-slate-300 line-through" : time === slot.time ? "border-[#347662] bg-[#e9f3ef] text-[#195c4b]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>{slot.time}</button>)}</div><p className="mt-4 text-xs text-slate-400">Unavailable times are already reserved.</p></StepSection>}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HomeHeader from "./components/HomeHeader";
 import YYAssistant from "./components/YYAssistant";
+import SocialLinks from "./components/SocialLinks";
 import { contactDetails } from "./lib/contact";
 
 const websiteServices = [
@@ -79,7 +80,7 @@ export default function Home() {
       </div></section>
 
       <section id="contact" className="home-section px-5 py-12 sm:px-6 lg:px-10 lg:py-16"><div className="final-cta relative mx-auto max-w-7xl overflow-hidden rounded-[30px] border border-white/10 px-7 py-10 sm:px-10 lg:px-12 lg:py-14"><div className="final-cta-glow" /><div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="eyebrow">05 / Contact</p><h2 className="mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.055em] sm:text-6xl">Tell us what you need and we&apos;ll recommend the right solution.</h2><p className="mt-5 text-white/50">A clear scope, a practical next step, and no obligation.</p></div><Link href="/checkout" className="button-primary">Start a project <span>↗</span></Link></div></div></section>
-      <footer className="border-t border-white/10 px-5 py-8 sm:px-6 lg:px-10"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-7 text-sm text-white/45 sm:flex-row sm:items-end"><div><p className="text-base font-semibold text-white/85">YY Builds</p><p className="mt-1">Websites • AI &amp; Automation • Products</p><div className="mt-4 flex flex-wrap gap-x-5 gap-y-2"><a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a><a href="https://t.me/yybuilds" target="_blank" rel="noreferrer">{contactDetails.telegram}</a></div></div><nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer navigation"><a href="#websites">Websites</a><a href="#automation">Automation</a><a href="#products">Products</a><a href="#work">Work</a><a href="#contact">Contact</a></nav></div></footer>
+      <footer className="border-t border-white/10 px-5 py-8 sm:px-6 lg:px-10"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-7 text-sm text-white/45 sm:flex-row sm:items-end"><div><p className="text-base font-semibold text-white/85">YY Builds</p><p className="mt-1">Websites • AI &amp; Automation • Products</p><div className="mt-4 flex flex-wrap gap-x-5 gap-y-2"><a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a><a href="https://t.me/yybuilds" target="_blank" rel="noopener noreferrer">{contactDetails.telegram}</a></div><SocialLinks className="mt-4" /></div><nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer navigation"><a href="#websites">Websites</a><a href="#automation">Automation</a><a href="#products">Products</a><a href="#work">Work</a><a href="#contact">Contact</a></nav></div></footer>
       <YYAssistant />
     </main>
   );

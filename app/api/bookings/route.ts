@@ -7,7 +7,20 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const RESEND_API_KEY_PATTERN = /^re_[A-Za-z0-9_-]+$/;
 const FROM_EMAIL_PATTERN = /^[\x20-\x7E]+<[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+>$/;
 
-type BookingRequest = { name?: unknown; email?: unknown; phone?: unknown; serviceId?: unknown; date?: unknown; time?: unknown; notes?: unknown };
+type BookingRequest = { name?: unknown; email?: unknown; phone?: unknown; serviceId?: unknown; date?: unknown; time?: unknown; notes?: unknown; website?: unknown; startedAt?: unknown };
+const submissionWindows = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(request: Request) {
+  const key = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
+  const now = Date.now();
+  const current = submissionWindows.get(key);
+  if (!current || current.resetAt <= now) {
+    submissionWindows.set(key, { count: 1, resetAt: now + 10 * 60_000 });
+    return false;
+  }
+  current.count += 1;
+  return current.count > 8;
+}
 
 function clean(value: unknown, maxLength: number) { return typeof value === "string" ? value.trim().slice(0, maxLength) : ""; }
 function escapeHtml(value: string) { return value.replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character] ?? character); }
@@ -22,6 +35,10 @@ export async function POST(request: Request) {
   let body: BookingRequest;
   try { body = await request.json(); } catch { return Response.json({ error: "Invalid booking request." }, { status: 400 }); }
 
+  const honeypot = clean(body.website, 200);
+  const startedAt = typeof body.startedAt === "number" ? body.startedAt : 0;
+  if (honeypot || !startedAt || Date.now() - startedAt < 750) return Response.json({ success: true }, { status: 201 });
+
   const name = clean(body.name, 100);
   const email = clean(body.email, 254).toLowerCase();
   const phone = clean(body.phone, 40);
@@ -33,6 +50,7 @@ export async function POST(request: Request) {
   const day = bookingDates.find((item) => item.value === dateValue);
   const timeSlot = bookingTimeSlots.find((item) => item.time === time && item.available);
   if (!name || !EMAIL_PATTERN.test(email) || !phone || !service || !day || !timeSlot) return Response.json({ error: "Please check your booking details and try again." }, { status: 400 });
+  if (isRateLimited(request)) return Response.json({ error: "Too many booking attempts. Please wait a few minutes and try again." }, { status: 429 });
 
   let booking: Booking;
   try {

@@ -3,14 +3,29 @@ import { NextResponse } from "next/server";
 type ContactRequest = {
   name?: unknown;
   email?: unknown;
-  company?: unknown;
+  phone?: unknown;
+  service?: unknown;
   selectedPackage?: unknown;
-  budget?: unknown;
-  preferredTimeline?: unknown;
   message?: unknown;
+  website?: unknown;
+  startedAt?: unknown;
 };
 
 const RESEND_BATCH_URL = "https://api.resend.com/emails/batch";
+const submissionWindows = new Map<string, { count: number; resetAt: number }>();
+const MINIMUM_SUBMISSION_TIME_MS = 750;
+
+function isRateLimited(request: Request) {
+  const key = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
+  const now = Date.now();
+  const current = submissionWindows.get(key);
+  if (!current || current.resetAt <= now) {
+    submissionWindows.set(key, { count: 1, resetAt: now + 10 * 60_000 });
+    return false;
+  }
+  current.count += 1;
+  return current.count > 5;
+}
 
 function cleanText(value: unknown, maxLength: number) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -25,17 +40,25 @@ export async function POST(request: Request) {
     const body = (await request.json()) as ContactRequest;
     const name = cleanText(body.name, 120);
     const email = cleanText(body.email, 254).toLowerCase();
+    const phone = cleanText(body.phone, 40) || "Not provided";
     const message = cleanText(body.message, 5000);
-    const company = cleanText(body.company, 160) || "Not provided";
-    const selectedPackage = cleanText(body.selectedPackage, 160) || "Not sure yet";
-    const budget = cleanText(body.budget, 100) || "Not provided";
-    const preferredTimeline = cleanText(body.preferredTimeline, 100) || "Not provided";
+    const selectedService = cleanText(body.service, 160) || cleanText(body.selectedPackage, 160) || "Not sure yet";
+    const honeypot = cleanText(body.website, 200);
+    const startedAt = typeof body.startedAt === "number" ? body.startedAt : 0;
+
+    if (honeypot || !startedAt || Date.now() - startedAt < MINIMUM_SUBMISSION_TIME_MS) {
+      return NextResponse.json({ success: true, message: "Your request has been received." });
+    }
 
     if (!name || !isValidEmail(email) || !message) {
       return NextResponse.json(
         { error: "Please provide a valid name, email, and project description." },
         { status: 400 }
       );
+    }
+
+    if (isRateLimited(request)) {
+      return NextResponse.json({ error: "Too many requests. Please wait a few minutes and try again." }, { status: 429 });
     }
 
     const apiKey = process.env.RESEND_API_KEY;
@@ -62,10 +85,8 @@ export async function POST(request: Request) {
       "",
       `Customer name: ${name}`,
       `Customer email: ${email}`,
-      `Company: ${company}`,
-      `Selected service: ${selectedPackage}`,
-      `Budget: ${budget}`,
-      `Preferred timeline: ${preferredTimeline}`,
+      `Phone: ${phone}`,
+      `Selected service: ${selectedService}`,
       `Submitted: ${submittedAtLabel}`,
       `Submitted (ISO): ${submittedAt.toISOString()}`,
       "",
@@ -78,8 +99,7 @@ export async function POST(request: Request) {
       "",
       "Thanks for your project request. YY Builds has received it and will review the details before getting back to you.",
       "",
-      `Selected service: ${selectedPackage}`,
-      `Budget: ${budget}`,
+      `Selected service: ${selectedService}`,
       "",
       "Your project details:",
       message,
@@ -99,7 +119,7 @@ export async function POST(request: Request) {
           from: fromEmail,
           to: [ownerEmail],
           reply_to: email,
-          subject: `New project request — ${selectedPackage}`,
+          subject: `New project request — ${selectedService}`,
           text: ownerMessage,
         },
         {

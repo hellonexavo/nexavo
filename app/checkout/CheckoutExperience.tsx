@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import type { ProductId } from "@/app/lib/products";
+import SocialLinks from "@/app/components/SocialLinks";
 
 type CheckoutProduct = {
   id: ProductId;
@@ -32,7 +33,10 @@ function priceLabel(price: number) {
 export default function CheckoutExperience({ products, initialProductId }: Props) {
   const [productId, setProductId] = useState<ProductId | "">(initialProductId ?? "");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const formStartedAt = useRef(0);
   const product = useMemo(() => products.find((item) => item.id === productId), [productId, products]);
+
+  useEffect(() => { formStartedAt.current = Date.now(); }, []);
 
   function selectProduct(nextId: ProductId | "") {
     setProductId(nextId);
@@ -55,11 +59,11 @@ export default function CheckoutExperience({ products, initialProductId }: Props
         body: JSON.stringify({
           name: formData.get("name"),
           email: formData.get("email"),
-          company: formData.get("company"),
-          selectedPackage,
-          budget: formData.get("budget"),
-          preferredTimeline: formData.get("preferred_timeline"),
+          phone: formData.get("phone"),
+          service: selectedPackage,
           message: formData.get("project_description"),
+          website: formData.get("website"),
+          startedAt: formStartedAt.current,
         }),
       });
       if (!response.ok) throw new Error("Project request failed");
@@ -79,7 +83,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
           <h1 className="mt-5 text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">Request received</h1>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/55">We&apos;ll review your request and reply with a recommended scope, timeline, and pricing.</p>
           <div className="mx-auto mt-8 max-w-lg rounded-2xl border border-white/10 bg-black/20 p-5 text-left"><p className="text-xs uppercase tracking-[0.16em] text-white/35">Selected service</p><p className="mt-2 text-lg font-semibold">{product?.name ?? "Not sure yet"}</p>{product && <p className="invisible mt-1 text-white/45" aria-hidden="true">{priceLabel(product.price)}</p>}</div>
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row"><Link href="/" className="button-primary">Back to YY Builds <span>→</span></Link><button type="button" onClick={() => setStatus("idle")} className="button-secondary">Send another request</button></div>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row"><Link href="/" className="button-primary">Back to YY Builds <span>→</span></Link><button type="button" onClick={() => { formStartedAt.current = Date.now(); setStatus("idle"); }} className="button-secondary">Send another request</button></div>
         </div>
       </main>
     );
@@ -117,11 +121,8 @@ export default function CheckoutExperience({ products, initialProductId }: Props
             <form onSubmit={submitRequest} aria-busy={status === "sending"} className="mt-7 space-y-4">
               <CheckoutField label="Full name" name="name" autoComplete="name" required />
               <CheckoutField label="Email" name="email" type="email" autoComplete="email" required />
-              <CheckoutField label="Company / business name" name="company" autoComplete="organization" />
-              <div className="grid gap-4 sm:grid-cols-2">
-                <label className="block text-sm font-medium text-white/60">Budget<span className="ml-1 text-white/25">(optional)</span><select name="budget" defaultValue="" className="premium-select mt-2"><option value="">Select a budget</option><option value="Not sure yet">Not sure yet</option>{showPublicPrices && <><option value="Under €300">Under €300</option><option value="€300–€500">€300–€500</option><option value="€500–€1,000">€500–€1,000</option><option value="€1,000–€2,500">€1,000–€2,500</option><option value="€2,500+">€2,500+</option></>}</select></label>
-                <label className="block text-sm font-medium text-white/60">Timeline<span className="ml-1 text-white/25">(optional)</span><select name="preferred_timeline" defaultValue="" className="premium-select mt-2"><option value="">Select a timeline</option><option value="As soon as possible">As soon as possible</option><option value="1–2 weeks">1–2 weeks</option><option value="2–4 weeks">2–4 weeks</option><option value="Flexible">Flexible</option></select></label>
-              </div>
+              <CheckoutField label="Phone" name="phone" type="tel" autoComplete="tel" />
+              <label className="sr-only" aria-hidden="true">Website<input name="website" type="text" tabIndex={-1} autoComplete="off" /></label>
               <label className="block text-sm font-medium text-white/60">Project description<span className="ml-1 text-violet-300" aria-hidden="true">*</span><textarea required name="project_description" rows={5} placeholder="Tell us about your business, goals, and what you need." className="premium-field mt-2 resize-y" /></label>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm"><div className="flex justify-between gap-4"><span className="text-white/40">Service</span><span className="text-right font-semibold">{product?.name ?? "Not sure yet"}</span></div><div className="mt-3 flex justify-between gap-4 border-t border-white/10 pt-3"><span className={product ? "invisible text-white/55" : "text-white/55"}>{product ? "Starting price" : "Next step"}</span><span className={product ? "invisible text-lg font-semibold" : "text-lg font-semibold"}>{product ? priceLabel(product.price) : "Personal recommendation"}</span></div></div>
               {status === "error" && <div role="alert" className="rounded-2xl border border-rose-300/20 bg-rose-300/[0.08] p-4 text-sm text-rose-100">The request could not be sent. Please try again in a moment.</div>}
@@ -130,6 +131,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
             </form>
           </aside>
         </div>
+        <footer className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 text-xs text-white/35 sm:flex-row"><p>YY Builds · Websites, AI &amp; Automation</p><SocialLinks /></footer>
       </div>
     </main>
   );

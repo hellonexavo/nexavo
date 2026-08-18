@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { formSubmitEndpoint } from "@/app/lib/contact";
 
 const bookingServices = [
   "Oil & Filter Service",
@@ -27,7 +26,7 @@ export default function ProjectForm({ selectedServices = [] }: { selectedService
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
 
@@ -38,52 +37,10 @@ export default function ProjectForm({ selectedServices = [] }: { selectedService
       return;
     }
 
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      setStatus("sending");
-      setErrorMessage("");
-
-      const response = await fetch(
-        formSubmitEndpoint,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            ...data,
-            estimateServices: selectedServices.join(", ") || "None selected",
-            _subject: "New Autoflow service booking enquiry",
-            _template: "table",
-            _captcha: "false",
-          }),
-        },
-      );
-
-      const result = (await response.json().catch(() => null)) as
-        | { success?: boolean | string; message?: string }
-        | null;
-      const confirmed = result?.success === true || result?.success === "true";
-
-      if (!response.ok || !confirmed) {
-        throw new Error(
-          result?.message || "The enquiry service rejected this request.",
-        );
-      }
-
-      form.reset();
-      setStatus("success");
-    } catch (error) {
-      setErrorMessage(
-        error instanceof Error
-          ? error.message
-          : "We could not send your enquiry. Please try again.",
-      );
-      setStatus("error");
-    }
+    // Portfolio demo only: validate the journey locally without transmitting data.
+    form.reset();
+    setErrorMessage("");
+    setStatus("success");
   }
 
   return (
@@ -102,14 +59,14 @@ export default function ProjectForm({ selectedServices = [] }: { selectedService
       <div className="flex flex-col justify-between gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-start">
         <div>
           <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#d8ff3e]">
-            Existing enquiry delivery
+            Booking enquiry demo
           </p>
           <h3 className="mt-2 text-2xl font-black uppercase">
             Vehicle & appointment details
           </h3>
         </div>
         <span className="w-fit rounded-md bg-white/[0.06] px-3 py-2 text-[9px] font-bold uppercase tracking-wider text-white/45">
-          Enquiry · not confirmed
+          Demo only · no data sent
         </span>
       </div>
 
@@ -169,7 +126,7 @@ export default function ProjectForm({ selectedServices = [] }: { selectedService
       </button>
 
       <div aria-live="polite" aria-atomic="true">
-        {status === "success" && <p role="status" className="mt-5 rounded-xl border border-emerald-400/20 bg-emerald-400/10 p-4 text-sm leading-6 text-emerald-200">Your enquiry was sent successfully. This does not confirm an appointment; the workshop would contact you to confirm availability.</p>}
+        {status === "success" && <p role="status" className="mt-5 rounded-xl border border-emerald-400/20 bg-emerald-400/10 p-4 text-sm leading-6 text-emerald-200">Demo enquiry complete. No appointment was created and no personal information was transmitted.</p>}
         {(status === "validation" || status === "error") && <p role="alert" className="mt-5 rounded-xl border border-red-400/20 bg-red-400/10 p-4 text-sm leading-6 text-red-200">{errorMessage}</p>}
       </div>
     </form>
