@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navigation = [
-  { label: "Services", href: "#services" },
+  { label: "Websites", href: "#websites" },
+  { label: "Automation", href: "#automation" },
+  { label: "Products", href: "#products" },
   { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function HomeHeader() {
@@ -33,9 +34,9 @@ export default function HomeHeader() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-7 text-sm text-white/60 md:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-6 text-sm text-white/60 lg:flex" aria-label="Primary navigation">
           {navigation.map((item) => (
-            <a key={item.href} href={item.href} className="hover:text-white">{item.label}</a>
+            <a key={item.href} href={item.href} className="transition hover:text-white">{item.label}</a>
           ))}
         </nav>
 
@@ -47,7 +48,7 @@ export default function HomeHeader() {
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
             aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white lg:hidden"
           >
             <span className="relative h-4 w-5" aria-hidden="true">
               <span className={`absolute left-0 top-1 block h-px w-5 bg-current transition ${menuOpen ? "translate-y-[3px] rotate-45" : ""}`} />
@@ -58,7 +59,7 @@ export default function HomeHeader() {
       </div>
 
       {menuOpen && (
-        <div id="mobile-navigation" className="border-t border-white/10 bg-[#090909] md:hidden">
+        <div id="mobile-navigation" className="border-t border-white/10 bg-[#090909] lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-5 py-4" aria-label="Mobile navigation">
             {navigation.map((item) => (
               <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className="border-b border-white/10 py-4 text-lg text-white/75 last:border-0">{item.label}</a>

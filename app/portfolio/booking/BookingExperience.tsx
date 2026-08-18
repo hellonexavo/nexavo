@@ -7,7 +7,7 @@ import OwnerDashboard from "./OwnerDashboard";
 import { copy, sampleBookings, type BookingStatus, type DemoBooking, type Language } from "./config";
 import PurchaseButton from "@/app/components/PurchaseButton";
 
-const storageKey = "nexavo-booking-demo-v1";
+const storageKey = "yy-builds-booking-demo-v1";
 type View = "customer" | "dashboard";
 type Filter = "All" | BookingStatus;
 
