@@ -22,6 +22,7 @@ type Props = {
 const showPublicPrices = false;
 
 function priceLabel(price: number) {
+  if (price <= 0) return "Custom quote";
   const formattedPrice = new Intl.NumberFormat("en-NL", {
     style: "currency",
     currency: "EUR",
