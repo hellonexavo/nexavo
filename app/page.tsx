@@ -22,19 +22,21 @@ const automationServices = [
 ];
 
 const websiteExamples = [
-  { name: "NovaDent", type: "Clinic website", href: "/portfolio/novadent", tone: "cyan" },
-  { name: "Autoflow", type: "Automotive services", href: "/portfolio/autoflow", tone: "orange" },
-  { name: "Maison", type: "Restaurant website", href: "/portfolio/maison", tone: "warm" },
+  { name: "Modern Dental Care", type: "Multi-location dental practice", label: "Concept redesign", href: "/portfolio/modern-dental-care", tone: "healthcare" },
+  { name: "NovaDent", type: "Clinic website", label: "Concept", href: "/portfolio/novadent", tone: "cyan" },
+  { name: "Autoflow", type: "Automotive services", label: "Concept", href: "/portfolio/autoflow", tone: "orange" },
+  { name: "Maison", type: "Restaurant website", label: "Concept", href: "/portfolio/maison", tone: "warm" },
 ];
 
 const workGroups = [
   { id: "work-websites", label: "Website projects", projects: [
-    { name: "NovaDent", sector: "Dental clinic", summary: "Treatment discovery, patient guidance and appointment requests.", href: "/portfolio/novadent", tone: "cyan" },
-    { name: "Autoflow", sector: "Automotive services", summary: "Service selection, instant estimates and booking enquiries.", href: "/portfolio/autoflow", tone: "orange" },
-    { name: "Maison", sector: "Restaurant", summary: "Brand-led dining, interactive menus and table reservations.", href: "/portfolio/maison", tone: "warm" },
+    { name: "Modern Dental Care", sector: "Multi-location dental practice", label: "Concept redesign", summary: "Multi-location dental experience with treatment discovery, multilingual content and a guided appointment flow.", href: "/portfolio/modern-dental-care", tone: "healthcare" },
+    { name: "NovaDent", sector: "Dental clinic", label: "Concept", summary: "Treatment discovery, patient guidance and appointment requests.", href: "/portfolio/novadent", tone: "cyan" },
+    { name: "Autoflow", sector: "Automotive services", label: "Concept", summary: "Service selection, instant estimates and booking enquiries.", href: "/portfolio/autoflow", tone: "orange" },
+    { name: "Maison", sector: "Restaurant", label: "Concept", summary: "Brand-led dining, interactive menus and table reservations.", href: "/portfolio/maison", tone: "warm" },
   ] },
   { id: "work-systems", label: "Product / system projects", projects: [
-    { name: "YY Booking", sector: "Booking system", summary: "Live quotes, scheduling, customer booking and owner management.", href: "/portfolio/booking", tone: "blue" },
+    { name: "YY Booking", sector: "Booking system", label: "Product demo", summary: "Live quotes, scheduling, customer booking and owner management.", href: "/portfolio/booking", tone: "blue" },
   ] },
 ];
 
@@ -48,10 +50,10 @@ const bookingTemplateFeatures = [
 ];
 
 const pricingTrust = [
-  ["Fast delivery", "Efficient project delivery with scope agreed before work begins."],
-  ["Clear pricing", "No hidden fees. Scope and price are confirmed before work starts."],
-  ["Digital product support", "A 7-day technical issue refund policy applies to YY Booking Template."],
-  ["Ongoing support", "Website Care is available after launch."],
+  ["Direct communication", "Work directly with the person shaping, building and reviewing your project."],
+  ["Clear scope", "Scope and price are confirmed before work starts, with no unnecessary agency overhead."],
+  ["Responsive builds", "Responsive, conversion-focused structure is part of the build from the start."],
+  ["Modern technology", "Use dependable modern tools where they improve the customer experience."],
 ];
 
 const projectProcess = [
@@ -63,7 +65,7 @@ const projectProcess = [
 ];
 
 const pricingIntroTrust = [
-  "Personal project review",
+  "Direct communication",
   "Clear scope before payment",
   "Responsive by default",
 ];
@@ -116,16 +118,16 @@ export default function Home() {
         <div className="hero-effects pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true"><div className="hero-spotlight" /><div className="hero-glow hero-glow-purple" /><div className="hero-glow hero-glow-blue" /><div className="hero-grid" /></div>
         <div className="relative mx-auto w-full max-w-7xl">
           <p className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/55"><span className="h-px w-8 bg-violet-400" /> Independent digital studio</p>
-          <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_330px] lg:items-end lg:gap-16"><h1 className="hero-title max-w-[1030px] text-[clamp(3.25rem,7.7vw,7rem)] font-semibold leading-[0.9] tracking-[-0.07em]">Modern digital systems <span className="text-white/38">built for business.</span></h1><p className="text-lg leading-8 text-white/62">YY Builds creates modern websites, AI automation and digital products that help businesses look better, move faster and serve customers well.</p></div>
-          <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-7 sm:flex-row"><Link href="#work" className="button-primary">View work <span>↓</span></Link><Link href="/checkout" className="button-secondary">Start a project <span>↗</span></Link></div>
-          <div className="hero-trust mt-9 flex flex-wrap gap-x-7 gap-y-3 text-xs font-medium uppercase tracking-[0.16em] text-white/35"><span>Websites</span><span>AI &amp; automation</span><span>Digital products</span></div>
+          <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_330px] lg:items-end lg:gap-16"><h1 className="hero-title max-w-[1030px] text-[clamp(3.25rem,7.7vw,7rem)] font-semibold leading-[0.9] tracking-[-0.07em]">Modern websites <span className="text-white/38">built to turn attention into enquiries.</span></h1><p className="text-lg leading-8 text-white/62">YY Builds creates premium websites, booking experiences and digital systems for small and service businesses—helping more visitors understand what you do and take the next step.</p></div>
+          <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-7 sm:flex-row"><Link href="/checkout" className="button-primary">Start a project <span>↗</span></Link><Link href="#work" className="button-secondary">View work <span>↓</span></Link></div>
+          <div className="hero-trust mt-9 flex flex-wrap gap-x-7 gap-y-3 text-xs font-medium uppercase tracking-[0.16em] text-white/35"><span>Websites &amp; booking experiences</span><span>AI &amp; automation</span><span>Digital products</span></div>
         </div>
       </section>
 
       <section id="websites" className="home-section border-t border-white/[0.08] px-5 py-20 sm:px-6 lg:px-10 lg:py-28"><div className="mx-auto max-w-7xl">
-        <SectionHeading eyebrow="01 / Websites" title="Websites that make the value of your business clear." copy="Strategy, design and development brought together in one focused build—from a sharp landing page to a custom business platform." />
+        <SectionHeading eyebrow="01 / Websites & booking experiences" title="Websites that make the value of your business clear." copy="Strategy, design and development brought together in one focused build—from a sharp landing page to a booking experience that helps customers take the next step." />
         <div className="mt-12 grid overflow-hidden rounded-[30px] border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-5 lg:gap-px">{websiteServices.map(([number, title, copy]) => <article key={title} className="website-service flex min-h-[220px] flex-col bg-[#0a0a0d] p-6"><span className="text-xs text-violet-300/70">{number}</span><div className="mt-auto pt-10"><h3 className="text-xl font-semibold tracking-[-0.035em]">{title}</h3><p className="mt-3 text-sm leading-6 text-white/48">{copy}</p></div></article>)}</div>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">{websiteExamples.map((project) => <Link key={project.name} href={project.href} className={`mini-project mini-project-${project.tone}`}><span className="text-xs uppercase tracking-[0.16em] opacity-55">{project.type}</span><span className="mt-12 flex items-end justify-between gap-4 text-2xl font-semibold tracking-[-0.04em]"><span>{project.name}</span><span>↗</span></span></Link>)}</div>
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{websiteExamples.map((project) => <Link key={project.name} href={project.href} className={`mini-project mini-project-${project.tone}`}><span className="text-xs uppercase tracking-[0.16em] opacity-55">{project.type}</span><span className="mt-3 text-[10px] font-semibold uppercase tracking-[0.16em] opacity-45">{project.label}</span><span className="mt-10 flex items-end justify-between gap-4 text-2xl font-semibold tracking-[-0.04em]"><span>{project.name}</span><span>↗</span></span></Link>)}</div>
         <Link href="#work-websites" className="button-secondary mt-8">Explore website work <span>↓</span></Link>
       </div></section>
 
@@ -176,18 +178,18 @@ export default function Home() {
 
         <div className="commercial-process mt-16"><div className="commercial-group-heading"><p>How it works</p><span /></div><ol className="mt-6 grid gap-px overflow-hidden rounded-[24px] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">{projectProcess.map((step, index) => <li key={step} className="bg-[#0a0a0d] p-5"><span className="text-xs font-semibold text-violet-300/70">0{index + 1}</span><p className="mt-7 text-sm font-medium leading-6 text-white/72">{step}</p></li>)}</ol></div>
 
-        <div className="commercial-final-trust mt-16"><div><p className="eyebrow">Every project is different</p><h2 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-.055em] sm:text-6xl">Final pricing is confirmed before work begins — no hidden fees.</h2></div><div className="commercial-final-trust-items">{["Transparent process", "Clear communication", "Responsive delivery", "Support after launch"].map((item) => <span key={item}>✓ {item}</span>)}</div></div>
+        <div className="commercial-final-trust mt-16"><div><p className="eyebrow">Every project is different</p><h2 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-.055em] sm:text-6xl">Final pricing is confirmed before work begins — no hidden fees.</h2></div><div className="commercial-final-trust-items">{["Direct communication", "Clear scope", "Responsive builds", "Modern technology"].map((item) => <span key={item}>✓ {item}</span>)}</div></div>
 
         <div className="commercial-closing-cta mt-8"><div><p className="eyebrow">Final step</p><h2 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-.055em] sm:text-6xl">Ready to build something better?</h2><p className="mt-5 max-w-2xl text-base leading-7 text-white/52">Tell us what you need and we&apos;ll recommend the right scope before any work begins.</p></div><div className="flex flex-col gap-3 sm:flex-row lg:justify-end"><Link href="/checkout" className="button-primary">Start a Project <span>↗</span></Link><a href="#work" className="button-secondary">View Our Work <span>↓</span></a></div></div>
       </div></section>
 
       <section id="work" className="home-section border-t border-white/[0.08] bg-white/[0.018] px-5 py-20 sm:px-6 lg:px-10 lg:py-28"><div className="mx-auto max-w-7xl">
         <SectionHeading eyebrow="05 / Selected work" title="Browse by the kind of thing we built." copy="Explore live concept projects across websites, customer journeys and digital systems." />
-        {workGroups.map((group) => <div key={group.id} id={group.id} className="work-group pt-12"><div className="mb-5 flex items-center gap-5"><h3 className="text-xs font-semibold uppercase tracking-[.2em] text-violet-200">{group.label}</h3><span className="h-px flex-1 bg-white/10" /><span className="text-xs text-white/30">{String(group.projects.length).padStart(2, "0")}</span></div><div className={`grid gap-4 ${group.projects.length > 1 ? "md:grid-cols-3" : ""}`}>{group.projects.map((project) => <Link key={project.name} href={project.href} className={`work-card work-card-${project.tone} group`}><article className="flex min-h-[330px] flex-col p-7"><div className="flex justify-between gap-4 text-xs uppercase tracking-[.16em] opacity-55"><span>{project.sector}</span><span>Concept</span></div><div className="mt-auto pt-16"><h4 className="text-3xl font-semibold tracking-[-.05em]">{project.name}</h4><p className="mt-3 max-w-md text-sm leading-6 opacity-65">{project.summary}</p><div className="mt-6 flex items-center justify-between border-t border-current/15 pt-4 text-xs font-semibold uppercase tracking-[.14em]"><span>View project</span><span className="project-arrow">↗</span></div></div></article></Link>)}</div></div>)}
+        {workGroups.map((group) => <div key={group.id} id={group.id} className="work-group pt-12"><div className="mb-5 flex items-center gap-5"><h3 className="text-xs font-semibold uppercase tracking-[.2em] text-violet-200">{group.label}</h3><span className="h-px flex-1 bg-white/10" /><span className="text-xs text-white/30">{String(group.projects.length).padStart(2, "0")}</span></div><div className={`grid gap-4 ${group.projects.length > 1 ? "md:grid-cols-3" : ""}`}>{group.projects.map((project) => <Link key={project.name} href={project.href} className={`work-card work-card-${project.tone} group`}><article className="flex min-h-[330px] flex-col p-7"><div className="flex justify-between gap-4 text-xs uppercase tracking-[.16em] opacity-55"><span>{project.sector}</span><span>{project.label}</span></div><div className="mt-auto pt-16"><h4 className="text-3xl font-semibold tracking-[-.05em]">{project.name}</h4><p className="mt-3 max-w-md text-sm leading-6 opacity-65">{project.summary}</p><div className="mt-6 flex items-center justify-between border-t border-current/15 pt-4 text-xs font-semibold uppercase tracking-[.14em]"><span>View project</span><span className="project-arrow">↗</span></div></div></article></Link>)}</div></div>)}
         <div className="mt-12 rounded-[24px] border border-dashed border-white/15 p-6 text-white/42"><span className="text-xs font-semibold uppercase tracking-[.18em] text-white/60">Concept projects</span><p className="mt-3 max-w-2xl text-sm leading-6">The projects shown are clearly marked concepts—built to demonstrate our approach to brand, customer experience and useful digital functionality.</p></div>
       </div></section>
 
-      <section id="contact" className="home-section px-5 py-12 sm:px-6 lg:px-10 lg:py-16"><div className="final-cta relative mx-auto max-w-7xl overflow-hidden rounded-[30px] border border-white/10 px-7 py-10 sm:px-10 lg:px-12 lg:py-14"><div className="final-cta-glow" /><div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="eyebrow">06 / Contact</p><h2 className="mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.055em] sm:text-6xl">Tell us what you need and we&apos;ll recommend the right solution.</h2><p className="mt-5 text-white/50">A clear scope, a practical next step, and no obligation.</p></div><Link href="/checkout" className="button-primary">Start a project <span>↗</span></Link></div></div></section>
+      <section id="contact" className="home-section px-5 py-12 sm:px-6 lg:px-10 lg:py-16"><div className="final-cta relative mx-auto max-w-7xl overflow-hidden rounded-[30px] border border-white/10 px-7 py-10 sm:px-10 lg:px-12 lg:py-14"><div className="final-cta-glow" /><div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="eyebrow">06 / Contact</p><h2 className="mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.055em] sm:text-6xl">Tell us what you need and we&apos;ll recommend the right solution.</h2><p className="mt-5 text-white/50">A clear scope, a practical next step, and no obligation.</p><div className="mt-7 border-t border-white/10 pt-6"><p className="font-medium text-white/78">Already have a website? Send me the link and I&apos;ll tell you what I would improve.</p><p className="mt-2 text-sm leading-6 text-white/42">Include the URL in the project request and I&apos;ll review it alongside your goals.</p><Link href="/checkout" className="mt-4 inline-flex text-sm font-semibold text-violet-200 transition hover:text-white">Share your website <span className="ml-2">↗</span></Link></div></div><Link href="/checkout" className="button-primary">Start a project <span>↗</span></Link></div></div></section>
       <footer className="border-t border-white/10 px-5 py-8 sm:px-6 lg:px-10"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-7 text-sm text-white/45 sm:flex-row sm:items-end"><div><p className="text-base font-semibold text-white/85">YY Builds</p><p className="mt-1">Websites • AI &amp; Automation • Products</p><div className="mt-4 flex flex-wrap gap-x-5 gap-y-2"><a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a><a href="https://t.me/yybuilds" target="_blank" rel="noopener noreferrer">{contactDetails.telegram}</a></div><SocialLinks className="mt-4" /></div><nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer navigation"><a href="#websites">Websites</a><a href="#automation">Automation</a><a href="#products">Products</a><a href="#pricing">Pricing</a><a href="#work">Work</a><a href="#contact">Contact</a></nav></div></footer>
       <YYAssistant />
     </main>

@@ -4,54 +4,45 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import BookingFlow from "./BookingFlow";
 import OwnerDashboard from "./OwnerDashboard";
-import { copy, sampleBookings, type BookingStatus, type DemoBooking, type Language } from "./config";
-import PurchaseButton from "@/app/components/PurchaseButton";
+import { sampleBookings, type BookingStatus, type DemoBooking } from "./config";
 
-const storageKey = "yy-builds-booking-demo-v1";
+const storageKey = "yy-builds-booking-studio-demo-v2";
 type View = "customer" | "dashboard";
 type Filter = "All" | BookingStatus;
 
-export default function BookingExperience({ currentYear, paypalClientId }: { currentYear: number; paypalClientId: string }) {
-  const [language, setLanguage] = useState<Language>("en");
+export default function BookingExperience({ currentYear }: { currentYear: number }) {
   const [view, setView] = useState<View>("customer");
   const [bookings, setBookings] = useState<DemoBooking[]>(sampleBookings);
   const [filter, setFilter] = useState<Filter>("All");
   const [storageReady, setStorageReady] = useState(false);
-  const t = copy[language];
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      try {
-        const saved = window.localStorage.getItem(storageKey);
-        if (saved) setBookings(JSON.parse(saved) as DemoBooking[]);
-      } catch { /* Keep sample data when browser storage is unavailable or invalid. */ }
+      try { const saved = window.localStorage.getItem(storageKey); if (saved) setBookings(JSON.parse(saved) as DemoBooking[]); } catch { /* Sample data keeps the demo usable. */ }
       setStorageReady(true);
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    if (!storageReady) return;
-    try { window.localStorage.setItem(storageKey, JSON.stringify(bookings)); } catch { /* The demo remains usable without persistence. */ }
-  }, [bookings, storageReady]);
+  useEffect(() => { if (!storageReady) return; try { window.localStorage.setItem(storageKey, JSON.stringify(bookings)); } catch { /* Persistence is optional. */ } }, [bookings, storageReady]);
 
   function showView(next: View) { setView(next); window.scrollTo({ top: 0, behavior: "smooth" }); }
-  function addBooking(booking: DemoBooking) { setBookings((current) => [booking, ...current]); }
   function updateStatus(id: string, status: BookingStatus) { setBookings((current) => current.map((booking) => booking.id === id ? { ...booking, status } : booking)); }
-  function resetDashboard() { setBookings(sampleBookings); setFilter("All"); }
 
-  return (
-    <div className="min-h-screen overflow-hidden bg-[#f4f7f7] text-slate-950 selection:bg-cyan-200">
-      <a href="#main" className="sr-only z-[100] rounded-full bg-slate-950 px-5 py-3 text-white focus:fixed focus:left-4 focus:top-4 focus:not-sr-only">{t.skip}</a>
-      <div className="bg-slate-950 px-4 py-2.5 text-center text-[11px] font-medium text-white/75 sm:text-xs"><span className="text-cyan-300">Demo:</span> {t.demo}</div>
-      <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-[#f4f7f7]/92 backdrop-blur-xl">
-        <div className="mx-auto flex min-h-20 max-w-7xl flex-wrap items-center justify-between gap-x-3 gap-y-2 px-5 py-3 sm:px-7 lg:flex-nowrap lg:px-10"><button type="button" onClick={() => showView("customer")} className="flex min-w-0 items-center gap-3 rounded-xl text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-700"><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-cyan-700 font-bold text-white">YB</span><span className="min-w-0"><span className="block truncate font-semibold tracking-tight">YY Booking</span><span className="hidden text-xs text-slate-500 lg:block">Booking &amp; payments demo</span></span></button>
-          <div className="flex shrink-0 items-center gap-2"><Link href="/" className="hidden min-h-11 items-center rounded-full px-3 text-sm font-semibold text-slate-600 hover:text-cyan-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700 lg:inline-flex"><span className="mr-2" aria-hidden="true">←</span>{t.back}</Link><div className="hidden rounded-full border border-slate-200 bg-white p-1 sm:flex" role="tablist" aria-label="Application view"><button type="button" role="tab" aria-selected={view === "customer"} onClick={() => showView("customer")} className={`rounded-full px-4 py-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-cyan-700 ${view === "customer" ? "bg-slate-950 text-white" : "text-slate-500 hover:text-slate-950"}`}>{t.customer}</button><button type="button" role="tab" aria-selected={view === "dashboard"} onClick={() => showView("dashboard")} className={`rounded-full px-4 py-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-cyan-700 ${view === "dashboard" ? "bg-slate-950 text-white" : "text-slate-500 hover:text-slate-950"}`}>{t.dashboard}</button></div><button type="button" onClick={() => setLanguage((current) => current === "en" ? "nl" : "en")} aria-label="Switch language" className="min-h-11 rounded-full border border-slate-300 bg-white px-3 py-2.5 text-xs font-bold text-slate-700 hover:border-cyan-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700"><span className={language === "en" ? "text-cyan-700" : "text-slate-400"}>EN</span> / <span className={language === "nl" ? "text-cyan-700" : "text-slate-400"}>NL</span></button></div><Link href="/" className="order-3 flex min-h-10 w-full items-center text-sm font-semibold text-slate-600 hover:text-cyan-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700 lg:hidden"><span className="mr-2" aria-hidden="true">←</span>{t.back}</Link></div>
-        <div className="flex border-t border-slate-200 bg-white p-2 sm:hidden" role="tablist" aria-label="Application view"><button type="button" role="tab" aria-selected={view === "customer"} onClick={() => showView("customer")} className={`min-h-11 min-w-0 flex-1 rounded-xl px-2 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-cyan-700 ${view === "customer" ? "bg-slate-950 text-white" : "text-slate-500"}`}>{t.customer}</button><button type="button" role="tab" aria-selected={view === "dashboard"} onClick={() => showView("dashboard")} className={`min-h-11 min-w-0 flex-1 rounded-xl px-2 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-cyan-700 ${view === "dashboard" ? "bg-slate-950 text-white" : "text-slate-500"}`}>{t.dashboard}</button></div>
-      </header>
-      <div id="main">{view === "customer" ? <BookingFlow language={language} paypalClientId={paypalClientId} onConfirm={addBooking} onDashboard={() => showView("dashboard")} /> : <OwnerDashboard language={language} bookings={bookings} filter={filter} onFilter={setFilter} onStatus={updateStatus} onReset={resetDashboard} />}</div>
-      <section className="border-t border-slate-200 bg-[#edf4f4] px-5 py-12 sm:px-7 lg:px-10"><div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-[26px] bg-slate-950 p-7 text-white sm:flex-row sm:items-center sm:justify-between sm:p-9"><div><p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">Built by YY Builds</p><h2 className="mt-3 text-2xl font-semibold tracking-[-0.035em]">Want a system like this?</h2><p className="mt-2 text-sm text-white/45">Connect a customer booking flow to your business operations.</p></div><PurchaseButton productId="business-automation" className="shrink-0">Start a similar project</PurchaseButton></div></section>
-      <footer className="border-t border-slate-200 bg-white px-5 py-8 sm:px-7 lg:px-10"><div className="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-500 sm:flex-row sm:items-end sm:justify-between"><div className="min-w-0"><p className="break-words font-semibold text-slate-800">{t.footerConcept}</p><p className="mt-1 break-words">© {currentYear} · {t.footerDisclaimer}</p></div><Link href="/" className="inline-flex min-h-11 items-center self-start font-semibold text-cyan-800 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-700 sm:self-auto"><span className="mr-2" aria-hidden="true">←</span>{t.back}</Link></div></footer>
-    </div>
-  );
+  return <div className="studio-demo min-h-screen overflow-hidden bg-[#09090c] text-white selection:bg-violet-300 selection:text-[#09090c]">
+    <a href="#main" className="studio-skip">Skip to main content</a>
+    <div className="studio-demo-bar"><span>Interactive demo</span> Fictional studio, specialists, reviews, and availability · No real appointment or payment is created</div>
+    <header className="studio-header"><div className="studio-shell studio-header-inner"><button type="button" onClick={() => showView("customer")} className="studio-brand" aria-label="YY Studio booking demo home"><span>YS</span><strong>YY Studio<small>Premium booking demo</small></strong></button><nav aria-label="Demo navigation"><button type="button" aria-pressed={view === "customer"} onClick={() => showView("customer")}>Customer experience</button><button type="button" aria-pressed={view === "dashboard"} onClick={() => showView("dashboard")}>Owner preview</button></nav><Link href="/" className="studio-home-link">YY Builds <span>↗</span></Link></div></header>
+    <div id="main">{view === "customer" ? <><BookingFlow onConfirm={(booking) => setBookings((current) => [booking, ...current])} onDashboard={() => showView("dashboard")} /><StudioContent /></> : <OwnerDashboard bookings={bookings} filter={filter} onFilter={setFilter} onStatus={updateStatus} onReset={() => { setBookings(sampleBookings); setFilter("All"); }} />}</div>
+    <footer className="studio-footer"><div className="studio-shell"><div><strong>YY Studio</strong><p>Fictional sample content for the YY Booking product showcase.</p></div><p>© {currentYear} YY Builds · No real bookings or payments are processed</p><Link href="/">Back to YY Builds <span>↗</span></Link></div></footer>
+  </div>;
+}
+
+function StudioContent() {
+  return <>
+    <section className="studio-story studio-shell"><div><p className="studio-eyebrow">About the studio</p><h2>A quieter approach to personal care.</h2><p>YY Studio is a fictional sample business created to show how a premium service brand can combine storytelling, clear information, and booking in one polished experience.</p><a href="#booking" className="studio-text-button">Book a demo appointment <span>↗</span></a></div><div className="studio-business-info"><article><span>Opening hours</span><p>Mon–Fri · 09:00–19:00<br />Saturday · 09:00–17:00<br />Sunday · Closed</p></article><article><span>Location</span><p>24 Atelier Lane<br />Amsterdam, Netherlands<br /><em>Fictional demo address</em></p></article><article><span>Contact</span><p>hello@example.test<br />+31 20 000 0000<br /><em>Sample contact details</em></p></article></div></section>
+    <section className="studio-reviews"><div className="studio-shell"><div className="studio-section-heading"><div><p className="studio-eyebrow">Sample experience</p><h2>Thoughtful at every step.</h2></div><p>These fictional testimonials demonstrate how customer reassurance could appear in a finished template.</p></div><div className="studio-review-grid">{[["The whole experience felt considered—from choosing my service to the final confirmation.", "Avery · fictional review"], ["Clear, calm, and genuinely easy to use on my phone.", "Morgan · fictional review"], ["I knew exactly what I was booking before I shared my details.", "Riley · fictional review"]].map(([quote, by]) => <blockquote key={by}><span>“</span><p>{quote}</p><cite>{by}</cite></blockquote>)}</div></div></section>
+    <section className="studio-flexibility studio-shell"><div><p className="studio-eyebrow">One system, many businesses</p><h2>Designed to adapt.</h2><p>The same configuration-led booking experience can be tailored to different appointment-based businesses without duplicating the application.</p></div><div className="studio-business-types">{["Salon", "Clinic", "Consultant", "Repair service", "Wellness studio"].map((item, index) => <span key={item}><i>{String(index + 1).padStart(2, "0")}</i>{item}</span>)}</div></section>
+    <section className="studio-sales"><div className="studio-shell"><div><p className="studio-eyebrow">Like this booking experience?</p><h2>YY Booking Template</h2><p>Own the full customizable source code for a one-time €39 purchase.</p></div><div className="studio-sales-price"><strong>€39</strong><span>one-time</span></div><div className="studio-actions"><a href="https://buildsy2.gumroad.com/l/yy-booking" target="_blank" rel="noopener noreferrer" className="studio-button studio-button-primary">Buy Template — €39 <span>↗</span></a><Link href="/" className="studio-button studio-button-secondary">Back to YY Builds <span>←</span></Link></div></div></section>
+  </>;
 }

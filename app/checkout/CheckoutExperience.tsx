@@ -34,6 +34,7 @@ function priceLabel(price: number) {
 export default function CheckoutExperience({ products, initialProductId }: Props) {
   const [productId, setProductId] = useState<ProductId | "">(initialProductId ?? "");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const formStartedAt = useRef(0);
   const product = useMemo(() => products.find((item) => item.id === productId), [productId, products]);
 
@@ -42,6 +43,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
   function selectProduct(nextId: ProductId | "") {
     setProductId(nextId);
     setStatus("idle");
+    setErrorMessage("");
     window.history.replaceState(null, "", nextId ? `/checkout?product=${nextId}` : "/checkout");
   }
 
@@ -64,14 +66,17 @@ export default function CheckoutExperience({ products, initialProductId }: Props
           service: selectedPackage,
           message: formData.get("project_description"),
           website: formData.get("website"),
+          websiteConfirm: formData.get("websiteConfirm"),
           startedAt: formStartedAt.current,
         }),
       });
-      if (!response.ok) throw new Error("Project request failed");
+      const responseBody = await response.json().catch(() => ({})) as { error?: string };
+      if (!response.ok) throw new Error(responseBody.error || "Your request could not be sent. Please try again.");
       setStatus("success");
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch {
+    } catch (error) {
       setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Your request could not be sent. Please try again.");
     }
   }
 
@@ -123,10 +128,11 @@ export default function CheckoutExperience({ products, initialProductId }: Props
               <CheckoutField label="Full name" name="name" autoComplete="name" required />
               <CheckoutField label="Email" name="email" type="email" autoComplete="email" required />
               <CheckoutField label="Phone" name="phone" type="tel" autoComplete="tel" />
-              <label className="sr-only" aria-hidden="true">Website<input name="website" type="text" tabIndex={-1} autoComplete="off" /></label>
+              <label className="block text-sm font-medium text-white/60">Website<span className="ml-1 text-white/25">(optional)</span><input name="website" type="url" autoComplete="url" placeholder="https://yourwebsite.com" className="premium-field mt-2" /></label>
+              <label className="sr-only" aria-hidden="true">Website confirmation<input name="websiteConfirm" type="text" tabIndex={-1} autoComplete="off" /></label>
               <label className="block text-sm font-medium text-white/60">Project description<span className="ml-1 text-violet-300" aria-hidden="true">*</span><textarea required name="project_description" rows={5} placeholder="Tell us about your business, goals, and what you need." className="premium-field mt-2 resize-y" /></label>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm"><div className="flex justify-between gap-4"><span className="text-white/40">Service</span><span className="text-right font-semibold">{product?.name ?? "Not sure yet"}</span></div><div className="mt-3 flex justify-between gap-4 border-t border-white/10 pt-3"><span className={product ? "invisible text-white/55" : "text-white/55"}>{product ? "Starting price" : "Next step"}</span><span className={product ? "invisible text-lg font-semibold" : "text-lg font-semibold"}>{product ? priceLabel(product.price) : "Personal recommendation"}</span></div></div>
-              {status === "error" && <div role="alert" className="rounded-2xl border border-rose-300/20 bg-rose-300/[0.08] p-4 text-sm text-rose-100">The request could not be sent. Please try again in a moment.</div>}
+              {status === "error" && <div role="alert" className="rounded-2xl border border-rose-300/20 bg-rose-300/[0.08] p-4 text-sm text-rose-100">{errorMessage || "The request could not be sent. Please try again in a moment."}</div>}
               <button type="submit" disabled={status === "sending"} className="button-primary w-full disabled:cursor-not-allowed disabled:opacity-50">{status === "sending" ? "Sending request…" : "Send project request"} <span>→</span></button>
               <p className="text-center text-[11px] leading-5 text-white/28">Submitting this form does not charge you or create an automatic payment.</p>
             </form>
