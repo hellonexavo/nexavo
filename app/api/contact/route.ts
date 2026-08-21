@@ -15,7 +15,7 @@ type ContactRequest = {
 const RESEND_BATCH_URL = "https://api.resend.com/emails/batch";
 const RESEND_API_KEY_PATTERN = /^re_[A-Za-z0-9_-]+$/;
 const FROM_EMAIL_PATTERN = /^[\x20-\x7E]+<[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+>$/;
-const CONTACT_OWNER_EMAIL = "yybuilds.contact@gmail.com";
+const CONTACT_FROM_EMAIL = "YY Builds <contact@yybuilds.com>";
 const submissionWindows = new Map<string, { count: number; resetAt: number }>();
 const MINIMUM_SUBMISSION_TIME_MS = 750;
 
@@ -52,6 +52,7 @@ export async function POST(request: Request) {
     } catch {
       return NextResponse.json({ error: "Invalid project request." }, { status: 400 });
     }
+
     const name = cleanText(body.name, 120);
     const email = cleanText(body.email, 254).toLowerCase();
     const phone = cleanText(body.phone, 40) || "Not provided";
@@ -66,10 +67,7 @@ export async function POST(request: Request) {
     }
 
     if (!name || !isValidEmail(email) || !message) {
-      return NextResponse.json(
-        { error: "Please provide a valid name, email, and project description." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Please provide a valid name, email, and project description." }, { status: 400 });
     }
 
     if (isRateLimited(request)) {
@@ -77,107 +75,42 @@ export async function POST(request: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const fromEmail = process.env.CONTACT_FROM_EMAIL;
+    const ownerEmail = cleanText(process.env.CONTACT_TO_EMAIL, 254).toLowerCase();
 
-    if (!apiKey || !RESEND_API_KEY_PATTERN.test(apiKey) || !fromEmail || !FROM_EMAIL_PATTERN.test(fromEmail)) {
+    if (!apiKey || !RESEND_API_KEY_PATTERN.test(apiKey) || !isValidEmail(ownerEmail) || !FROM_EMAIL_PATTERN.test(CONTACT_FROM_EMAIL)) {
       console.error("Contact email delivery is not configured.");
-      return NextResponse.json(
-        { error: "Email delivery is temporarily unavailable." },
-        { status: 503 }
-      );
+      return NextResponse.json({ error: "Email delivery is temporarily unavailable." }, { status: 503 });
     }
 
     const submittedAt = new Date();
-    const submittedAtLabel = new Intl.DateTimeFormat("en-GB", {
-      dateStyle: "full",
-      timeStyle: "long",
-      timeZone: "Europe/Brussels",
-    }).format(submittedAt);
-
-    const ownerMessage = [
-      "New YY Builds project request",
-      "",
-      `Customer name: ${name}`,
-      `Customer email: ${email}`,
-      `Phone: ${phone}`,
-      `Website: ${website || "Not provided"}`,
-      `Selected service: ${selectedService}`,
-      `Submitted: ${submittedAtLabel}`,
-      `Submitted (ISO): ${submittedAt.toISOString()}`,
-      "",
-      "Project details:",
-      message,
-    ].join("\n");
-
-    const customerMessage = [
-      `Hi ${name},`,
-      "",
-      "Thanks for your project request. YY Builds has received it and will review the details before getting back to you.",
-      "",
-      `Selected service: ${selectedService}`,
-      `Website: ${website || "Not provided"}`,
-      "",
-      "Your project details:",
-      message,
-      "",
-      "YY Builds",
-    ].join("\n");
+    const submittedAtLabel = new Intl.DateTimeFormat("en-GB", { dateStyle: "full", timeStyle: "long", timeZone: "Europe/Brussels" }).format(submittedAt);
+    const ownerMessage = ["New YY Builds project request", "", `Customer name: ${name}`, `Customer email: ${email}`, `Phone: ${phone}`, `Website: ${website || "Not provided"}`, `Selected service: ${selectedService}`, `Submitted: ${submittedAtLabel}`, `Submitted (ISO): ${submittedAt.toISOString()}`, "", "Project details:", message].join("\n");
+    const customerMessage = [`Hi ${name},`, "", "Thanks for your project request. YY Builds has received it and will review the details before getting back to you.", "", `Selected service: ${selectedService}`, `Website: ${website || "Not provided"}`, "", "Your project details:", message, "", "YY Builds"].join("\n");
 
     const emailResponse = await fetch(RESEND_BATCH_URL, {
       method: "POST",
       signal: AbortSignal.timeout(10_000),
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-        "Idempotency-Key": `contact-${crypto.randomUUID()}`,
-      },
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "Idempotency-Key": `contact-${crypto.randomUUID()}` },
       body: JSON.stringify([
-        {
-          from: fromEmail,
-          to: [CONTACT_OWNER_EMAIL],
-          reply_to: email,
-          subject: `New project request — ${selectedService}`,
-          text: ownerMessage,
-        },
-        {
-          from: fromEmail,
-          to: [email],
-          reply_to: CONTACT_OWNER_EMAIL,
-          subject: "We received your YY Builds project request",
-          text: customerMessage,
-        },
+        { from: CONTACT_FROM_EMAIL, to: [ownerEmail], reply_to: email, subject: `New project request — ${selectedService}`, text: ownerMessage },
+        { from: CONTACT_FROM_EMAIL, to: [email], reply_to: ownerEmail, subject: "We received your YY Builds project request", text: customerMessage },
       ]),
     });
 
     if (!emailResponse.ok) {
       console.error("Resend contact delivery failed.", emailResponse.status);
-      return NextResponse.json(
-        { error: "Your request could not be delivered. Please try again." },
-        { status: 502 }
-      );
+      return NextResponse.json({ error: "Your request could not be delivered. Please try again." }, { status: 502 });
     }
 
     const result = (await emailResponse.json()) as { data?: Array<{ id?: string }> };
     if (!Array.isArray(result.data) || result.data.length !== 2 || result.data.some((item) => !item.id)) {
       console.error("Resend contact delivery returned an unexpected response.");
-      return NextResponse.json(
-        { error: "Your request could not be delivered. Please try again." },
-        { status: 502 }
-      );
+      return NextResponse.json({ error: "Your request could not be delivered. Please try again." }, { status: 502 });
     }
 
-    return NextResponse.json({
-      success: true,
-      message: "Your request has been received.",
-    });
+    return NextResponse.json({ success: true, message: "Your request has been received." });
   } catch (error) {
-    console.error(
-      "Contact request failed.",
-      error instanceof Error ? error.message : "Unknown error"
-    );
-    return NextResponse.json(
-      { error: "Something went wrong." },
-      { status: 500 }
-    );
+    console.error("Contact request failed.", error instanceof Error ? error.message : "Unknown error");
+    return NextResponse.json({ error: "Something went wrong." }, { status: 500 });
   }
 }

@@ -1,0 +1,7 @@
+import { createPageMetadata } from "@/app/lib/seo";
+import BookingFlow from "../BookingFlow";
+import { ClinicPage } from "../components/ClinicShell";
+
+export const metadata = createPageMetadata({ title: "Afspraak maken — Modern Dental Care", description: "Vraag een afspraak aan bij Modern Dental Care in Amsterdam. Kies uw praktijk, behandeling en voorkeur; de praktijk bevestigt persoonlijk.", path: "/portfolio/modern-dental-care/booking" });
+
+export default function BookingPage() { return <ClinicPage><section className="px-5 py-20 md:px-8 lg:px-12 lg:py-28"><div className="mx-auto grid max-w-[1440px] gap-12 lg:grid-cols-[.75fr_1.25fr] lg:items-start"><div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#82928d]">Afspraak aanvragen</p><h1 className="mt-5 text-5xl font-medium leading-[.98] tracking-[-0.06em] sm:text-7xl">Een afspraak aanvragen, <span className="font-serif italic font-normal text-[#9a7849]">stap voor stap.</span></h1><p className="mt-7 max-w-lg text-base leading-8 text-[#687a74]">Kies uw praktijk, vertel ons waarvoor u wilt langskomen en geef een voorkeur door. De praktijk bevestigt de afspraak daarna persoonlijk.</p><div className="mt-8 rounded-2xl border border-[#173f39]/10 bg-white p-5 text-sm leading-6 text-[#6d7d78]">Deze conceptflow verzamelt alleen de gegevens die nodig zijn om een afspraakaanvraag te bespreken. Een aanvraag is nog geen bevestigde afspraak.</div></div><BookingFlow /></div></section></ClinicPage>; }

@@ -1,0 +1,26 @@
+import { faqs, locations, treatments, trustPoints } from "../data";
+
+export function ClinicButton({ href, children, secondary = false }: { href: string; children: React.ReactNode; secondary?: boolean }) {
+  return <a href={href} className={secondary ? "inline-flex min-h-12 items-center justify-center rounded-full border border-[#173f39]/15 bg-white px-6 py-3 text-sm font-semibold text-[#173f39] transition hover:-translate-y-0.5 hover:border-[#173f39]/35" : "inline-flex min-h-12 items-center justify-center rounded-full bg-[#173f39] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#285b50]"}>{children}</a>;
+}
+
+export function TrustStrip() {
+  return <section className="border-y border-[#173f39]/10 bg-white px-5 py-5 md:px-8 lg:px-12"><div className="mx-auto grid max-w-[1440px] gap-4 sm:grid-cols-2 lg:grid-cols-4">{trustPoints.map(([title, text]) => <div key={title} className="flex gap-3"><span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#72aa96]" /><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-xs leading-5 text-[#71827d]">{text}</p></div></div>)}</div></section>;
+}
+
+export function TreatmentCards({ limit }: { limit?: number }) {
+  const items = limit ? treatments.slice(0, limit) : treatments;
+  return <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{items.map((item, index) => <article key={item.slug} className="group flex min-h-[245px] flex-col rounded-[28px] border border-[#173f39]/10 bg-[#f8f8f3] p-6 transition hover:-translate-y-1 hover:border-[#315f55]/35 hover:bg-white hover:shadow-[0_24px_60px_rgba(23,63,57,0.08)]"><div className="flex items-start justify-between"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-xs font-semibold text-[#315f55] shadow-sm">{String(index + 1).padStart(2, "0")}</span><span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#89a199]">{item.category}</span></div><div className="mt-auto"><h3 className="text-xl font-medium tracking-[-0.03em]">{item.title}</h3><p className="mt-3 text-sm leading-6 text-[#6d7d78]">{item.text}</p><a href={item.href} className="mt-5 inline-flex text-sm font-semibold text-[#326256]">Meer informatie <span className="ml-2 transition group-hover:translate-x-1">↗</span></a></div></article>)}</div>;
+}
+
+export function LocationCards() {
+  return <div className="grid gap-4 lg:grid-cols-3">{locations.map((location, index) => <article key={location.id} className="overflow-hidden rounded-[30px] border border-[#173f39]/10 bg-white"><div className={`relative h-36 ${index === 0 ? "bg-[#cfe0d7]" : index === 1 ? "bg-[#e6dccd]" : "bg-[#f0e1b9]"}`}><div className="absolute -right-8 -top-12 h-40 w-40 rounded-full border border-white/50 bg-white/20" /><span className="absolute bottom-5 left-6 rounded-full bg-white/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#315f55]">{location.id === "junior" ? "Voor kinderen" : "Amsterdam"}</span></div><div className="p-7"><p className="text-xs font-semibold text-[#8aa096]">0{index + 1}</p><h3 className="mt-4 text-2xl font-medium">{location.name}</h3><p className="mt-3 text-sm leading-6 text-[#6d7d78]">{location.description}</p><address className="mt-5 not-italic text-sm leading-6 text-[#48675f]"><span className="font-semibold">{location.address}</span><br />{location.postalCode}<br /><a href={location.phoneHref} className="mt-1 inline-block underline-offset-4 hover:underline">{location.phone}</a></address><p className="mt-4 text-xs text-[#7d8e88]">{location.hours}</p><div className="mt-6 flex flex-wrap gap-2"><ClinicButton href={location.href}>Bekijk praktijk</ClinicButton><ClinicButton href="/portfolio/modern-dental-care/booking" secondary>Afspraak</ClinicButton></div></div></article>)}</div>;
+}
+
+export function FaqPreview({ limit = 4 }: { limit?: number }) {
+  return <div className="grid gap-3">{faqs.slice(0, limit).map((item) => <details key={item.question} className="group rounded-2xl border border-[#173f39]/10 bg-white px-5 py-4"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold marker:hidden">{item.question}<span className="text-xl font-normal text-[#6f9084] transition group-open:rotate-45">+</span></summary><p className="max-w-3xl pt-3 text-sm leading-7 text-[#6d7d78]">{item.answer}</p></details>)}</div>;
+}
+
+export function ClosingCta({ title = "Een volgende stap begint met een goed gesprek." }: { title?: string }) {
+  return <section className="px-5 py-20 md:px-8 lg:px-12"><div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-8 rounded-[34px] bg-[#173f39] p-8 text-white sm:p-12 lg:flex-row lg:items-end lg:p-16"><div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#a6c4b8]">Afspraak aanvragen</p><h2 className="mt-5 max-w-3xl text-4xl font-medium tracking-[-0.05em] sm:text-6xl">{title}</h2><p className="mt-5 max-w-xl text-sm leading-7 text-white/60">Kies uw praktijk en vertel ons waar we u mee kunnen helpen. De praktijk bevestigt de afspraak persoonlijk.</p></div><ClinicButton href="/portfolio/modern-dental-care/booking" secondary>Afspraak maken <span className="ml-2">↗</span></ClinicButton></div></section>;
+}
