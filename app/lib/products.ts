@@ -3,71 +3,106 @@ export const products = {
     id: "starter-website",
     name: "Starter Website",
     category: "Websites",
-    description: "A clear one-page website for freelancers and local businesses that need a professional online presence.",
-    capabilities: ["One-page website", "Responsive design", "Clear call to action", "Basic SEO"],
-    price: 299,
-    cta: "Start a website",
-    features: ["Focused landing page or one-page website", "Responsive design", "Clear call to action", "Contact or project form", "Basic SEO setup"],
+    description:
+      "A focused one-page website for freelancers and local businesses that need a professional online presence.",
+    capabilities: [
+      "One-page website",
+      "Responsive design",
+      "Clear call to action",
+      "Basic SEO",
+    ],
+    price: 900,
+    cta: "Start with Starter",
+    features: [
+      "1-page custom website",
+      "Up to 5 main sections",
+      "Responsive mobile design",
+      "Contact CTA or project form",
+      "Basic SEO setup",
+      "Launch support",
+    ],
   },
+
   "business-website": {
     id: "business-website",
     name: "Business Website",
     category: "Websites",
-    description: "A larger website that presents your services, builds trust, and turns more visits into enquiries.",
-    capabilities: ["Multiple sections", "Service presentation", "Lead forms", "Conversion structure"],
-    price: 599,
-    cta: "Build my website",
-    features: ["Larger business website", "Multiple sections or pages where appropriate", "Services and work presentation", "Lead forms", "Integrations scoped where appropriate"],
+    description:
+      "A complete multi-page website for small businesses that need a stronger and more credible online presence.",
+    capabilities: [
+      "Multi-page website",
+      "Service presentation",
+      "Lead forms",
+      "Conversion structure",
+    ],
+    price: 1800,
+    cta: "Choose Business",
+    features: [
+      "Multi-page business website",
+      "Custom design",
+      "Services and about pages",
+      "Contact page and enquiry form",
+      "Responsive design",
+      "Basic SEO setup",
+      "Analytics setup",
+      "Launch support",
+    ],
   },
-  "booking-website": {
-    id: "booking-website",
-    name: "Booking Website",
+
+  "professional-website": {
+    id: "professional-website",
+    name: "Professional Website",
     category: "Websites",
-    description: "A customized booking website for appointment-based service businesses.",
-    capabilities: ["Service presentation", "Booking journey", "Customer forms", "Responsive design"],
-    price: 699,
-    cta: "Build my booking site",
-    features: ["Customized booking experience", "Service and pricing presentation", "Responsive customer journey", "Contact or booking form", "Business-specific configuration"],
+    description:
+      "A premium custom website for serious service businesses, clinics, and brands that need stronger structure, booking flows, advanced forms, and integrations.",
+    capabilities: [
+      "Advanced custom design",
+      "Booking or request flow",
+      "Advanced forms",
+      "Integrations",
+    ],
+    price: 3500,
+    cta: "Choose Professional",
+    features: [
+      "Advanced custom design",
+      "Multi-page website",
+      "Custom information architecture",
+      "Booking or request flow",
+      "Advanced forms",
+      "Stronger SEO setup",
+      "Business integrations",
+      "Conversion-focused sections",
+      "Performance optimization",
+      "Launch support",
+      "Up to 2 rounds of revisions",
+    ],
   },
-  "ecommerce-store": {
-    id: "ecommerce-store",
-    name: "E-commerce / Online Store",
-    category: "Websites",
-    description: "A professional online storefront for businesses ready to sell products online.",
-    capabilities: ["Product presentation", "Store structure", "Checkout journey", "Responsive design"],
-    price: 999,
-    cta: "Build my online store",
-    features: ["Responsive online store", "Product presentation", "Core store setup", "Checkout journey", "Basic SEO structure"],
-  },
-  "business-automation": {
-    id: "business-automation",
+
+  "custom-project": {
+    id: "custom-project",
     name: "Custom / AI / Automation",
-    category: "AI & Automation",
-    description: "Custom systems, AI integrations, automation, internal tools, and workflows scoped around your business.",
-    capabilities: ["AI integrations", "Automation", "Internal tools", "Custom development"],
+    category: "Custom",
+    description:
+      "Tailored websites, AI integrations, automations, multilingual builds, APIs, CRM integrations, and custom business workflows.",
+    capabilities: [
+      "AI integrations",
+      "Automation",
+      "Custom development",
+      "CRM / API",
+    ],
     price: 0,
-    cta: "Tell us what you need",
-    features: ["AI integrations", "Business automation", "Custom business workflows", "Internal tools", "Custom development scoped to your needs"],
-  },
-  "ai-assistant-automation": {
-    id: "ai-assistant-automation",
-    name: "AI Assistant & Automation",
-    category: "AI & Automation",
-    description: "Help visitors get answers, share useful details, and reach the right service through a tailored AI-assisted flow.",
-    capabilities: ["Website assistant", "FAQ support", "Lead qualification", "AI workflows"],
-    price: 499,
-    cta: "Explore AI automation",
-    features: ["Website AI assistant", "Customer FAQ assistance", "Lead qualification and information capture", "Customer service routing", "Integrations scoped where appropriate"],
-  },
-  "website-care": {
-    id: "website-care",
-    name: "Website Care",
-    category: "Ongoing Care",
-    description: "Ongoing technical maintenance, monitoring, small content updates, and basic support.",
-    capabilities: ["Technical maintenance", "Monitoring", "Small content updates", "Basic support"],
-    price: 59,
-    cta: "Ask about website care",
-    features: ["Technical maintenance", "Website monitoring", "Small content updates", "Basic support", "Major features and third-party costs scoped separately"],
+    cta: "Request custom quote",
+    features: [
+      "Fully custom architecture",
+      "Complex booking systems",
+      "Multilingual setup",
+      "CRM / API integrations",
+      "AI and automation workflows",
+      "Custom internal tools",
+      "Advanced SEO structure",
+      "Analytics and conversion tracking",
+      "Tailored launch plan",
+    ],
   },
 } as const;
 
@@ -77,14 +112,11 @@ export type Product = (typeof products)[ProductId];
 export const productIds = [
   "starter-website",
   "business-website",
-  "booking-website",
-  "ecommerce-store",
-  "business-automation",
-  "ai-assistant-automation",
-  "website-care",
+  "professional-website",
+  "custom-project",
 ] as const satisfies readonly ProductId[];
 
-export const featuredProductId: ProductId = "business-automation";
+export const featuredProductId: ProductId = "professional-website";
 
 export function getProduct(productId: string | undefined) {
   if (!productId || !productIds.includes(productId as ProductId)) return null;
@@ -92,6 +124,8 @@ export function getProduct(productId: string | undefined) {
 }
 
 export function formatEuro(price: number) {
+  if (price <= 0) return "Custom quote";
+
   return new Intl.NumberFormat("en-NL", {
     style: "currency",
     currency: "EUR",

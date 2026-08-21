@@ -1034,13 +1034,6 @@ article {
     inset 0 1px 0 rgba(255, 255, 255, 0.055);
 }
 
-.commercial-price-card-store {
-  border-color: rgba(167, 139, 250, 0.2);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(96, 165, 250, 0.08), transparent 34%),
-    rgba(255, 255, 255, 0.028);
-}
-
 .commercial-price-description {
   min-height: 96px;
 }
@@ -1227,11 +1220,7 @@ article {
 @media (min-width: 1024px) {
   .commercial-sales-intro { grid-template-columns: minmax(0, .95fr) minmax(340px, .65fr); }
   .commercial-trust-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .commercial-services-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-  .commercial-price-card-starter { grid-column: span 5; }
-  .commercial-price-card-business { grid-column: span 7; }
-  .commercial-price-card-booking,
-  .commercial-price-card-store { grid-column: span 6; }
+  .commercial-services-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .commercial-final-trust { grid-template-columns: minmax(0, 1fr) 260px; }
   .commercial-closing-cta { grid-template-columns: minmax(0, 1fr) auto; }
 }

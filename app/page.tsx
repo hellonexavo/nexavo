@@ -73,40 +73,40 @@ const pricingIntroTrust = [
 const websiteOffers = [
   {
     name: "Starter Website",
-    price: "from €299",
+    price: "from €900",
     priceNote: "starting price",
-    description: "For small businesses that need a professional online presence.",
-    features: ["Responsive design", "Essential business information", "Contact CTA", "Basic SEO setup"],
+    description: "A focused one-page website for freelancers and local businesses that need a professional online presence.",
+    features: ["1-page custom website", "Responsive design", "Clear call to action", "Basic SEO setup"],
     cta: "Start a Project",
     href: "/checkout?product=starter-website",
   },
   {
     name: "Business Website",
-    price: "from €599",
+    price: "from €1,800",
     priceNote: "starting price",
-    description: "For an established business that needs a stronger, more complete online presence.",
-    features: ["Premium multi-section website", "Contact or inquiry form", "Responsive design", "Stronger SEO structure", "Appropriate business integrations"],
-    cta: "Get a Business Website",
+    description: "A complete multi-page website for businesses that need stronger trust, structure, and enquiries.",
+    features: ["Multi-page website", "Custom design", "Contact & enquiry forms", "Analytics & basic SEO"],
+    cta: "Choose Business",
     href: "/checkout?product=business-website",
     recommended: true,
   },
   {
-    name: "Booking Website",
-    price: "from €699",
+    name: "Professional Website",
+    price: "from €3,500",
     priceNote: "starting price",
-    description: "For salons, barbers, consultants, clinics, repair services, and appointment-based businesses.",
-    features: ["Customized booking experience", "Service presentation", "Responsive customer flow", "Inquiry or booking form", "Business-specific setup"],
-    cta: "Build My Booking Site",
-    href: "/checkout?product=booking-website",
+    description: "A premium custom website for clinics, service businesses, and brands that need advanced flows and integrations.",
+    features: ["Advanced custom design", "Booking or request flow", "Advanced forms", "Business integrations"],
+    cta: "Choose Professional",
+    href: "/checkout?product=professional-website",
   },
   {
-    name: "E-commerce / Online Store",
-    price: "from €999",
-    priceNote: "starting price",
-    description: "For businesses selling products online with a professional, customer-ready storefront.",
-    features: ["Responsive storefront", "Product presentation", "Core store setup", "Checkout journey", "Basic SEO structure"],
-    cta: "Build My Online Store",
-    href: "/checkout?product=ecommerce-store",
+    name: "Custom / AI / Automation",
+    price: "custom quote",
+    priceNote: "tailored scope",
+    description: "Custom websites, AI systems, automation, multilingual builds, CRM/API integrations, and business workflows.",
+    features: ["Custom architecture", "AI & automation", "CRM / API integrations", "Multilingual systems"],
+    cta: "Request a Quote",
+    href: "/checkout?product=custom-project",
   },
 ];
 
@@ -162,19 +162,14 @@ export default function Home() {
       <section id="pricing" className="home-section border-y border-white/[0.08] bg-white/[0.018] px-5 py-20 sm:px-6 lg:px-10 lg:py-28"><div className="mx-auto max-w-7xl">
         <div className="commercial-sales-intro"><div><p className="eyebrow">Pricing &amp; Services</p><h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-.055em] sm:text-6xl">Choose the right foundation for your business.</h2></div><div><p className="max-w-2xl text-base leading-7 text-white/52">Start with a professional website, booking experience, online store, or custom digital solution built around your business goals.</p><ul className="commercial-sales-trust mt-6" aria-label="Project assurances">{pricingIntroTrust.map((item) => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div></div>
         <div className="commercial-group-heading mt-12"><p>Website services</p><span /></div>
-        <div className="commercial-services-grid mt-12">{websiteOffers.map((option) => <article key={option.name} className={`commercial-price-card commercial-price-card-${option.name === "Starter Website" ? "starter" : option.name === "Business Website" ? "business" : option.name === "Booking Website" ? "booking" : "store"} ${option.recommended ? "commercial-price-card-featured" : ""}`}>
-          <div className="flex items-start justify-between gap-4"><p className="text-xs font-semibold uppercase tracking-[.18em] text-white/42">{option.name}</p>{option.recommended && <span className="commercial-popular">Most popular</span>}</div>
+        <div className="commercial-services-grid mt-12">{websiteOffers.map((option) => <article key={option.name} className={`commercial-price-card flex min-h-full flex-col commercial-price-card-${option.name === "Starter Website" ? "starter" : option.name === "Business Website" ? "business" : option.name === "Professional Website" ? "professional" : "custom"} ${option.name === "Professional Website" ? "commercial-price-card-featured" : ""}`}>
+          <div className="flex items-start justify-between gap-4"><p className="text-xs font-semibold uppercase tracking-[.18em] text-white/42">{option.name}</p>{option.name === "Professional Website" && <span className="commercial-popular">Most popular</span>}</div>
           <div className="mt-7 min-h-[76px]"><p className="text-[clamp(2rem,3vw,2.75rem)] font-semibold leading-none tracking-[-.06em]">{option.price}</p><p className="mt-2 text-xs text-white/35">{option.priceNote}</p></div>
           <p className="commercial-price-description mt-5 text-sm leading-6 text-white/52">{option.description}</p>
           <ul className="mt-7 space-y-3 border-t border-white/10 pt-6 text-sm text-white/62">{option.features.map((feature) => <li key={feature} className="flex gap-3"><span className="text-violet-300" aria-hidden="true">✓</span><span>{feature}</span></li>)}</ul>
-          <div className="mt-auto pt-8"><Link href={option.href} className={option.recommended ? "button-primary w-full" : "button-secondary w-full"}>{option.cta} <span>↗</span></Link></div>
+          <div className="mt-auto pt-8"><Link href={option.href} className={option.name === "Professional Website" ? "button-primary w-full" : "button-secondary w-full"}>{option.cta} <span>↗</span></Link></div>
         </article>)}</div>
         <div className="commercial-pricing-notes mt-6"><p>Every project is different. Final scope, timeline and price are confirmed before work begins — no hidden fees.</p><p>Complex stores, large catalogs, advanced integrations, payment/shipping systems, ERP connections, and custom functionality are quoted individually.</p></div>
-        <div className="commercial-group-heading mt-10"><p>Advanced solutions &amp; ongoing care</p><span /></div>
-        <div className="mt-5 grid gap-4 lg:grid-cols-[1.15fr_.85fr]">
-          <article className="commercial-solution-card"><div><p className="text-xs font-semibold uppercase tracking-[.18em] text-violet-200/65">Advanced solutions</p><h3 className="mt-5 text-3xl font-semibold tracking-[-.05em]">Custom / AI / Automation</h3><p className="mt-3 text-2xl font-semibold tracking-[-.04em]">Custom quote</p><p className="mt-4 max-w-2xl text-sm leading-6 text-white/50">For businesses that need a carefully scoped system, integration, internal tool, or workflow designed around how they operate.</p></div><div className="mt-7 flex flex-wrap gap-2">{["AI integrations", "Automation", "Custom workflows", "APIs & integrations", "Internal tools", "Custom development"].map((feature) => <span key={feature} className="commercial-solution-pill">{feature}</span>)}</div><Link href="/checkout?product=business-automation" className="button-secondary mt-8 self-start">Tell Us What You Need <span>↗</span></Link></article>
-          <article className="commercial-care-card"><div><p className="text-xs font-semibold uppercase tracking-[.18em] text-violet-200/65">Ongoing care</p><h3 className="mt-5 text-3xl font-semibold tracking-[-.05em]">Website Care</h3><p className="mt-3 text-2xl font-semibold tracking-[-.04em]">from €59<span className="ml-1 text-sm font-medium tracking-normal text-white/40"> / month</span></p><p className="mt-4 text-xs leading-5 text-violet-100/55">Available for YY Builds projects and selected existing websites.</p><ul className="mt-6 grid gap-3 text-sm text-white/58 sm:grid-cols-2 lg:grid-cols-1">{["Technical maintenance", "Monitoring", "Small content updates", "Basic support"].map((feature) => <li key={feature} className="flex gap-3"><span className="text-violet-300" aria-hidden="true">✓</span>{feature}</li>)}</ul><p className="mt-5 border-t border-white/10 pt-5 text-xs leading-5 text-white/35">Major redesigns, new functionality, third-party subscriptions, hosting/domain fees and large content changes are quoted separately.</p></div><Link href="/checkout?product=website-care" className="button-secondary mt-8 w-full">Ask About Website Care <span>↗</span></Link></article>
-        </div>
 
         <div className="commercial-process mt-16"><div className="commercial-group-heading"><p>How it works</p><span /></div><ol className="mt-6 grid gap-px overflow-hidden rounded-[24px] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">{projectProcess.map((step, index) => <li key={step} className="bg-[#0a0a0d] p-5"><span className="text-xs font-semibold text-violet-300/70">0{index + 1}</span><p className="mt-7 text-sm font-medium leading-6 text-white/72">{step}</p></li>)}</ol></div>
 
