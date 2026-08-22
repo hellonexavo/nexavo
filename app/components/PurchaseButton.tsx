@@ -9,14 +9,13 @@ type Props = {
 };
 
 export default function PurchaseButton({
-  productId,
   children = "Choose this service",
   className = "",
   variant = "light",
 }: Props) {
   return (
     <Link
-      href={`/checkout?product=${productId}`}
+      href="/#contact"
       className={`purchase-button ${variant === "dark" ? "purchase-button-dark" : "purchase-button-light"} ${className}`}
     >
       <span>{children}</span>

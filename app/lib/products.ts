@@ -122,13 +122,3 @@ export function getProduct(productId: string | undefined) {
   if (!productId || !productIds.includes(productId as ProductId)) return null;
   return products[productId as ProductId];
 }
-
-export function formatEuro(price: number) {
-  if (price <= 0) return "Custom quote";
-
-  return new Intl.NumberFormat("en-NL", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  }).format(price);
-}

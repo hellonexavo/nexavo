@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     return Response.json({ success: true, booking: updatedBooking, emailSent: false }, { status: 201 });
   }
 
-  const commonRows = [detailRow("Service", service.name), detailRow("Date", day.label), detailRow("Time", time), detailRow("Price", `$${service.price}`)].join("");
+  const commonRows = [detailRow("Service", service.name), detailRow("Date", day.label), detailRow("Time", time)].join("");
   const businessRows = [detailRow("Customer full name", name), detailRow("Email", email), detailRow("Phone", phone), commonRows, notes ? detailRow("Notes", notes) : ""].join("");
   const customerRows = `${commonRows}${notes ? detailRow("Notes", notes) : ""}`;
 

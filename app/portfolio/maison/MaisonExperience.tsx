@@ -53,10 +53,6 @@ const integrations = [
   { title: "Payments", description: "A future checkout hand-off for deposits, events, or collection orders.", status: "Not active" },
 ];
 
-function formatPrice(value: number) {
-  return new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR" }).format(value);
-}
-
 export default function MaisonExperience() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [cart, setCart] = useState<Record<string, number>>({});
@@ -67,7 +63,6 @@ export default function MaisonExperience() {
   const filteredDishes = activeCategory === "All" ? dishes : dishes.filter((dish) => dish.category === activeCategory);
   const orderItems = useMemo(() => dishes.filter((dish) => cart[dish.id]), [cart]);
   const itemCount = orderItems.reduce((total, dish) => total + cart[dish.id], 0);
-  const orderTotal = orderItems.reduce((total, dish) => total + dish.price * cart[dish.id], 0);
 
   function changeQuantity(id: string, change: number) {
     setCart((current) => {
@@ -171,8 +166,8 @@ export default function MaisonExperience() {
                         )}
                       </div>
                     </div>
-                    <p className="invisible shrink-0 pt-1 text-sm font-semibold tabular-nums text-[#9c3f2a] sm:text-base" aria-hidden="true">
-                      {formatPrice(dish.price)}
+                    <p className="shrink-0 pt-1 text-xs font-semibold text-[#9c3f2a] sm:text-sm">
+                      Seasonal selection
                     </p>
                     <p className="col-span-2 max-w-[42ch] text-sm leading-6 text-[#786459]">
                       {dish.description}
@@ -229,7 +224,7 @@ export default function MaisonExperience() {
               ))}
             </div>
 
-            <aside className="h-fit rounded-[28px] bg-[#eadcc7] p-6 xl:sticky xl:top-28" aria-labelledby="order-summary-title"><div className="flex items-center justify-between"><div><p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9c3f2a]">Collection demo</p><h3 id="order-summary-title" className="mt-2 font-serif text-3xl">Your order</h3></div><span className="flex h-10 min-w-10 items-center justify-center rounded-full bg-[#40251c] px-3 text-sm font-semibold text-white">{itemCount}</span></div>{orderItems.length ? <div className="mt-6 space-y-4">{orderItems.map((dish) => <div key={dish.id} className="flex justify-between gap-4 border-b border-[#40251c]/10 pb-4 text-sm"><div><p className="font-semibold">{dish.name}</p><p className="mt-1 text-[#786459]">Qty {cart[dish.id]}</p></div><p className="invisible" aria-hidden="true">{formatPrice(dish.price * cart[dish.id])}</p></div>)}</div> : <p className="mt-7 rounded-2xl border border-dashed border-[#40251c]/20 p-5 text-sm leading-6 text-[#786459]">Your demo order is empty. Add dishes from the menu to preview the ordering flow.</p>}<div className="mt-6 flex justify-between border-t border-[#40251c]/15 pt-5 font-semibold"><span>Demo total</span><span className="invisible" aria-hidden="true">{formatPrice(orderTotal)}</span></div><button type="button" onClick={submitOrder} className="mt-6 w-full rounded-full bg-[#40251c] px-5 py-4 text-sm font-semibold text-white hover:bg-[#9c3f2a]">Review demo order</button><p className="mt-3 text-center text-[11px] text-[#806b5f]">No payment or order will be processed.</p>{orderMessage && <p role="status" className="mt-4 rounded-2xl bg-white/60 p-4 text-sm leading-6">{orderMessage}</p>}</aside>
+            <aside className="h-fit rounded-[28px] bg-[#eadcc7] p-6 xl:sticky xl:top-28" aria-labelledby="order-summary-title"><div className="flex items-center justify-between"><div><p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9c3f2a]">Collection demo</p><h3 id="order-summary-title" className="mt-2 font-serif text-3xl">Your order</h3></div><span className="flex h-10 min-w-10 items-center justify-center rounded-full bg-[#40251c] px-3 text-sm font-semibold text-white">{itemCount}</span></div>{orderItems.length ? <div className="mt-6 space-y-4">{orderItems.map((dish) => <div key={dish.id} className="flex justify-between gap-4 border-b border-[#40251c]/10 pb-4 text-sm"><div><p className="font-semibold">{dish.name}</p><p className="mt-1 text-[#786459]">Qty {cart[dish.id]}</p></div><p className="text-[#786459]">Selected</p></div>)}</div> : <p className="mt-7 rounded-2xl border border-dashed border-[#40251c]/20 p-5 text-sm leading-6 text-[#786459]">Your demo order is empty. Add dishes from the menu to preview the ordering flow.</p>}<div className="mt-6 flex justify-between border-t border-[#40251c]/15 pt-5 font-semibold"><span>Collection details</span><span>Reviewed next</span></div><button type="button" onClick={submitOrder} className="mt-6 w-full rounded-full bg-[#40251c] px-5 py-4 text-sm font-semibold text-white hover:bg-[#9c3f2a]">Review demo order</button><p className="mt-3 text-center text-[11px] text-[#806b5f]">No payment or order will be processed.</p>{orderMessage && <p role="status" className="mt-4 rounded-2xl bg-white/60 p-4 text-sm leading-6">{orderMessage}</p>}</aside>
           </div>
           <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-t border-[#40251c]/15 pt-5 text-[10px] uppercase tracking-wider text-[#786459]">{dietaryKey.map(([key, label]) => <span key={key}><strong className="text-[#40251c]">{key}</strong> {label}</span>)}</div>
         </div>
