@@ -4,11 +4,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navigation = [
-  { label: "Websites", href: "#websites" },
-  { label: "Automation", href: "#automation" },
-  { label: "Products", href: "#products" },
-  { label: "Packages", href: "#pricing" },
   { label: "Work", href: "#work" },
+  { label: "Website audit", href: "#audit" },
+  { label: "Services", href: "#services" },
+  { label: "Why YY Builds", href: "#why" },
   { label: "Contact", href: "#contact" },
 ];
 
