@@ -2,7 +2,7 @@ import { createPageMetadata } from "@/app/lib/seo";
 import { ClinicButton, ClosingCta, FaqPreview, TreatmentCards } from "../components/ClinicSections";
 import { ClinicPage } from "../components/ClinicShell";
 
-export const metadata = createPageMetadata({ title: "Implantaten — Modern Dental Care", description: "Lees hoe een implantaattraject bij Modern Dental Care kan worden opgebouwd met duidelijke stappen en persoonlijke begeleiding.", path: "/portfolio/modern-dental-care/implantaten" });
+export const metadata = createPageMetadata({ title: "Implantaten — Aurelia Dental", description: "Lees hoe een implantaattraject bij Aurelia Dental kan worden opgebouwd met duidelijke stappen en persoonlijke begeleiding.", path: "/portfolio/modern-dental-care/implantaten" });
 
 const steps = [["Consultatie", "We bespreken uw situatie, wensen en relevante achtergrond."], ["Diagnostiek", "Een zorgvuldig onderzoek ondersteunt een persoonlijk behandelplan."], ["Behandeling", "Het traject wordt stap voor stap en met duidelijke uitleg uitgevoerd."], ["Nazorg", "Controle en begeleiding blijven onderdeel van een zorgvuldig traject."]];
 

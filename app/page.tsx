@@ -5,7 +5,7 @@ import SocialLinks from "./components/SocialLinks";
 import { contactDetails } from "./lib/contact";
 
 const featuredProjects = [
-  { name: "Modern Dental Care", type: "Multi-location dental website", label: "Concept redesign", built: "Treatment discovery, multilingual content and a guided appointment journey.", value: "Makes locations, treatments and next steps easier for patients to understand.", href: "/portfolio/modern-dental-care", tone: "healthcare" },
+  { name: "Aurelia Dental", type: "Multi-location dental website", label: "Concept project", built: "Treatment discovery, multilingual content and a guided appointment journey.", value: "Makes locations, treatments and next steps easier for patients to understand.", href: "/portfolio/modern-dental-care", tone: "healthcare" },
   { name: "NovaDent", type: "Clinic website", label: "Concept", built: "A focused website with treatment discovery and appointment requests.", value: "Builds trust and guides patients towards the right next step.", href: "/portfolio/novadent", tone: "cyan" },
   { name: "Autoflow", type: "Automotive booking experience", label: "Concept", built: "A service catalogue, tailored service plans and booking enquiries.", value: "Turns complex workshop choices into a clear customer journey.", href: "/portfolio/autoflow", tone: "orange" },
   { name: "Maison", type: "Restaurant website", label: "Concept", built: "A brand-led website with interactive menus and table reservations.", value: "Pairs a premium brand experience with practical booking actions.", href: "/portfolio/maison", tone: "warm" },

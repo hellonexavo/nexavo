@@ -1,4 +1,4 @@
-MODERN DENTAL CARE — BOOKING V2
+AURELIA DENTAL — BOOKING V2
 
 1. Copy BookingFlow.tsx to:
    app/portfolio/modern-dental-care/BookingFlow.tsx

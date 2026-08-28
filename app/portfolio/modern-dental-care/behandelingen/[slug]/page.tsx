@@ -52,8 +52,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const treatment = treatments.find((item) => item.slug === slug);
   return createPageMetadata({
-    title: `${treatment?.title ?? "Behandeling"} — Modern Dental Care`,
-    description: treatment?.text ?? "Informatie over behandelingen bij Modern Dental Care in Amsterdam.",
+    title: `${treatment?.title ?? "Behandeling"} — Aurelia Dental`,
+    description: treatment?.text ?? "Informatie over behandelingen bij Aurelia Dental in Amsterdam.",
     path: `/portfolio/modern-dental-care/behandelingen/${slug}`,
   });
 }
@@ -64,7 +64,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
   if (!treatment || slug === "implantaten") notFound();
 
   const content = details[slug] ?? {
-    lead: `${treatment.title} bij Modern Dental Care begint met duidelijke uitleg en aandacht voor uw persoonlijke situatie.`,
+    lead: `${treatment.title} bij Aurelia Dental begint met duidelijke uitleg en aandacht voor uw persoonlijke situatie.`,
     steps: [
       ["Kennismaken", "We bespreken uw vraag en verwachtingen."],
       ["Beoordelen", "De tandarts bekijkt welke aanpak passend kan zijn."],

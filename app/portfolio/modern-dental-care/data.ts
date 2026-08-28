@@ -1,4 +1,6 @@
 export const clinicBasePath = "/portfolio/modern-dental-care";
+export const clinicEmail = "hello@aureliadental.example";
+export const clinicEmailHref = `mailto:${clinicEmail}`;
 
 export const navigation = [
   ["Behandelingen", `${clinicBasePath}/behandelingen`],
@@ -11,34 +13,34 @@ export const navigation = [
 export const locations = [
   {
     id: "oost",
-    name: "Amsterdam Oost",
-    address: "Domselaerstraat 82, 84, 86",
-    postalCode: "1093 MA Amsterdam",
-    phone: "020 694 19 34",
-    phoneHref: "tel:0206941934",
-    hours: "Ma–Do · 09:00–16:30",
+    name: "Amsterdam Centrum",
+    address: "Voorbeeldstraat 82",
+    postalCode: "1017 XX Amsterdam",
+    phone: "+31 20 000 0148",
+    phoneHref: "tel:+31200000148",
+    hours: "Ma–Vr · 08:30–17:30",
     href: `${clinicBasePath}/amsterdam-oost`,
-    description: "Een rustige praktijk voor persoonlijke tandheelkundige zorg in Amsterdam Oost.",
+    description: "Een rustige conceptpraktijk voor persoonlijke tandheelkundige zorg in Amsterdam Centrum.",
   },
   {
     id: "west",
-    name: "Amsterdam West",
-    address: "Slotermeerlaan 69",
-    postalCode: "1064 HA Amsterdam",
-    phone: "020 447 3489",
-    phoneHref: "tel:0204473489",
-    hours: "Neem contact op voor actuele openingstijden",
+    name: "Amsterdam Noord",
+    address: "Conceptstraat 214",
+    postalCode: "1031 XX Amsterdam",
+    phone: "+31 20 000 0164",
+    phoneHref: "tel:+31200000164",
+    hours: "Ma–Vr · 08:30–17:30",
     href: `${clinicBasePath}/amsterdam-west`,
-    description: "Toegankelijke tandheelkundige zorg met duidelijke communicatie in Amsterdam West.",
+    description: "Toegankelijke conceptzorg met duidelijke communicatie in Amsterdam Noord.",
   },
   {
     id: "junior",
-    name: "MDC Junior",
-    address: "H.R. Holststraat 9-10",
-    postalCode: "1064 TS Amsterdam",
-    phone: "020 447 3489",
-    phoneHref: "tel:0204473489",
-    hours: "Neem contact op voor actuele openingstijden",
+    name: "Aurelia Junior",
+    address: "Demolaan 36",
+    postalCode: "1083 XX Amsterdam",
+    phone: "+31 20 000 0182",
+    phoneHref: "tel:+31200000182",
+    hours: "Ma–Vr · 08:30–16:30",
     href: `${clinicBasePath}/mdc-junior`,
     description: "Een rustige, positieve omgeving waar kinderen vertrouwd raken met mondzorg.",
   },
@@ -57,17 +59,17 @@ export const treatments = [
   { slug: "wortelkanaalbehandeling", title: "Wortelkanaalbehandeling", category: "Herstel", text: "Gerichte behandeling met als doel uw eigen tand te behouden.", href: `${clinicBasePath}/behandelingen/wortelkanaalbehandeling` },
   { slug: "kunstgebit", title: "Kunstgebit", category: "Herstel", text: "Persoonlijke prothetische oplossingen voor comfort en vertrouwen.", href: `${clinicBasePath}/behandelingen/kunstgebit` },
   { slug: "spoed", title: "Spoed tandarts", category: "Directe hulp", text: "Neem bij acute pijn, zwelling of trauma direct telefonisch contact op.", href: `${clinicBasePath}/contact#spoed` },
-  { slug: "mdc-junior", title: "MDC Junior", category: "Kinderen", text: "Een positieve, rustige benadering voor kinderen en hun ouders.", href: `${clinicBasePath}/mdc-junior` },
+  { slug: "mdc-junior", title: "Aurelia Junior", category: "Kinderen", text: "Een positieve, rustige benadering voor kinderen en hun ouders.", href: `${clinicBasePath}/mdc-junior` },
 ] as const;
 
 export const faqs = [
   { category: "Afspraken", question: "Hoe vraag ik een afspraak aan?", answer: "U kunt online een afspraak aanvragen of rechtstreeks contact opnemen met de praktijk van uw voorkeur. De praktijk bevestigt de afspraak persoonlijk." },
-  { category: "Afspraken", question: "Kan ik zelf een praktijk kiezen?", answer: "Ja. Modern Dental Care heeft praktijken in Amsterdam Oost, Amsterdam West en MDC Junior. Bekijk de locatiegegevens om de praktijk te kiezen die het beste bij u past." },
+  { category: "Afspraken", question: "Kan ik zelf een praktijk kiezen?", answer: "Ja. In dit concept heeft Aurelia Dental locaties in Amsterdam Centrum, Amsterdam Noord en Aurelia Junior. Bekijk de fictieve locatiegegevens om de praktijk te kiezen die het beste bij u past." },
   { category: "Nieuwe patiënten", question: "Kan ik mij inschrijven als nieuwe patiënt?", answer: "De volgende stap voor nieuwe patiënten is een afspraak aanvragen. Het team bespreekt daarna persoonlijk wat nodig is en hoe het traject verdergaat." },
   { category: "Behandelingen", question: "Welke behandeling past bij mijn vraag?", answer: "Dat hangt af van uw situatie. Een controle of eerste gesprek helpt om uw vraag te begrijpen en samen een passende vervolgstap te bepalen." },
   { category: "Kosten", question: "Waar vind ik informatie over tarieven?", answer: "Tarieven hangen af van de behandeling en uw persoonlijke situatie. Bespreek een behandelplan en de verwachte kosten vooraf met de praktijk." },
   { category: "Spoed", question: "Wat moet ik doen bij acute tandpijn?", answer: "Neem zo snel mogelijk telefonisch contact op met de praktijk. Bij ernstige of snel toenemende klachten is directe telefonische beoordeling belangrijk." },
-  { category: "Kinderen", question: "Hoe werkt een eerste bezoek voor mijn kind?", answer: "Bij MDC Junior staat rustig kennismaken centraal. Het team neemt de tijd om uit te leggen wat er gebeurt en een positieve routine op te bouwen." },
+  { category: "Kinderen", question: "Hoe werkt een eerste bezoek voor mijn kind?", answer: "Bij Aurelia Junior staat rustig kennismaken centraal. Het team neemt de tijd om uit te leggen wat er gebeurt en een positieve routine op te bouwen." },
 ] as const;
 
 export const trustPoints = [

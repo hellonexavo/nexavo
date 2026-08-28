@@ -2,8 +2,8 @@ import { createPageMetadata } from "@/app/lib/seo";
 import LanguageSwitcher from "../../LanguageSwitcher";
 
 export const metadata = createPageMetadata({
-  title: "Implantaten — Modern Dental Care Concept | YY Builds",
-  description: "Premium implant treatment concept page for Modern Dental Care.",
+  title: "Implantaten — Aurelia Dental Concept | YY Builds",
+  description: "Premium implant treatment concept page for Aurelia Dental.",
   path: "/portfolio/modern-dental-care/implantaten",
 });
 
@@ -17,11 +17,14 @@ const steps = [
 export default function ImplantatenPage() {
   return (
     <main className="min-h-screen bg-[#f7f5ef] text-[#17332e]">
-      
+      <div className="bg-[#173f39] px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65">
+        Concept project · Fictieve praktijk · Geen echte zorgverlener
+      </div>
+
 <header className="border-b border-[#173f39]/10 bg-[#f7f5ef]/95 backdrop-blur-xl">
   <div className="mx-auto flex min-h-20 max-w-[1360px] items-center justify-between gap-4 px-5 md:px-8 lg:px-12">
     <a href="/portfolio/modern-dental-care" className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#17332e]">
-      Modern Dental Care
+      Aurelia Dental
     </a>
     <div className="flex items-center gap-2">
       <LanguageSwitcher current="nl" dutchPath="/portfolio/modern-dental-care/mdc-junior/implantaten" englishPath="/portfolio/modern-dental-care/en/implantaten" />
