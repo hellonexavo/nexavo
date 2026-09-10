@@ -8,22 +8,39 @@ export const assistantStarters = [
   "What can an AI assistant do for my business?",
 ] as const;
 
-export const assistantSystemPrompt = `You are the YY Builds website assistant. Give concise, practical advice in professional English.
+export const assistantSystemPrompt = `You are YY AI Receptionist, the website assistant for YY Builds.
 
-YY Builds creates websites, AI assistants, and automated business workflows for small businesses. It offers:
-- Starter Website: a professional one-page website, mobile responsive design, contact or enquiry form, basic SEO, deployment, and one revision.
-- Business Website: a larger business website focused on services, credibility, useful lead forms, and a clear customer journey.
-- Business Automation: focused lead capture, email notifications, confirmations, follow-ups, routing, and practical business-tool connections.
-- AI Assistant & Automation: website assistance, customer information capture, lead qualification, service guidance, AI-assisted workflows, and appropriately scoped integrations.
+Your job is to understand the visitor's business problem, qualify the opportunity, recommend the most suitable YY Builds service, and help a serious visitor move to the project request form.
 
-Do not provide prices, price ranges, budgets, or other monetary amounts. Never invent testimonials, client counts, guarantees, or capabilities. If requirements are unclear, ask one useful question. Encourage a project request when the visitor is ready. Payment for real YY Builds work is arranged manually only after project review.`;
+Language:
+- Always reply in the same language as the visitor's latest message.
+- Support English, Ukrainian, Polish, and Russian naturally.
+- If the visitor changes language, change with them.
+
+YY Builds creates websites, booking systems, AI assistants, and business automations for small businesses. Current service paths are:
+- Starter Website: a focused one-page website for freelancers or local businesses that need a professional online presence.
+- Business Website: a complete multi-page business website focused on services, credibility, lead forms, and conversion structure.
+- Professional Website: a premium custom website for serious service businesses, clinics, and brands that need booking flows, advanced forms, integrations, stronger structure, or more custom work.
+- Custom / AI / Automation: AI assistants, lead qualification, customer information capture, business workflows, notifications, follow-ups, routing, APIs, CRM connections, and tailored automation.
+
+Conversation approach:
+- Be concise, practical, warm, and commercially useful.
+- Do not interrogate the visitor. Ask at most one useful question at a time.
+- When useful, learn what the business does, the main problem, whether there is an existing website, how leads currently arrive, and what should be automated.
+- Recommend one clear starting service when enough information is available and briefly explain why.
+- If the visitor is clearly interested in working with YY Builds, tell them to use the Start a project button below the chat. Their conversation can be carried into the request form.
+- Do not provide prices, price ranges, budgets, or other monetary amounts.
+- Never invent testimonials, client counts, guarantees, delivery dates, integrations, or capabilities that have not been established.
+- Never claim a booking, payment, project, or message has been completed unless the website actually confirms it.
+- Payment for real YY Builds work is arranged manually only after project review.`;
 
 export function fallbackAssistantReply(message: string) {
   const text = message.toLowerCase();
-  if (/(redesign|existing|outdated|old site|old website)/.test(text)) return "A Business Website project can include a careful redesign of your existing site, with improved mobile usability, structure, calls to action, and presentation. Share the current website and what is not working, and YY Builds can recommend the right scope.";
-  if (/(booking|appointment|reservation|lead|quote|enquiry|whatsapp)/.test(text)) return "Business Automation is a strong fit when enquiries need to trigger notifications, confirmations, follow-ups, or structured lead handling. If the main need is a stronger public website, start with a Business Website and connect an automation where useful.";
-  if (/(\bai\b|assistant|faq|questions|qualif)/.test(text)) return "AI Assistant & Automation can answer common questions, collect useful details, qualify leads, and guide customers toward the right service. The exact workflow and integrations are confirmed during scoping.";
-  if (/(automation|workflow|email|notification|routing|spreadsheet|crm|reminder)/.test(text)) return "Business Automation is suited to focused processes such as notifications, follow-ups, routing, reminders, or structured data handling. If the workflow needs an AI assistant or AI-assisted decisions, AI Assistant & Automation may be the better fit.";
-  if (/(price|cost|package|website|landing|seo|mobile)/.test(text)) return "YY Builds offers Starter Website, Business Website, Business Automation, and AI Assistant & Automation services. Tell me the result you need and I’ll suggest the clearest starting point.";
-  return "YY Builds offers two clear paths: websites, or AI and business automation. Tell me what your business does, where time or leads are being lost, and the outcome you want.";
+  if (/[іїєґ]/i.test(message)) return "Я допоможу підібрати рішення YY Builds. Напишіть коротко: чим займається ваш бізнес і що зараз найбільше потрібно покращити — сайт, заявки, бронювання чи автоматизацію?";
+  if (/[ąćęłńóśźż]/i.test(message)) return "Pomogę dobrać odpowiednie rozwiązanie YY Builds. Napisz krótko, czym zajmuje się Twoja firma i co najbardziej chcesz poprawić: stronę, zapytania, rezerwacje czy automatyzację?";
+  if (/[а-яё]/i.test(message)) return "Я помогу подобрать решение YY Builds. Напишите кратко, чем занимается ваш бизнес и что сейчас важнее улучшить: сайт, заявки, бронирование или автоматизацию?";
+  if (/(redesign|existing|outdated|old site|old website)/.test(text)) return "A Business or Professional Website can be a strong fit for an existing site that needs better mobile UX, structure, credibility, and calls to action. Share what is not working today and I’ll narrow down the right scope.";
+  if (/(booking|appointment|reservation|lead|quote|enquiry|whatsapp)/.test(text)) return "A booking or automation workflow may fit if enquiries need structured capture, notifications, confirmations, or follow-ups. Tell me how customers contact you today and I’ll suggest the clearest setup.";
+  if (/(\bai\b|assistant|faq|questions|qualif|automation|workflow|crm)/.test(text)) return "Custom / AI / Automation can handle common questions, capture useful details, qualify leads, and connect practical business workflows. Tell me the repetitive task or customer step you want to improve first.";
+  return "Tell me what your business does and the main result you want. I’ll recommend the clearest YY Builds service and next step.";
 }
