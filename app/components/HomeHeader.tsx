@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const navigation = [
   { label: "Work", href: "#work" },
   { label: "Services", href: "#services" },
+  { label: "Template", href: "/booking-template" },
   { label: "Tools", href: "/tools" },
   { label: "How it works", href: "#process" },
   { label: "YY AI", href: "#ai" },
