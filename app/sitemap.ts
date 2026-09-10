@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/`, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/checkout`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/booking`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteUrl}/tools`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/portfolio/modern-dental-care`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/portfolio/modern-dental-care/behandelingen`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/portfolio/modern-dental-care/behandelingen/controle`, lastModified, changeFrequency: "monthly", priority: 0.7 },
