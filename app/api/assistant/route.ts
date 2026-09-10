@@ -24,32 +24,50 @@ function parseMessages(value: unknown): AssistantMessage[] | null {
 
 export async function POST(request: Request) {
   if (isRateLimited(request)) return Response.json({ error: "Too many messages. Please wait a moment and try again." }, { status: 429 });
+
   let messages: AssistantMessage[] | null = null;
   try {
     messages = parseMessages(((await request.json()) as { messages?: unknown }).messages);
   } catch {
     return Response.json({ error: "The message could not be read." }, { status: 400 });
   }
+
   if (!messages) return Response.json({ error: "Please send a valid message." }, { status: 400 });
 
-  const apiKey = process.env.AI_API_KEY;
-  const apiUrl = process.env.AI_API_URL;
-  const model = process.env.AI_MODEL;
-  if (!apiKey || !apiUrl || !model) return Response.json({ reply: fallbackAssistantReply(messages.at(-1)!.content), mode: "demo" });
+  const configuredApiKey = process.env.AI_API_KEY;
+  const oidcToken = process.env.VERCEL_OIDC_TOKEN;
+  const apiKey = configuredApiKey || oidcToken;
+  const apiUrl = process.env.AI_API_URL || "https://ai-gateway.vercel.sh/v1/chat/completions";
+  const model = process.env.AI_MODEL || "openai/gpt-5-mini";
+
+  if (!apiKey) {
+    return Response.json({ reply: fallbackAssistantReply(messages.at(-1)!.content), mode: "demo" });
+  }
 
   try {
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ model, messages: [{ role: "system", content: assistantSystemPrompt }, ...messages], temperature: 0.3, max_tokens: 350 }),
-      signal: AbortSignal.timeout(15_000),
+      body: JSON.stringify({
+        model,
+        messages: [{ role: "system", content: assistantSystemPrompt }, ...messages],
+        temperature: 0.3,
+        max_tokens: 450,
+      }),
+      signal: AbortSignal.timeout(20_000),
     });
-    if (!response.ok) throw new Error(`AI provider returned ${response.status}`);
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      throw new Error(`AI provider returned ${response.status}${detail ? `: ${detail.slice(0, 240)}` : ""}`);
+    }
+
     const reply = ((await response.json()) as ProviderResponse).choices?.[0]?.message?.content?.trim();
     if (!reply) throw new Error("AI provider returned an empty response");
+
     return Response.json({ reply, mode: "live" });
   } catch (error) {
     console.error("YY Assistant provider request failed", error instanceof Error ? error.message : "Unknown error");
-    return Response.json({ error: "The assistant is temporarily unavailable. Please try again or start a project request." }, { status: 502 });
+    return Response.json({ reply: fallbackAssistantReply(messages.at(-1)!.content), mode: "demo" });
   }
 }
