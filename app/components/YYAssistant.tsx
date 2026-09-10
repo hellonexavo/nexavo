@@ -5,6 +5,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { assistantStarters, type AssistantMessage } from "@/app/lib/assistant";
 
 const welcome: AssistantMessage = { role: "assistant", content: "Hi — I’m YY AI. Tell me what you want to improve, and I’ll help you choose between a website and business automation, then find the right service level." };
+const PROJECT_CONTEXT_KEY = "yy-ai-project-context";
 
 export default function YYAssistant() {
   const router = useRouter();
@@ -44,8 +45,19 @@ export default function YYAssistant() {
   }
 
   function startProject() {
+    const usefulMessages = messages.slice(1);
+    if (usefulMessages.length > 0) {
+      const transcript = usefulMessages
+        .slice(-10)
+        .map((message) => `${message.role === "user" ? "Visitor" : "YY AI"}: ${message.content}`)
+        .join("\n\n")
+        .slice(0, 4500);
+      sessionStorage.setItem(PROJECT_CONTEXT_KEY, `Project context from YY AI conversation:\n\n${transcript}`);
+    } else {
+      sessionStorage.removeItem(PROJECT_CONTEXT_KEY);
+    }
     setIsOpen(false);
-    router.push("/checkout");
+    router.push("/checkout?product=custom-project&source=assistant");
   }
 
   return <>
@@ -66,7 +78,7 @@ export default function YYAssistant() {
         </div>
 
         <div className="border-t border-white/10 p-4">
-          {demoMode && <p className="mb-3 text-center text-[11px] text-white/35">Guided demo mode — project requests still go directly to YY Builds.</p>}
+          {demoMode && <p className="mb-3 text-center text-[11px] text-white/35">Guided fallback mode — project requests still go directly to YY Builds.</p>}
           <form onSubmit={submit} className="flex gap-2"><label className="sr-only" htmlFor="yy-assistant-message">Message</label><input id="yy-assistant-message" value={input} onChange={(event) => setInput(event.target.value)} maxLength={1200} placeholder="Ask about your project…" className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/[0.05] px-4 py-3 text-sm outline-none placeholder:text-white/25 focus:border-violet-300/40" /><button type="submit" disabled={!input.trim() || status === "loading"} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white font-semibold text-black disabled:opacity-40" aria-label="Send message">↑</button></form>
           <button type="button" onClick={startProject} className="mt-3 w-full rounded-full border border-white/12 px-5 py-3 text-sm font-semibold text-white/75 hover:bg-white/[0.07]">Start a project <span className="ml-2 text-violet-300">↗</span></button>
         </div>
