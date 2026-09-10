@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const navigation = [
   { label: "Work", href: "#work" },
   { label: "Services", href: "#services" },
+  { label: "Tools", href: "/tools" },
   { label: "How it works", href: "#process" },
   { label: "YY AI", href: "#ai" },
   { label: "Contact", href: "#contact" },
@@ -35,7 +36,11 @@ export default function HomeHeader() {
 
         <nav className="hidden items-center gap-6 text-sm font-medium text-slate-600 lg:flex" aria-label="Primary navigation">
           {navigation.map((item) => (
-            <a key={item.href} href={item.href} className="transition hover:text-slate-950">{item.label}</a>
+            item.href.startsWith("/") ? (
+              <Link key={item.href} href={item.href} className="transition hover:text-slate-950">{item.label}</Link>
+            ) : (
+              <a key={item.href} href={item.href} className="transition hover:text-slate-950">{item.label}</a>
+            )
           ))}
         </nav>
 
@@ -61,7 +66,11 @@ export default function HomeHeader() {
         <div id="mobile-navigation" className="border-t border-slate-200 bg-white lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-5 py-4" aria-label="Mobile navigation">
             {navigation.map((item) => (
-              <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className="border-b border-slate-100 py-4 text-lg font-medium text-slate-700 last:border-0">{item.label}</a>
+              item.href.startsWith("/") ? (
+                <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className="border-b border-slate-100 py-4 text-lg font-medium text-slate-700 last:border-0">{item.label}</Link>
+              ) : (
+                <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className="border-b border-slate-100 py-4 text-lg font-medium text-slate-700 last:border-0">{item.label}</a>
+              )
             ))}
             <Link href="/checkout" onClick={() => setMenuOpen(false)} className="mt-3 flex items-center justify-center rounded-full bg-slate-950 px-5 py-4 font-semibold text-white">Start a project →</Link>
           </nav>
