@@ -17,14 +17,25 @@ type Props = {
   initialProductId?: ProductId;
 };
 
+const PROJECT_CONTEXT_KEY = "yy-ai-project-context";
+
 export default function CheckoutExperience({ products, initialProductId }: Props) {
   const [productId, setProductId] = useState<ProductId | "">(initialProductId ?? "");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [projectDescription, setProjectDescription] = useState("");
+  const [hasAssistantContext, setHasAssistantContext] = useState(false);
   const formStartedAt = useRef(0);
   const product = useMemo(() => products.find((item) => item.id === productId), [productId, products]);
 
-  useEffect(() => { formStartedAt.current = Date.now(); }, []);
+  useEffect(() => {
+    formStartedAt.current = Date.now();
+    const storedContext = sessionStorage.getItem(PROJECT_CONTEXT_KEY);
+    if (storedContext) {
+      setProjectDescription(storedContext);
+      setHasAssistantContext(true);
+    }
+  }, []);
 
   function selectProduct(nextId: ProductId | "") {
     setProductId(nextId);
@@ -50,7 +61,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
           email: formData.get("email"),
           phone: formData.get("phone"),
           service: selectedPackage,
-          message: formData.get("project_description"),
+          message: projectDescription,
           website: formData.get("website"),
           websiteConfirm: formData.get("websiteConfirm"),
           startedAt: formStartedAt.current,
@@ -58,6 +69,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
       });
       const responseBody = await response.json().catch(() => ({})) as { error?: string };
       if (!response.ok) throw new Error(responseBody.error || "Your request could not be sent. Please try again.");
+      sessionStorage.removeItem(PROJECT_CONTEXT_KEY);
       setStatus("success");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
@@ -75,7 +87,7 @@ export default function CheckoutExperience({ products, initialProductId }: Props
           <h1 className="mt-5 text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">Request received</h1>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-white/55">We&apos;ll review your request and reply with a recommended scope and timeline.</p>
           <div className="mx-auto mt-8 max-w-lg rounded-2xl border border-white/10 bg-black/20 p-5 text-left"><p className="text-xs uppercase tracking-[0.16em] text-white/35">Selected service</p><p className="mt-2 text-lg font-semibold">{product?.name ?? "Not sure yet"}</p><p className="mt-1 text-white/45">Pricing based on scope</p></div>
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row"><Link href="/" className="button-primary">Back to YY Builds <span>→</span></Link><button type="button" onClick={() => { formStartedAt.current = Date.now(); setStatus("idle"); }} className="button-secondary">Send another request</button></div>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row"><Link href="/" className="button-primary">Back to YY Builds <span>→</span></Link><button type="button" onClick={() => { formStartedAt.current = Date.now(); setProjectDescription(""); setHasAssistantContext(false); setStatus("idle"); }} className="button-secondary">Send another request</button></div>
         </div>
       </main>
     );
@@ -110,13 +122,14 @@ export default function CheckoutExperience({ products, initialProductId }: Props
 
           <aside className="rounded-[30px] border border-white/10 bg-white/[0.045] p-6 shadow-[0_35px_100px_rgba(0,0,0,.35)] sm:p-8 lg:sticky lg:top-8">
             <div><p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">Project details</p><h2 className="mt-2 text-2xl font-semibold">Request a project review</h2><p className="mt-3 text-sm leading-6 text-white/42">We&apos;ll reply with a recommended scope and timeline before any work or payment.</p></div>
+            {hasAssistantContext && <div className="mt-5 rounded-2xl border border-violet-300/20 bg-violet-300/[0.06] p-4 text-sm leading-6 text-white/60"><span className="font-semibold text-violet-200">YY AI context added.</span> Review or edit the conversation summary below before sending.</div>}
             <form onSubmit={submitRequest} aria-busy={status === "sending"} className="mt-7 space-y-4">
               <CheckoutField label="Full name" name="name" autoComplete="name" required />
               <CheckoutField label="Email" name="email" type="email" autoComplete="email" required />
               <CheckoutField label="Phone" name="phone" type="tel" autoComplete="tel" />
               <label className="block text-sm font-medium text-white/60">Website<span className="ml-1 text-white/25">(optional)</span><input name="website" type="url" autoComplete="url" placeholder="https://yourwebsite.com" className="premium-field mt-2" /></label>
               <label className="sr-only" aria-hidden="true">Website confirmation<input name="websiteConfirm" type="text" tabIndex={-1} autoComplete="off" /></label>
-              <label className="block text-sm font-medium text-white/60">Project description<span className="ml-1 text-violet-300" aria-hidden="true">*</span><textarea required name="project_description" rows={5} placeholder="Tell us about your business, goals, and what you need." className="premium-field mt-2 resize-y" /></label>
+              <label className="block text-sm font-medium text-white/60">Project description<span className="ml-1 text-violet-300" aria-hidden="true">*</span><textarea required name="project_description" rows={7} value={projectDescription} onChange={(event) => setProjectDescription(event.target.value)} placeholder="Tell us about your business, goals, and what you need." className="premium-field mt-2 resize-y" /></label>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm"><div className="flex justify-between gap-4"><span className="text-white/40">Service</span><span className="text-right font-semibold">{product?.name ?? "Not sure yet"}</span></div><div className="mt-3 flex justify-between gap-4 border-t border-white/10 pt-3"><span className="text-white/55">Next step</span><span className="text-right font-semibold">{product ? "Let's discuss your project" : "Personal recommendation"}</span></div></div>
               {status === "error" && <div role="alert" className="rounded-2xl border border-rose-300/20 bg-rose-300/[0.08] p-4 text-sm text-rose-100">{errorMessage || "The request could not be sent. Please try again in a moment."}</div>}
               <button type="submit" disabled={status === "sending"} className="button-primary w-full disabled:cursor-not-allowed disabled:opacity-50">{status === "sending" ? "Sending request…" : "Send project request"} <span>→</span></button>
