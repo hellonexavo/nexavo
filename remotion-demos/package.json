@@ -1,0 +1,24 @@
+{
+  "name": "yybuilds-remotion-demos",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "render": "npm run render:website && npm run render:automation && npm run render:content",
+    "render:website": "remotion render src/index.ts WebsiteDemo ../public/videos/yy-builds-website.mp4",
+    "render:automation": "remotion render src/index.ts AutomationDemo ../public/videos/yy-builds-automation.mp4",
+    "render:content": "remotion render src/index.ts ContentEngineDemo ../public/videos/yy-builds-content-engine.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.318",
+    "@remotion/google-fonts": "4.0.318",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.318"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}
