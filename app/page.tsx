@@ -2,6 +2,7 @@ import Link from "next/link";
 import HomeHeader from "./components/HomeHeader";
 import YYAssistant from "./components/YYAssistant";
 import SocialLinks from "./components/SocialLinks";
+import ContentShowcase from "./components/ContentShowcase";
 import { contactDetails } from "./lib/contact";
 
 const featuredProjects = [
@@ -121,7 +122,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ai" className="scroll-mt-24 px-5 pb-20 sm:px-6 lg:px-10 lg:pb-24">
+      <ContentShowcase />
+
+      <section id="ai" className="scroll-mt-24 px-5 py-20 sm:px-6 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[36px] bg-gradient-to-br from-violet-600 via-fuchsia-500 to-sky-500 p-[1px] shadow-2xl shadow-violet-900/10">
           <div className="grid gap-10 rounded-[35px] bg-white p-7 sm:p-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:p-14">
             <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-600">Meet YY AI</p><h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1] tracking-[-0.055em] sm:text-6xl">A receptionist that helps visitors find the right next step.</h2><p className="mt-6 max-w-2xl text-base leading-7 text-slate-600">YY AI can answer common questions, understand what a visitor needs, guide them toward the right service and carry useful context into a project request.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href="#top" className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold text-white">Try YY AI <span className="ml-2">↑</span></a><Link href="/checkout?product=custom-project" className="inline-flex items-center justify-center rounded-full border border-slate-200 px-6 py-4 text-sm font-semibold text-slate-800">Build one for my business <span className="ml-2 text-violet-600">↗</span></Link></div></div>
@@ -143,8 +146,8 @@ export default function Home() {
 
       <footer className="border-t border-slate-200 px-5 py-8 sm:px-6 lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-7 text-sm text-slate-500 sm:flex-row sm:items-end">
-          <div><p className="text-base font-semibold text-slate-950">YY Builds</p><p className="mt-1">Websites • Booking Systems • AI &amp; Automation</p><div className="mt-4 flex flex-wrap gap-x-5 gap-y-2"><a className="hover:text-slate-950" href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a><a className="hover:text-slate-950" href="https://t.me/yybuilds" target="_blank" rel="noopener noreferrer">{contactDetails.telegram}</a></div><SocialLinks className="mt-4" /></div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#process">How it works</a><a href="#ai">YY AI</a><a href="#contact">Contact</a></nav>
+          <div><p className="text-base font-semibold text-slate-950">YY Builds</p><p className="mt-1">Websites • Booking Systems • AI • Automation • Content</p><div className="mt-4 flex flex-wrap gap-x-5 gap-y-2"><a className="hover:text-slate-950" href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a><a className="hover:text-slate-950" href="https://t.me/yybuilds" target="_blank" rel="noopener noreferrer">{contactDetails.telegram}</a></div><SocialLinks className="mt-4" /></div>
+          <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#content-engine">Content</a><a href="#process">How it works</a><a href="#ai">YY AI</a><a href="#contact">Contact</a></nav>
         </div>
       </footer>
 
