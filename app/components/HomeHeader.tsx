@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const navigation = [
   { label: "Work", href: "#work" },
   { label: "Services", href: "#services" },
+  { label: "Content", href: "#content-engine" },
   { label: "Template", href: "/booking-template" },
   { label: "Tools", href: "/tools" },
   { label: "How it works", href: "#process" },
@@ -31,11 +32,11 @@ export default function HomeHeader() {
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white shadow-sm">YY</span>
           <span className="min-w-0">
             <span className="block font-semibold tracking-tight text-slate-950">YY Builds</span>
-            <span className="hidden text-[11px] text-slate-500 sm:block">Websites • AI • Automation</span>
+            <span className="hidden text-[11px] text-slate-500 sm:block">Websites • AI • Automation • Content</span>
           </span>
         </a>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium text-slate-600 lg:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-5 text-sm font-medium text-slate-600 lg:flex" aria-label="Primary navigation">
           {navigation.map((item) => (
             item.href.startsWith("/") ? (
               <Link key={item.href} href={item.href} className="transition hover:text-slate-950">{item.label}</Link>
