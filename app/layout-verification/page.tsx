@@ -1,0 +1,3 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Layout verification", robots: { index: false, follow: false } };
+export default function LayoutQA(){ return <main style={{background:"#ddd",color:"#111",padding:20}}><h1>Responsive layout verification</h1>{[320,390,768,1100,1440].map(width=><section key={width}><h2>{width}px</h2><iframe title={`Homepage at ${width}px`} src="/" width={width} height={900} style={{border:"1px solid #444",display:"block"}} /></section>)}<section><h2>Project request</h2><iframe title="Project request" src="/checkout" width={390} height={1000}/></section></main>}
