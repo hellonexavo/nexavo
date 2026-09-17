@@ -23,6 +23,12 @@ export default function YYAssistant() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    const openAssistant = () => setIsOpen(true);
+    window.addEventListener("yy-open-assistant", openAssistant);
+    return () => window.removeEventListener("yy-open-assistant", openAssistant);
+  }, []);
+
+  useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, status]);
 
