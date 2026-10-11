@@ -115,7 +115,7 @@ export default function Home() {
                 <Link className={styles.primaryButton} href="/checkout">
                   Start a project <span aria-hidden="true">↗</span>
                 </Link>
-                <a className={styles.textLink} href="#work">
+                <Link className={styles.textLink} href="/pricing">\n                  View prices <span aria-hidden="true">↗</span>\n                </Link>\n                <a className={styles.textLink} href="#work">
                   Explore the work <span aria-hidden="true">↓</span>
                 </a>
               </div>
