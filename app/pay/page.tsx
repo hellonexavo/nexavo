@@ -7,7 +7,8 @@ const choices = [
   { id: "custom", label: "Custom website or automation — quote first", amount: 0 },
 ];
 export default function PayPage() {
-  const [item,setItem]=useState("kit");\n  const [method,setMethod]=useState("transfer");
+  const [item,setItem]=useState("kit");
+  const [method,setMethod]=useState("transfer");
   const [status,setStatus]=useState<"idle"|"sending"|"done"|"error">("idle");
   const [error,setError]=useState("");
   const startedAt=useRef(0);
@@ -23,7 +24,8 @@ export default function PayPage() {
       "Preferred payment: "+(method==="paypal"?"PayPal Goods and Services":"SEPA bank transfer"),
       "Notes: "+(note||"None"),
       "IMPORTANT: Verify scope and lawful eligibility before sending payment details. Do not treat this submission as a paid order."
-    ].join("\n");
+    ].join("
+");
     try {
       const response=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
         name:fields.get("name"),email:fields.get("email"),phone:"",service:selected.label,message,
