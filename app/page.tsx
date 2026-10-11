@@ -112,8 +112,8 @@ export default function Home() {
                 for businesses ready for a better digital presence.
               </p>
               <div className={styles.actions}>
-                <Link className={styles.primaryButton} href="/checkout">
-                  Start a project <span aria-hidden="true">↗</span>
+                <Link className={styles.primaryButton} href="/pricing">
+                  View products & prices <span aria-hidden="true">↗</span>
                 </Link>
                 <Link className={styles.textLink} href="/pricing">\n                  View prices <span aria-hidden="true">↗</span>\n                </Link>\n                <a className={styles.textLink} href="#work">
                   Explore the work <span aria-hidden="true">↓</span>
