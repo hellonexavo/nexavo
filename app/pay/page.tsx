@@ -7,7 +7,7 @@ const choices = [
   { id: "custom", label: "Custom website or automation — quote first", amount: 0 },
 ];
 export default function PayPage() {
-  const [item,setItem]=useState("kit");
+  const [item,setItem]=useState("kit");\n  const [method,setMethod]=useState("transfer");
   const [status,setStatus]=useState<"idle"|"sending"|"done"|"error">("idle");
   const [error,setError]=useState("");
   const startedAt=useRef(0);
@@ -20,7 +20,7 @@ export default function PayPage() {
     const message=[
       "Payment arrangement request — no payment collected on site.",
       "Item: "+selected.label,
-      "Requested payment method: bank transfer / secure payment link after seller confirmation",
+      "Preferred payment: "+(method==="paypal"?"PayPal Goods and Services":"SEPA bank transfer"),
       "Notes: "+(note||"None"),
       "IMPORTANT: Verify scope and lawful eligibility before sending payment details. Do not treat this submission as a paid order."
     ].join("\n");
@@ -40,13 +40,13 @@ export default function PayPage() {
     {status==="done"?<section className="mt-8 rounded-2xl border border-emerald-300/30 bg-emerald-300/5 p-6"><h2 className="text-2xl font-semibold">Request received</h2><p className="mt-2 text-slate-300">We will review your request and reply with available payment options. No money has been charged and nothing has been purchased yet.</p><Link href="/" className="mt-5 inline-block text-emerald-300">Back to YY Builds →</Link></section>:
     <form onSubmit={submit} className="mt-8 space-y-5 rounded-2xl border border-white/15 bg-white/5 p-6">
       <label className="block text-sm font-semibold">Product or service<select required className="mt-2 w-full rounded-lg bg-slate-900 p-3 text-white" value={item} onChange={e=>setItem(e.target.value)}>{choices.map(x=><option key={x.id} value={x.id}>{x.label}</option>)}</select></label>
-      <label className="block text-sm font-semibold">Name<input name="name" required maxLength={120} autoComplete="name" className="mt-2 w-full rounded-lg bg-slate-900 p-3 text-white"/></label>
+      <fieldset className="space-y-3"><legend className="text-sm font-semibold">Preferred payment method</legend><label className="flex items-center gap-3 rounded-lg border border-white/15 p-3"><input type="radio" checked={method==="transfer"} onChange={()=>setMethod("transfer")}/>SEPA bank transfer — details after review</label><label className="flex items-center gap-3 rounded-lg border border-white/15 p-3"><input type="radio" checked={method==="paypal"} onChange={()=>setMethod("paypal")}/>PayPal — verified link after review</label></fieldset><label className="block text-sm font-semibold">Name<input name="name" required maxLength={120} autoComplete="name" className="mt-2 w-full rounded-lg bg-slate-900 p-3 text-white"/></label>
       <label className="block text-sm font-semibold">Email<input name="email" type="email" required maxLength={254} autoComplete="email" className="mt-2 w-full rounded-lg bg-slate-900 p-3 text-white"/></label>
       <label className="block text-sm font-semibold">Details (optional)<textarea name="notes" maxLength={1800} rows={3} className="mt-2 w-full rounded-lg bg-slate-900 p-3 text-white"/></label>
       <label className="hidden" aria-hidden="true">Website confirmation<input name="websiteConfirm" tabIndex={-1} autoComplete="off"/></label>
       {status==="error"&&<p role="alert" className="text-amber-300">{error}</p>}
       <button disabled={status==="sending"} type="submit" className="w-full rounded-xl bg-emerald-400 p-4 font-semibold text-slate-950 disabled:opacity-50">{status==="sending"?"Sending request…":"Request payment instructions →"}</button>
-      <p className="text-xs text-slate-400">This form does not process payments or store bank/card data. You will receive separate instructions once the request is reviewed. Do not send card numbers or passwords.</p>
+      <p className="text-xs text-slate-400">This form records your preferred payment method but does not charge you or store bank/card data. You will receive separate instructions once the request is reviewed. Do not send card numbers or passwords.</p>
     </form>}
     </div></main>;
 }
