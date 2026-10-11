@@ -24,8 +24,7 @@ export default function PayPage() {
       "Preferred payment: "+(method==="paypal"?"PayPal Goods and Services":"SEPA bank transfer"),
       "Notes: "+(note||"None"),
       "IMPORTANT: Verify scope and lawful eligibility before sending payment details. Do not treat this submission as a paid order."
-    ].join("
-");
+    ].join("\n");
     try {
       const response=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
         name:fields.get("name"),email:fields.get("email"),phone:"",service:selected.label,message,
