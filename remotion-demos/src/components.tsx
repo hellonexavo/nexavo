@@ -20,7 +20,7 @@ export const Scene: React.FC<React.PropsWithChildren<{accent?: string}>> = ({chi
 
 export const Brand: React.FC<{dark?: boolean}> = () => <div style={{position:'absolute', top:72, left:70, right:70, display:'flex', justifyContent:'space-between', alignItems:'center', zIndex:20}}>
   <div style={{fontWeight:800, fontSize:29, letterSpacing:-1}}>YY<span style={{color:C.lime}}>.</span> BUILDS</div>
-  <div style={{fontSize:18, letterSpacing:3, color:C.muted}}>BUILD WHAT'S NEXT</div>
+  <div style={{fontSize:18, letterSpacing:3, color:C.muted}}>BUILD WHAT’S NEXT</div>
 </div>;
 
 export const Eyebrow: React.FC<React.PropsWithChildren<{color?: string}>> = ({children, color=C.lime}) => <div style={{fontSize:20,fontWeight:700,letterSpacing:4,textTransform:'uppercase',color,marginBottom:28}}>{children}</div>;

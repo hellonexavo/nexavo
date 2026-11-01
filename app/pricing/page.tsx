@@ -1,3 +1,52 @@
 import Link from "next/link";
-export const metadata={title:"Clear starting prices. | YY Builds",description:"Website support, new websites, booking workflows and automation. Confirmed scope and terms always come before payment."};
-export default function Page(){return <main className="min-h-screen bg-[#090c10] text-[#f4f2ed]"><div className="mx-auto max-w-6xl px-6"><header className="flex flex-wrap items-center justify-between gap-5 border-b border-white/10 py-7"><Link href="/" className="text-2xl font-black tracking-[-.08em]">YY<span className="text-[#c5e3b3]">.</span>BUILDS</Link><nav className="flex flex-wrap gap-5 text-sm text-white/65"><Link href="/services">Services</Link><Link href="/portfolio">Portfolio</Link><Link href="/pricing">Pricing</Link><Link href="/about">About</Link><Link href="/contact">Contact</Link></nav></header><section className="py-20"><p className="text-xs font-bold uppercase tracking-[.25em] text-[#c5e3b3]">05 / PRICING</p><h1 className="mt-6 max-w-5xl text-5xl font-medium tracking-[-.07em] sm:text-7xl">Clear starting prices.</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-white/60">Website support, new websites, booking workflows and automation. Confirmed scope and terms always come before payment.</p><div className="mt-12 grid gap-4 sm:grid-cols-2"><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-5 sm:p-7"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Website fixes & support</h2><p className="mt-4 text-sm leading-7 text-white/55">Small repairs, content updates, responsive styling and troubleshooting.</p><p className="break-words mt-6 text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €15</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap items-center rounded-full border border-[#c5e3b3]/40 px-4 py-3 text-center text-xs font-medium leading-5 text-[#c5e3b3] sm:px-5 sm:text-sm">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-5 sm:p-7"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Website maintenance</h2><p className="mt-4 text-sm leading-7 text-white/55">Lightweight ongoing checks and content maintenance within agreed limits.</p><p className="break-words mt-6 text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €30/month</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap items-center rounded-full border border-[#c5e3b3]/40 px-4 py-3 text-center text-xs font-medium leading-5 text-[#c5e3b3] sm:px-5 sm:text-sm">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-5 sm:p-7"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Landing page</h2><p className="mt-4 text-sm leading-7 text-white/55">A responsive one-page web experience built around a specific goal.</p><p className="break-words mt-6 text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €590</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap items-center rounded-full border border-[#c5e3b3]/40 px-4 py-3 text-center text-xs font-medium leading-5 text-[#c5e3b3] sm:px-5 sm:text-sm">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-5 sm:p-7"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Business website</h2><p className="mt-4 text-sm leading-7 text-white/55">A professional business site with clear structure and enquiry journey.</p><p className="break-words mt-6 text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €990</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap items-center rounded-full border border-[#c5e3b3]/40 px-4 py-3 text-center text-xs font-medium leading-5 text-[#c5e3b3] sm:px-5 sm:text-sm">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-5 sm:p-7"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Booking & appointments</h2><p className="mt-4 text-sm leading-7 text-white/55">Booking enquiry flows and scheduling integrations, subject to requirements.</p><p className="break-words mt-6 text-xl font-semibold text-[#c5e3b3] sm:text-2xl">Custom quote</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap items-center rounded-full border border-[#c5e3b3]/40 px-4 py-3 text-center text-xs font-medium leading-5 text-[#c5e3b3] sm:px-5 sm:text-sm">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-5 sm:p-7"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Lead forms & CRM</h2><p className="mt-4 text-sm leading-7 text-white/55">Connect forms, notifications and simple lead tracking workflows.</p><p className="break-words mt-6 text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €199</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap items-center rounded-full border border-[#c5e3b3]/40 px-4 py-3 text-center text-xs font-medium leading-5 text-[#c5e3b3] sm:px-5 sm:text-sm">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-5 sm:p-7"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Custom automation</h2><p className="mt-4 text-sm leading-7 text-white/55">Business workflow and AI-assisted integrations scoped on request.</p><p className="break-words mt-6 text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €399</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap items-center rounded-full border border-[#c5e3b3]/40 px-4 py-3 text-center text-xs font-medium leading-5 text-[#c5e3b3] sm:px-5 sm:text-sm">Request assessment ↗</Link></article></div><p className="mt-10 text-sm leading-7 text-white/50">Starting estimates only. Recurring care depends on an agreed monthly allowance. Taxes, third-party fees and hosting are clarified in individual quotes. No charge is made on this website.</p></section><footer className="flex flex-wrap items-center gap-6 border-t border-white/10 py-10 text-sm text-white/55"><Link href="/">YY Builds © 2026</Link><a href="https://www.instagram.com/yybuilds.studio/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.facebook.com/profile.php?id=1295138693680821" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="mailto:yybuilds.contact@gmail.com">Email ↗</a></footer></div></main>}
+import { StudioFrame, ProjectCTA } from "../components/StudioFrame";
+import { services, priceNote } from "../lib/services";
+import s from "../studio.module.css";
+export const metadata = {
+  title: "Starting Prices & Project Quotes | YY Builds",
+  description:
+    "Transparent starting estimates for website fixes, websites, CRM and automation. Scope, delivery and costs agreed before work begins.",
+  alternates: { canonical: "/pricing" },
+};
+export default function Pricing() {
+  return (
+    <StudioFrame>
+      <div className={s.wrap}>
+        <section className={s.pageHero}>
+          <p className={s.eyebrow}>CLEAR FROM THE START</p>
+          <h1>
+            A starting point.
+            <br />
+            Then a clear proposal.
+          </h1>
+          <p>
+            Clear starting estimates, with a defined scope for each project.
+            Tell me what needs to work better and we’ll agree on the right next
+            step.
+          </p>
+        </section>
+      </div>
+      <section className={`${s.section} ${s.light}`}>
+        <div className={s.wrap}>
+          <div className={s.pricingList}>
+            {services.map((service) => (
+              <div className={s.priceRow} key={service.id}>
+                <span>{service.number}</span>
+                <div>
+                  <h2>{service.title}</h2>
+                  <p>{service.scope}</p>
+                </div>
+                <strong>{service.price}</strong>
+                <Link href={`/contact?service=${service.id}`}>
+                  Request a quote <span aria-hidden="true">↗</span>
+                </Link>
+              </div>
+            ))}
+          </div>
+          <p className={s.note}>{priceNote}</p>
+        </div>
+      </section>
+      <ProjectCTA />
+    </StudioFrame>
+  );
+}

@@ -1,3 +1,67 @@
 import Link from "next/link";
-export const metadata={title:"Digital services | YY Builds",description:"From the smallest website fix to digital infrastructure that makes everyday business easier."};
-export default function Page(){return <main className="relative min-h-screen overflow-hidden bg-[#090c10] text-[#f4f2ed]"><div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-25" style={{backgroundImage:"radial-gradient(ellipse at 75% 8%,rgba(190,235,202,.23),transparent 34%),radial-gradient(ellipse at 15% 52%,rgba(117,107,231,.19),transparent 42%)"}}/><div className="relative mx-auto max-w-6xl px-6"><header className="flex flex-wrap items-center justify-between gap-5 border-b border-white/10 py-7"><Link href="/" className="text-2xl font-black tracking-[-.08em]">YY<span className="text-[#c5e3b3]">.</span>BUILDS</Link><nav className="flex flex-wrap gap-5 text-sm text-white/65"><Link href="/services">Services</Link><Link href="/portfolio">Portfolio</Link><Link href="/pricing">Pricing</Link><Link href="/about">About</Link><Link href="/contact">Contact</Link></nav></header><section className="py-20"><p className="text-xs font-bold uppercase tracking-[.25em] text-[#c5e3b3]">01 / EXPERTISE</p><h1 className="mt-6 max-w-5xl text-5xl font-medium tracking-[-.07em] sm:text-7xl">Digital services</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-white/60">From the smallest website fix to digital infrastructure that makes everyday business easier.</p><div className="mt-12 grid gap-5 md:grid-cols-2"><article className="relative min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#203733] via-[#1b252b] to-[#171625] p-8 transition duration-300 hover:-translate-y-1 hover:border-[#c5e3b3]/45"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Website fixes & support</h2><p className="mt-4 text-sm leading-7 text-white/55">Small repairs, content updates, responsive styling and troubleshooting.</p><p className="mt-6 break-words text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €15</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap rounded-full border border-[#c5e3b3]/40 px-5 py-3 text-center text-sm leading-5 text-[#c5e3b3]">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-6 sm:p-8"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Website maintenance</h2><p className="mt-4 text-sm leading-7 text-white/55">Lightweight ongoing checks and content maintenance within agreed limits.</p><p className="mt-6 break-words text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €30/month</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap rounded-full border border-[#c5e3b3]/40 px-5 py-3 text-center text-sm leading-5 text-[#c5e3b3]">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-6 sm:p-8"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Landing page</h2><p className="mt-4 text-sm leading-7 text-white/55">A responsive one-page web experience built around a specific goal.</p><p className="mt-6 break-words text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €590</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap rounded-full border border-[#c5e3b3]/40 px-5 py-3 text-center text-sm leading-5 text-[#c5e3b3]">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-6 sm:p-8"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Business website</h2><p className="mt-4 text-sm leading-7 text-white/55">A professional business site with clear structure and enquiry journey.</p><p className="mt-6 break-words text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €990</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap rounded-full border border-[#c5e3b3]/40 px-5 py-3 text-center text-sm leading-5 text-[#c5e3b3]">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-6 sm:p-8"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Booking & appointments</h2><p className="mt-4 text-sm leading-7 text-white/55">Booking enquiry flows and scheduling integrations, subject to requirements.</p><p className="mt-6 break-words text-xl font-semibold text-[#c5e3b3] sm:text-2xl">Custom quote</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap rounded-full border border-[#c5e3b3]/40 px-5 py-3 text-center text-sm leading-5 text-[#c5e3b3]">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-6 sm:p-8"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Lead forms & CRM</h2><p className="mt-4 text-sm leading-7 text-white/55">Connect forms, notifications and simple lead tracking workflows.</p><p className="mt-6 break-words text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €199</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap rounded-full border border-[#c5e3b3]/40 px-5 py-3 text-center text-sm leading-5 text-[#c5e3b3]">Request assessment ↗</Link></article><article className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[.04] p-6 sm:p-8"><h2 className="break-words text-xl font-semibold leading-snug sm:text-2xl">Custom automation</h2><p className="mt-4 text-sm leading-7 text-white/55">Business workflow and AI-assisted integrations scoped on request.</p><p className="mt-6 break-words text-xl font-semibold text-[#c5e3b3] sm:text-2xl">from €399</p><Link href="/contact" className="mt-7 inline-flex max-w-full flex-wrap rounded-full border border-[#c5e3b3]/40 px-5 py-3 text-center text-sm leading-5 text-[#c5e3b3]">Request assessment ↗</Link></article></div><p className="mt-10 text-sm leading-7 text-white/50">Prices are starting estimates, not instant purchases. Booking, CRM, automation and larger builds require technical assessment, written scope and quote. Domain, hosting, external service fees and applicable taxes are clarified before work.</p></section><footer className="flex flex-wrap items-center gap-6 border-t border-white/10 py-10 text-sm text-white/55"><Link href="/">YY Builds © 2026</Link><a href="https://www.instagram.com/yybuilds.studio/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.facebook.com/profile.php?id=1295138693680821" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="mailto:yybuilds.contact@gmail.com">Email ↗</a></footer></div></main>}
+import { StudioFrame, ProjectCTA } from "../components/StudioFrame";
+import { services, priceNote } from "../lib/services";
+import s from "../studio.module.css";
+export const metadata = {
+  title: "Websites, CRM, Automation & Content Services | YY Builds",
+  description:
+    "Website support, booking, CRM, job dashboards, AI assistants and short-form content for small businesses. Explore the services and starting estimates.",
+  alternates: { canonical: "/services" },
+};
+export default function Services() {
+  return (
+    <StudioFrame>
+      <div className={s.wrap}>
+        <section className={s.pageHero}>
+          <p className={s.eyebrow}>WHAT WE CAN BUILD TOGETHER</p>
+          <h1>
+            Useful technology.
+            <br />
+            Thoughtfully delivered.
+          </h1>
+          <p>
+            From a small website fix to a connected business workflow. Choose a
+            starting point, then we’ll shape the scope around your work.
+          </p>
+          <div className={s.actions}>
+            <Link className={s.button} href="/demos">
+              Explore the live demos ↗
+            </Link>
+            <Link className={s.inlineLink} href="/pricing">
+              Compare starting prices ↗
+            </Link>
+          </div>
+        </section>
+        <section className={s.sectionTight}>
+          <div className={s.serviceGrid}>
+            {services.map((service) => (
+              <article
+                className={s.serviceCard}
+                key={service.id}
+                id={service.id}
+              >
+                <div className={s.serviceTop}>
+                  <span>
+                    {service.number} / {service.group}
+                  </span>
+                  <span aria-hidden="true">{service.icon}</span>
+                </div>
+                <h2>{service.title}</h2>
+                <p>{service.description}</p>
+                <small>{service.scope}</small>
+                <div className={s.serviceBottom}>
+                  <strong>{service.price}</strong>
+                  <Link href={`/contact?service=${service.id}`}>
+                    Discuss this service ↗
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className={s.note}>{priceNote}</p>
+        </section>
+      </div>
+      <ProjectCTA />
+    </StudioFrame>
+  );
+}

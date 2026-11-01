@@ -4,6 +4,7 @@ import { siteUrl } from "./lib/seo";
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   return [
+    ...["services", "pricing", "portfolio", "contact", "about", "demos"].map(path => ({ url: `${siteUrl}/${path}`, lastModified, changeFrequency: "monthly" as const, priority: 0.8 })),
     { url: `${siteUrl}/`, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/checkout`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/booking`, lastModified, changeFrequency: "monthly", priority: 0.8 },

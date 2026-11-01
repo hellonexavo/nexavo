@@ -1,3 +1,65 @@
 import Link from "next/link";
-export const metadata={title:"Selected concepts | YY Builds",description:"These are independently created demonstration projects, not commissioned client projects."};
-export default function Page(){return <main className="relative min-h-screen overflow-hidden bg-[#090c10] text-[#f4f2ed]"><div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-25" style={{backgroundImage:"radial-gradient(ellipse at 75% 8%,rgba(190,235,202,.23),transparent 34%),radial-gradient(ellipse at 15% 52%,rgba(117,107,231,.19),transparent 42%)"}}/><div className="relative mx-auto max-w-6xl px-6"><header className="flex flex-wrap items-center justify-between gap-5 border-b border-white/10 py-7"><Link href="/" className="text-2xl font-black tracking-[-.08em]">YY<span className="text-[#c5e3b3]">.</span>BUILDS</Link><nav className="flex flex-wrap gap-5 text-sm text-white/65"><Link href="/services">Services</Link><Link href="/portfolio">Portfolio</Link><Link href="/pricing">Pricing</Link><Link href="/about">About</Link><Link href="/contact">Contact</Link></nav></header><section className="py-20"><p className="text-xs font-bold uppercase tracking-[.25em] text-[#c5e3b3]">02 / PORTFOLIO</p><h1 className="mt-6 max-w-5xl text-5xl font-medium tracking-[-.07em] sm:text-7xl">Selected concepts</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-white/60">These are independently created demonstration projects, not commissioned client projects.</p><div className="mt-12 grid gap-5 sm:grid-cols-2"><Link href="/portfolio/modern-dental-care" className="relative flex min-h-72 flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#31504a] via-[#252a43] to-[#151b24] p-8 transition duration-300 hover:-translate-y-1 hover:border-[#c5e3b3]/50"><span className="max-w-full text-[10px] uppercase leading-relaxed tracking-wider text-[#c5e3b3]">Independent concept / not client work</span><div><h2 className="break-words text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-tight tracking-tight">Aurelia Dental</h2><p className="mt-2 text-sm text-white/60">Healthcare / Website concept</p></div></Link><Link href="/portfolio/novadent" className="relative flex min-h-72 min-w-0 flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#34483f] to-[#172126] p-8 hover:border-[#c5e3b3]/50"><span className="max-w-full text-[10px] uppercase leading-relaxed tracking-wider text-[#c5e3b3]">Independent concept / not client work</span><div><h2 className="break-words text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-tight tracking-tight">NovaDent</h2><p className="mt-2 text-sm text-white/60">Healthcare / Web design concept</p></div></Link><Link href="/portfolio/autoflow" className="relative flex min-h-72 min-w-0 flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#34483f] to-[#172126] p-8 hover:border-[#c5e3b3]/50"><span className="max-w-full text-[10px] uppercase leading-relaxed tracking-wider text-[#c5e3b3]">Independent concept / not client work</span><div><h2 className="break-words text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-tight tracking-tight">Autoflow</h2><p className="mt-2 text-sm text-white/60">Automotive / Booking concept</p></div></Link><Link href="/portfolio/maison" className="relative flex min-h-72 min-w-0 flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#34483f] to-[#172126] p-8 hover:border-[#c5e3b3]/50"><span className="max-w-full text-[10px] uppercase leading-relaxed tracking-wider text-[#c5e3b3]">Independent concept / not client work</span><div><h2 className="break-words text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-tight tracking-tight">Maison</h2><p className="mt-2 text-sm text-white/60">Hospitality / Digital concept</p></div></Link></div></section><footer className="flex flex-wrap items-center gap-6 border-t border-white/10 py-10 text-sm text-white/55"><Link href="/">YY Builds © 2026</Link><a href="https://www.instagram.com/yybuilds.studio/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.facebook.com/profile.php?id=1295138693680821" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="mailto:yybuilds.contact@gmail.com">Email ↗</a></footer></div></main>}
+import { StudioFrame, ProjectCTA } from "../components/StudioFrame";
+import StudioWork from "../components/StudioWork";
+import StudioVideos from "../components/StudioVideos";
+import s from "../studio.module.css";
+export const metadata = {
+  title: "Website Concepts & Interactive Portfolio | YY Builds",
+  description:
+    "Explore independently created website concepts, business workflow demonstrations and short-form promotional videos by YY Builds.",
+  alternates: { canonical: "/portfolio" },
+};
+export default function Portfolio() {
+  return (
+    <StudioFrame>
+      <div className={s.wrap}>
+        <section className={s.pageHero}>
+          <p className={s.eyebrow}>THE YY BUILDS SHOWROOM</p>
+          <h1>
+            Ideas you can
+            <br />
+            actually explore.
+          </h1>
+          <p>
+            Websites, booking journeys and business tools. Independently created
+            concepts to help you picture the possibilities for your own
+            business.
+          </p>
+          <div className={s.actions}>
+            <Link className={s.button} href="/demos">
+              Try the business workspace ↗
+            </Link>
+            <Link className={s.inlineLink} href="/booking-template">
+              Explore the booking template ↗
+            </Link>
+          </div>
+        </section>
+        <section className={s.sectionTight}>
+          <StudioWork />
+          <p className={s.note}>
+            These are demonstration projects, not commissioned client work.
+            Names, scenarios and example data are illustrative.
+          </p>
+        </section>
+        <section className={s.sectionTight}>
+          <div className={s.sectionHead}>
+            <div>
+              <p className={s.eyebrow}>MOTION & CONTENT</p>
+              <h2>
+                Small stories.
+                <br />
+                Clear ideas.
+              </h2>
+            </div>
+            <p>
+              Three promotional concepts showing different ways to communicate
+              digital services.
+            </p>
+          </div>
+          <StudioVideos />
+        </section>
+      </div>
+      <ProjectCTA />
+    </StudioFrame>
+  );
+}

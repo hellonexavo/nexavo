@@ -1,19 +1,380 @@
 import Link from "next/link";
 import YYAssistant from "./components/YYAssistant";
-export const metadata={title:"YY Builds | Websites, Booking Systems & Practical Automation",description:"Websites, maintenance, booking and lead workflows, automation and small fixes. Transparent starting prices."};
-const offers=[
-{n:"01",cat:"QUICK SUPPORT",name:"Small Website Fix",price:"from €15",body:"Simple text, link or layout updates on an existing website.",href:"/pricing"},
-{n:"02",cat:"WEBSITE CARE",name:"Website Maintenance",price:"from €30/mo",body:"Small ongoing content and website checks, with agreed monthly limits.",href:"/pricing"},
-{n:"03",cat:"WEB DESIGN",name:"Landing Page",price:"from €590",body:"One focused responsive page; requirements and delivery scope agreed first.",href:"/pricing"},
-{n:"04",cat:"DIGITAL EXPERIENCE",name:"Business Website",price:"from €990",body:"A professional multi-section business presence, scoped and quoted.",href:"/pricing"},
-{n:"05",cat:"BOOKINGS & LEADS",name:"Booking & Lead Systems",price:"custom quote",body:"Simple enquiry, appointment and notification workflows after feasibility review.",href:"/pricing"},
-{n:"06",cat:"SMART AUTOMATION",name:"Lead Automation Setup",price:"from €199",body:"Connect a simple lead form with notifications and an agreed workflow.",href:"/pricing"}
-];
-const work=[{title:"Aurelia Dental",kind:"Healthcare / Experience design",url:"/portfolio/modern-dental-care",color:"from-[#43496c] to-[#141a2d]"},{title:"NovaDent",kind:"Healthcare / Website concept",url:"/portfolio/novadent",color:"from-[#20473e] to-[#0d1f21]"},{title:"Autoflow",kind:"Automotive / Booking concept",url:"/portfolio/autoflow",color:"from-[#382c55] to-[#14121d]"},{title:"Maison",kind:"Hospitality / Digital concept",url:"/portfolio/maison",color:"from-[#68513a] to-[#1d1915]"}];
-export default function Home(){return <main className="min-h-screen overflow-hidden bg-[#090c10] text-[#f4f2ed]">
-<div className="relative isolate border-b border-white/10"><div className="pointer-events-none absolute inset-0" style={{background:"radial-gradient(ellipse at 82% 32%,rgba(186,219,178,.12),transparent 55%),radial-gradient(ellipse at 6% 84%,rgba(98,90,155,.13),transparent 60%)"}}/><div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-30" style={{backgroundImage:"linear-gradient(rgba(191,233,201,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(191,233,201,.09) 1px,transparent 1px)",backgroundSize:"60px 60px",maskImage:"linear-gradient(to bottom,black,transparent 90%)"}}/><svg aria-hidden="true" className="pointer-events-none absolute right-0 top-20 h-[650px] w-[85%] opacity-35" viewBox="0 0 900 570" fill="none"><path d="M0 420 C170 420 190 80 390 160 S680 520 900 105" stroke="#c5e3b3" strokeWidth="1.5"/><path d="M0 495 C190 260 280 450 440 245 S730 90 900 325" stroke="#a0a4f6" strokeWidth="1.5"/><path d="M0 550 C220 510 300 220 540 350 S780 370 900 230" stroke="#86e1ce" strokeWidth="1" strokeDasharray="6 9"/><circle cx="390" cy="160" r="6" fill="#c5e3b3"/><circle cx="680" cy="320" r="5" fill="#a0a4f6"/></svg><div className="relative mx-auto max-w-7xl px-6"><header className="flex items-center justify-between border-b border-white/10 py-7"><Link href="/" className="text-2xl font-black tracking-[-.09em]">YY<span className="text-[#c5e3b3]">.</span>BUILDS</Link><nav aria-label="Main navigation" className="hidden items-center gap-9 text-[13px] font-medium text-white/60 md:flex"><Link href="/services" className="hover:text-white">Services</Link><Link href="/portfolio" className="hover:text-white">Portfolio</Link><Link href="/about" className="hover:text-white">About</Link><Link href="/pricing" className="hover:text-white">Pricing</Link><Link href="/contact" className="hover:text-white">Contact</Link></nav><Link href="/pricing" className="rounded-full border border-[#c5e3b3]/40 px-5 py-3 text-xs font-semibold text-[#d8eecf] transition hover:bg-[#c5e3b3] hover:text-[#0a1110]">Explore offers ↗</Link></header>
-<div className="grid min-h-[680px] items-end gap-16 pb-20 pt-24 lg:grid-cols-[1.1fr_.9fr] lg:gap-20"><div><p className="mb-8 text-xs font-semibold uppercase tracking-[.28em] text-[#c5e3b3]">Independent digital studio · Netherlands / Worldwide</p><h1 className="max-w-3xl text-[clamp(4.2rem,8.5vw,8.5rem)] font-medium leading-[.93] tracking-[-.095em]">Your business.<br/>Made <span className="font-serif italic text-[#c5e3b3]">better.</span></h1><p className="mt-9 max-w-xl text-lg leading-8 text-white/55">Websites that look sharp. Booking and lead workflows that save time. Clear, practical support for your next step.</p><div className="mt-11 flex flex-wrap gap-4"><Link href="/pricing" className="rounded-full bg-[#c5e3b3] px-8 py-4 text-sm font-bold text-[#0b1110] hover:bg-white">Discover pricing ↗</Link><Link href="/pricing" className="rounded-full border border-white/25 px-8 py-4 text-sm font-semibold text-white hover:border-white">Explore services →</Link></div></div><div className="relative min-h-[410px] overflow-hidden rounded-[2rem] border border-[#c5e3b3]/25 bg-gradient-to-br from-[#263b37] via-[#17202b] to-[#26213c] p-8 shadow-[0_28px_90px_rgba(0,0,0,.35)] sm:p-10"><div className="absolute -right-28 -top-28 h-96 w-96 rounded-full border border-[#c5e3b3]/25"/><div className="absolute -right-12 -top-12 h-80 w-80 rounded-full border border-[#c5e3b3]/25"/><div className="absolute right-6 top-20 h-64 w-64 rounded-full bg-[#c5e3b3]/10 blur-3xl"/><div aria-hidden="true" className="absolute inset-0 opacity-30" style={{backgroundImage:"linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px)",backgroundSize:"38px 38px"}}/><div className="relative flex h-full min-h-[340px] flex-col justify-between"><div className="flex justify-between text-xs uppercase tracking-[.23em] text-white/45"><span>Websites · Bookings · Automation</span><span>001—026</span></div><div><p className="text-7xl font-extralight tracking-[-.09em] text-[#c5e3b3] sm:text-9xl">YY<span className="text-white/30">↗</span></p><div className="mt-6 flex justify-between border-t border-white/20 pt-5 text-sm text-white/55"><span>Design / Technology</span><span>Built for what’s next.</span></div></div></div></div></div></div></div>
-<section id="services" className="mx-auto max-w-7xl px-6 py-28"><div className="flex flex-wrap items-end justify-between gap-8"><div><p className="text-xs font-semibold tracking-[.25em] text-[#c5e3b3]">01 / WHAT WE CREATE</p><h2 className="mt-5 text-5xl font-medium tracking-[-.06em] sm:text-7xl">One studio.<br/><span className="text-white/40">Practical solutions.</span></h2></div><p className="max-w-sm text-sm leading-7 text-white/50">From small website fixes to full website builds, booking flows and automation. Every project starts with a scope review.</p></div><div className="mt-16 grid gap-4 md:grid-cols-6">{offers.map(x=><Link key={x.n} href={x.href} className={`group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br p-8 transition duration-300 hover:-translate-y-1 hover:border-[#c5e3b3]/50 hover:shadow-[0_20px_60px_rgba(0,0,0,.3)] ${x.n==="03"?"md:col-span-4 from-[#244039] via-[#172a2b] to-[#10151a]":x.n==="05"?"md:col-span-4 from-[#28234e] via-[#1b213e] to-[#10151a]":"md:col-span-2 from-[#1b2529] to-[#11141b]"}`}><div aria-hidden="true" className="absolute -right-16 -top-16 h-52 w-52 rounded-full border border-white/10 shadow-[0_0_90px_30px_rgba(180,235,196,.07)]"/><div className="relative flex justify-between text-[11px] tracking-[.25em] text-white/40"><span>{x.cat}</span><span>{x.n}</span></div><div className="relative"><h3 className="text-3xl font-semibold tracking-[-.045em]">{x.name}</h3><p className="mt-3 text-sm text-white/45">{x.body}</p></div><div className="flex items-center justify-between border-t border-white/10 pt-5"><span className="text-2xl font-semibold text-[#c5e3b3]">{x.price}</span><span className="text-2xl transition group-hover:translate-x-1">↗</span></div></Link>)}</div><Link href="/pricing" className="mt-10 inline-flex items-center gap-2 border-b border-[#c5e3b3] pb-2 text-sm font-semibold text-[#c5e3b3]">See all services and prices ↗</Link></section>
-<section id="work" className="border-y border-white/10 bg-[#0d1116] py-24"><div className="mx-auto max-w-7xl px-6"><p className="text-xs font-semibold tracking-[.25em] text-[#c5e3b3]">02 / SELECTED CONCEPTS</p><h2 className="mt-5 text-5xl font-medium tracking-[-.06em] sm:text-7xl">Thoughtful by design.</h2><p className="mt-5 max-w-xl text-sm leading-7 text-white/45">Independently created concept projects. They demonstrate our design approach, not commissioned client work.</p><div className="mt-12 grid gap-5 md:grid-cols-6">{work.map((w,i)=><Link href={w.url} key={w.title} className={`group relative flex min-h-[320px] flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br p-8 transition duration-300 hover:-translate-y-1 hover:border-white/30 ${i===0||i===3?"md:col-span-4":"md:col-span-2"} ${w.color}`}><div aria-hidden="true" className="absolute right-[-60px] top-[-20px] h-64 w-64 rounded-full border-[28px] border-white/[.07] transition duration-500 group-hover:scale-110"/><div aria-hidden="true" className="absolute left-10 top-24 h-px w-2/3 -rotate-12 bg-gradient-to-r from-white/0 via-white/35 to-white/0"/><div className="relative flex justify-between text-xs tracking-[.2em] text-white/55"><span>CONCEPT / 0{i+1}</span><span>↗</span></div><div className="relative"><h3 className="text-5xl font-medium tracking-[-.07em]">{w.title}</h3><p className="mt-3 text-sm text-white/60">{w.kind}</p></div></Link>)}</div></div></section><section className="relative overflow-hidden border-b border-white/10 bg-[#10191b] py-24"><div className="pointer-events-none absolute inset-0 opacity-20" style={{background:"repeating-linear-gradient(125deg,transparent 0 60px,rgba(190,225,195,.12) 61px,transparent 62px)"}}/><div className="relative mx-auto max-w-7xl px-6"><p className="text-xs font-semibold tracking-[.25em] text-[#c5e3b3]">03 / HOW WE THINK</p><div className="mt-8 grid gap-8 lg:grid-cols-2"><h2 className="text-5xl font-medium tracking-[-.065em] sm:text-7xl">Built with a <span className="font-serif italic text-[#c5e3b3]">maker's mindset.</span></h2><div className="grid gap-4 sm:grid-cols-2">{[{a:"Practical by design",b:"Useful systems built around actual work."},{a:"Clear scope",b:"No promises before assessing feasibility."},{a:"Technical thinking",b:"Structure, testing and attention to detail."},{a:"From fix to flow",b:"Start small, then build confidently."}].map(t=><div key={t.a} className="rounded-2xl border border-white/10 bg-white/[.04] p-6"><p className="text-lg font-semibold">{t.a}</p><p className="mt-3 text-sm leading-6 text-white/55">{t.b}</p></div>)}</div></div></div></section>
-<section className="mx-auto max-w-7xl px-6 py-28"><div className="rounded-[2.5rem] border border-[#c5e3b3]/20 bg-[#18231e] px-8 py-20 text-center sm:px-20"><p className="text-xs font-bold tracking-[.25em] text-[#c5e3b3]">03 / YOUR NEXT MOVE</p><h2 className="mx-auto mt-6 max-w-4xl text-5xl font-medium tracking-[-.07em] sm:text-7xl">Make it <span className="font-serif italic text-[#c5e3b3]">happen.</span></h2><p className="mx-auto mt-7 max-w-xl text-base leading-8 text-white/60">Need a website, booking system, lead collection or just a small fix? Tell us what you need and we will assess the scope first.</p><div className="mt-10 flex flex-wrap justify-center gap-4"><Link href="/pricing" className="rounded-full bg-[#c5e3b3] px-8 py-4 text-sm font-semibold text-slate-950">Browse services ↗</Link><Link href="/contact" className="rounded-full border border-white/30 px-8 py-4 text-sm font-semibold">Email your project →</Link></div></div></section>
-<footer className="border-t border-white/10"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-6 py-10"><span className="text-xl font-black tracking-[-.08em]">YY<span className="text-[#c5e3b3]">.</span>BUILDS</span><p className="text-sm text-white/35">© 2026 YY Builds · Independent digital studio</p><div className="flex gap-5 text-sm text-white/55"><Link href="/pricing">Pricing</Link><Link href="/pricing">Orders</Link><Link href="mailto:yybuilds.contact@gmail.com?subject=YY%20Builds%20Project%20Enquiry">Contact</Link></div></div><div className="mx-auto flex max-w-7xl gap-5 px-6 pb-9 text-sm text-[#c5e3b3]"><a href="https://www.instagram.com/yybuilds.studio/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.facebook.com/profile.php?id=1295138693680821" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div></footer><YYAssistant/></main>}
+import OperationsDemo from "./components/OperationsDemo";
+import { StudioFrame, ProjectCTA } from "./components/StudioFrame";
+import StudioWork from "./components/StudioWork";
+import StudioVideos from "./components/StudioVideos";
+import s from "./studio.module.css";
+export const metadata = {
+  title: "YY Builds | Websites, Automation & Business Systems",
+  description:
+    "A digital studio for small service businesses. Explore websites, booking journeys, job dashboards and practical automation. Try the interactive demos.",
+  alternates: { canonical: "/" },
+};
+export default function Home() {
+  return (
+    <StudioFrame>
+      <section className={s.hero}>
+        <div className={s.wrap}>
+          <div className={s.heroTop}>
+            <p className={s.eyebrow}>
+              INDEPENDENT DIGITAL STUDIO / NETHERLANDS
+            </p>
+            <p className={s.availability}>Let’s build your next step</p>
+          </div>
+          <div className={s.heroGrid}>
+            <div className={s.heroCopy}>
+              <h1>
+                Your business.
+                <br />
+                Less busywork.
+                <br />
+                <em>More possibility.</em>
+              </h1>
+              <p>
+                Distinctive websites. Easier bookings. Practical systems that
+                bring your enquiries, your team and your next steps together.
+              </p>
+              <div className={s.actions}>
+                <Link className={s.button} href="/contact">
+                  Discuss your project <span aria-hidden="true">↗</span>
+                </Link>
+                <a className={s.inlineLink} href="#live-demo">
+                  Try a live demo <span aria-hidden="true">↓</span>
+                </a>
+              </div>
+              <p className={s.heroNote}>
+                Direct contact with Yurii · Clear scope before work begins
+              </p>
+            </div>
+            <Link
+              href="/demos"
+              className={s.heroVisual}
+              aria-label="Open the interactive ServiceFlow demonstration"
+            >
+              <div className={s.miniApp}>
+                <div className={s.miniTop}>
+                  <div className={s.miniBrand}>
+                    Service<span>Flow</span>
+                  </div>
+                  <span>DEMO WORKSPACE</span>
+                </div>
+                <div className={s.miniBody}>
+                  <p className={s.miniLabel}>YOUR BUSINESS, AT A GLANCE</p>
+                  <h2>A clearer working day.</h2>
+                  <div className={s.miniMetrics}>
+                    <div>
+                      <p>Open jobs</p>
+                      <strong>03</strong>
+                    </div>
+                    <div>
+                      <p>To follow up</p>
+                      <strong>01</strong>
+                    </div>
+                    <div>
+                      <p>Estimated value</p>
+                      <strong>€920</strong>
+                    </div>
+                  </div>
+                  <div className={s.miniColumns}>
+                    <div>
+                      <p>
+                        New enquiry <span>01</span>
+                      </p>
+                      <div className={s.miniJob}>
+                        <span>JOB #104</span>
+                        <h3>Kitchen tap replacement</h3>
+                        <p>Alex · Amsterdam</p>
+                        <div>
+                          <span>Assigned to Sam</span>
+                          <strong>€145</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <p>
+                        In progress <span>01</span>
+                      </p>
+                      <div className={s.miniJob}>
+                        <span>JOB #102</span>
+                        <h3>Door adjustment</h3>
+                        <p>Charlie · Utrecht</p>
+                        <div>
+                          <span>Assigned to Sam</span>
+                          <strong>€95</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={s.miniBottom}>
+                    <span>Illustrative data / interactive concept</span>
+                    <span>Open workspace ↗</span>
+                  </div>
+                </div>
+              </div>
+              <div className={s.floatingLabel}>
+                <span aria-hidden="true">↗</span>
+                <div>
+                  <strong>From first enquiry to finished job.</strong>
+                  <small>Explore how your workflow could look</small>
+                </div>
+              </div>
+            </Link>
+          </div>
+          <div className={s.heroBottom}>
+            <span>Websites / Booking / CRM / Automation / Content</span>
+            <span>For people who have a business to run.</span>
+          </div>
+        </div>
+      </section>
+      <section className={`${s.section} ${s.light}`} id="services">
+        <div className={s.wrap}>
+          <div className={s.sectionHead}>
+            <div>
+              <p className={s.eyebrow}>01 / WHAT WE CAN BUILD</p>
+              <h2>
+                A good first impression.
+                <br />A better everyday flow.
+              </h2>
+            </div>
+            <p>
+              Start with one practical improvement. Build a connected system as
+              your business grows.
+            </p>
+          </div>
+          <div className={s.solutionGrid}>
+            {[
+              {
+                number: "01",
+                icon: "↗",
+                title: "Show your business.",
+                copy: "A website that explains what you do and makes the next step obvious.",
+                points: [
+                  "Business websites & landing pages",
+                  "Mobile layouts & website fixes",
+                  "Clear enquiry and contact journeys",
+                ],
+                href: "/services#website",
+                link: "Explore websites",
+              },
+              {
+                number: "02",
+                icon: "▦",
+                title: "Organise your work.",
+                copy: "Bring enquiries, bookings and job progress into a clearer working process.",
+                points: [
+                  "Lead forms & customer tracking",
+                  "Booking & appointment requests",
+                  "Job dashboards & operational tools",
+                ],
+                href: "/demos",
+                link: "Try the workspace",
+              },
+              {
+                number: "03",
+                icon: "⌁",
+                title: "Connect the next step.",
+                copy: "Reduce repetitive admin and help people discover what you offer.",
+                points: [
+                  "Practical workflow automation",
+                  "Business-specific AI assistants",
+                  "Short-form video & social content",
+                ],
+                href: "/services#automation",
+                link: "Explore automation",
+              },
+            ].map((item) => (
+              <div key={item.number} className={s.solutionCard}>
+                <div className={s.solutionNumber}>
+                  <span>{item.number} / DIGITAL SERVICES</span>
+                  <span aria-hidden="true">{item.icon}</span>
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+                <ul>
+                  {item.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                <Link className={s.inlineLink} href={item.href}>
+                  {item.link} <span aria-hidden="true">↗</span>
+                </Link>
+              </div>
+            ))}
+          </div>
+          <div className={s.solutionsFoot}>
+            <p>
+              Already have a website? Small fixes start from €15. Website care
+              starts from €30/month.
+            </p>
+            <Link className={s.inlineLink} href="/pricing">
+              All services & starting prices ↗
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section id="live-demo" className={s.section}>
+        <div className={s.wrap}>
+          <div className={s.sectionHead}>
+            <div>
+              <p className={`${s.eyebrow} ${s.demoIntro}`}>
+                02 / LESS THEORY. MORE TRYING.
+              </p>
+              <h2>
+                See the system.
+                <br />
+                Move the work forward.
+              </h2>
+            </div>
+            <p>
+              Explore three interactive concepts. Add a sample job, preview an
+              appointment request or run a workflow simulation.
+            </p>
+          </div>
+          <OperationsDemo />
+          <p className={s.note}>
+            A demonstration of what we can build around your process. Real
+            integrations, access controls and data storage are scoped
+            separately.
+          </p>
+        </div>
+      </section>
+      <section className={`${s.section} ${s.light}`} id="work">
+        <div className={s.wrap}>
+          <div className={s.sectionHead}>
+            <div>
+              <p className={s.eyebrow}>03 / SELECTED WEBSITE CONCEPTS</p>
+              <h2>
+                Different businesses.
+                <br />
+                Distinctive experiences.
+              </h2>
+            </div>
+            <p>
+              Explore the details: service discovery, brand presentation and
+              booking journeys across different industries.
+            </p>
+          </div>
+          <StudioWork />
+          <p className={s.note}>
+            Independently created demonstration projects. These are concepts,
+            not commissioned client work.
+          </p>
+          <div className={s.allServices}>
+            <Link className={s.inlineLink} href="/portfolio">
+              Explore the complete portfolio ↗
+            </Link>
+            <Link className={s.inlineLink} href="/booking-template">
+              Try the booking template ↗
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className={s.section} id="content">
+        <div className={s.wrap}>
+          <div className={s.sectionHead}>
+            <div>
+              <p className={s.eyebrow}>04 / MOTION & CONTENT</p>
+              <h2>
+                Your work.
+                <br />
+                Worth showing.
+              </h2>
+            </div>
+            <p>
+              Short-form concept videos for a clear first impression. A starting
+              point for Reels, Shorts and social campaigns.
+            </p>
+          </div>
+          <StudioVideos />
+          <p className={s.note}>
+            Illustrative promotional concepts. Client content, production scope
+            and publishing are agreed separately.
+          </p>
+        </div>
+      </section>
+      <section className={`${s.section} ${s.light}`} id="process">
+        <div className={s.wrap}>
+          <div className={s.sectionHead}>
+            <div>
+              <p className={s.eyebrow}>05 / A CLEAR WAY FORWARD</p>
+              <h2>
+                One conversation.
+                <br />A practical plan.
+              </h2>
+            </div>
+            <p>
+              Work directly with Yurii. Know what is being built, what it costs
+              and what happens next.
+            </p>
+          </div>
+          <div className={s.processGrid}>
+            {[
+              {
+                title: "Understand the work",
+                copy: "We look at your current website or process and identify the part that needs to work better.",
+              },
+              {
+                title: "Agree on the scope",
+                copy: "You receive a clear proposal: deliverables, estimated schedule, costs and any external services.",
+              },
+              {
+                title: "Build, review, hand over",
+                copy: "Review the working experience, check the details and get an explanation of how to use it. Ongoing care can be agreed.",
+              },
+            ].map((item, i) => (
+              <div key={item.title}>
+                <span>0{i + 1}</span>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className={s.section}>
+        <div className={`${s.wrap} ${s.faqGrid}`}>
+          <div>
+            <p className={s.eyebrow}>A FEW USEFUL ANSWERS</p>
+            <h2 className={s.sectionTitle}>
+              Before we
+              <br />
+              build anything.
+            </h2>
+          </div>
+          <div className={s.faqList}>
+            {[
+              [
+                "Can you improve my existing website?",
+                "Yes. We start by reviewing your website and access to its platform. Small fixes, content updates and larger improvements are scoped around what you already have.",
+              ],
+              [
+                "Are the demos real customer projects?",
+                "They are independent concepts using fictional data. They show design and interaction possibilities. Production integrations and real customer data require a separately agreed implementation.",
+              ],
+              [
+                "Can a system work on my phone?",
+                "We design web experiences for mobile as well as desktop. The demos on this site can be explored in your phone’s browser.",
+              ],
+              [
+                "What will my project cost?",
+                "The pricing page shows starting estimates. After reviewing your requirements, we confirm the scope, timing, applicable taxes, hosting and any software fees before work starts.",
+              ],
+              [
+                "Can we start small?",
+                "Yes. One page, one repair or one workflow is a useful first step. We can plan further improvements after the initial result has been reviewed.",
+              ],
+            ].map(([q, a]) => (
+              <details key={q}>
+                <summary>{q}</summary>
+                <p>{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+      <ProjectCTA />
+      <YYAssistant />
+    </StudioFrame>
+  );
+}

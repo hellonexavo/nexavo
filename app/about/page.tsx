@@ -1,3 +1,56 @@
-import Link from "next/link";
-export const metadata={title:"Independent by design. | YY Builds",description:"YY Builds is a small, independent digital studio focused on useful design, clear communication and responsibly scoped technology."};
-export default function Page(){return <main className="min-h-screen bg-[#090c10] text-[#f4f2ed]"><div className="mx-auto max-w-6xl px-6"><header className="flex flex-wrap items-center justify-between gap-5 border-b border-white/10 py-7"><Link href="/" className="text-2xl font-black tracking-[-.08em]">YY<span className="text-[#c5e3b3]">.</span>BUILDS</Link><nav className="flex flex-wrap gap-5 text-sm text-white/65"><Link href="/services">Services</Link><Link href="/portfolio">Portfolio</Link><Link href="/pricing">Pricing</Link><Link href="/about">About</Link><Link href="/contact">Contact</Link></nav></header><section className="py-20"><p className="text-xs font-bold uppercase tracking-[.25em] text-[#c5e3b3]">03 / ABOUT</p><h1 className="mt-6 max-w-5xl text-5xl font-medium tracking-[-.07em] sm:text-7xl">Independent by design.</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-white/60">YY Builds is a small, independent digital studio focused on useful design, clear communication and responsibly scoped technology.</p><div className="mt-12 grid gap-4 md:grid-cols-3"><div className="rounded-3xl border border-white/10 bg-white/[.04] p-7"><h2 className="text-2xl font-semibold">Clarity</h2><p className="mt-4 text-sm leading-7 text-white/55">Know what will be built, what it costs and what is not included.</p></div><div className="rounded-3xl border border-white/10 bg-white/[.04] p-7"><h2 className="text-2xl font-semibold">Craft</h2><p className="mt-4 text-sm leading-7 text-white/55">Thoughtful responsive interfaces and practical workflows.</p></div><div className="rounded-3xl border border-white/10 bg-white/[.04] p-7"><h2 className="text-2xl font-semibold">Responsibility</h2><p className="mt-4 text-sm leading-7 text-white/55">We assess requirements and limits before taking on complex systems.</p></div></div><Link href="/contact" className="mt-10 inline-block rounded-full bg-[#c5e3b3] px-7 py-4 text-sm font-bold text-[#0a1110]">Discuss a project ↗</Link></section><footer className="flex flex-wrap items-center gap-6 border-t border-white/10 py-10 text-sm text-white/55"><Link href="/">YY Builds © 2026</Link><a href="https://www.instagram.com/yybuilds.studio/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.facebook.com/profile.php?id=1295138693680821" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="mailto:yybuilds.contact@gmail.com">Email ↗</a></footer></div></main>}
+import { StudioFrame, ProjectCTA } from "../components/StudioFrame";
+import s from "../studio.module.css";
+export const metadata = {
+  title: "About Yurii & YY Builds | Independent Digital Studio",
+  description:
+    "YY Builds is an independent digital studio focused on useful design, clear communication and responsibly scoped technology.",
+  alternates: { canonical: "/about" },
+};
+export default function About() {
+  return (
+    <StudioFrame>
+      <div className={s.wrap}>
+        <section className={s.pageHero}>
+          <p className={s.eyebrow}>INDEPENDENT BY DESIGN</p>
+          <h1>
+            Technology with
+            <br />a practical purpose.
+          </h1>
+          <p>
+            YY Builds is an independent digital studio by Yurii Yanishevskyi,
+            working online from the Netherlands. The focus is useful design,
+            clear communication and technology shaped around everyday business.
+          </p>
+        </section>
+        <section className={s.sectionTight}>
+          <div className={s.serviceGrid}>
+            {[
+              {
+                title: "Clarity",
+                text: "Know what will be built, what it costs and what is not included. Every project starts with an agreed scope.",
+              },
+              {
+                title: "Craft",
+                text: "Thoughtful responsive interfaces and practical workflows. The details should make the experience easier to use.",
+              },
+              {
+                title: "Responsibility",
+                text: "Requirements, technical limits and ongoing costs are assessed before taking on complex systems.",
+              },
+              {
+                title: "Direct collaboration",
+                text: "Discuss your idea directly with Yurii. Start with a small improvement, review the result and decide what to build next.",
+              },
+            ].map((item) => (
+              <div className={s.serviceCard} key={item.title}>
+                <h2>{item.title}</h2>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+      <ProjectCTA />
+    </StudioFrame>
+  );
+}
