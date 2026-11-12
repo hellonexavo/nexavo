@@ -5,6 +5,7 @@ import s from "../studio.module.css";
 const links = [
   ["Services", "/services"],
   ["Work", "/portfolio"],
+  ["Company & investors", "/investors"],
   ["Live demos", "/demos"],
   ["Pricing", "/pricing"],
   ["About", "/about"],
