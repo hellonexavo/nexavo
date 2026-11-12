@@ -6,9 +6,9 @@ import StudioWork from "./components/StudioWork";
 import StudioVideos from "./components/StudioVideos";
 import s from "./studio.module.css";
 export const metadata = {
-  title: "YY Builds | Websites, Automation & Business Systems",
+  title: "YY Builds | AI Workflows, Websites & Business Systems",
   description:
-    "A digital studio for small service businesses. Explore websites, booking journeys, job dashboards and practical automation. Try the interactive demos.",
+    "A Netherlands-based digital studio designing practical AI-powered document workflows, operations automation, websites and customer systems. Explore honest demos and our company roadmap.",
   alternates: { canonical: "/" },
 };
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
         <div className={s.wrap}>
           <div className={s.heroTop}>
             <p className={s.eyebrow}>
-              INDEPENDENT DIGITAL STUDIO / NETHERLANDS
+              AI WORKFLOWS & DIGITAL SYSTEMS / NETHERLANDS
             </p>
             <p className={s.availability}>Let’s build your next step</p>
           </div>
@@ -40,7 +40,7 @@ export default function Home() {
                   Discuss your project <span aria-hidden="true">↗</span>
                 </Link>
                 <a className={s.inlineLink} href="#live-demo">
-                  Try a live demo <span aria-hidden="true">↓</span>
+                  See our approach <span aria-hidden="true">↓</span>
                 </a>
               </div>
               <p className={s.heroNote}>
@@ -122,7 +122,7 @@ export default function Home() {
             </Link>
           </div>
           <div className={s.heroBottom}>
-            <span>Websites / Booking / CRM / Automation / Content</span>
+            <span>Document workflows / Automation / CRM / Websites</span>
             <span>For people who have a business to run.</span>
           </div>
         </div>
