@@ -38,7 +38,7 @@ export default function StudioHeader() {
             </Link>
           ))}
         </nav>
-        <div className={s.headerActions}>
+        <div className={s.headerActions}>\n          <nav aria-label="Language" className={s.languageLinks}>\n            <Link href="/uk" lang="uk" title="Українська">UA</Link>\n            <Link href="/pl" lang="pl" title="Polski">PL</Link>\n            <Link href="/en" lang="en" title="English">EN</Link>\n            <Link href="/nl" lang="nl" title="Nederlands">NL</Link>\n          </nav>
           <Link className={s.smallButton} href="/contact">
             Let’s talk <span aria-hidden="true">↗</span>
           </Link>
