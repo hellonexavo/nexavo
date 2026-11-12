@@ -23,6 +23,7 @@ export function StudioFooter() {
             <Link href="/portfolio">Portfolio</Link>
             <Link href="/demos">Live demos</Link>
             <Link href="/pricing">Pricing</Link>
+            <Link href="/investors">Company & investors</Link>
           </nav>
           <nav aria-label="Resources">
             <Link href="/booking-template">Booking template</Link>
