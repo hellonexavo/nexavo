@@ -6,7 +6,7 @@ export const services = [
     group: "Keep things working",
     description:
       "Text, links, mobile layouts and forms. A focused repair for the website you already have.",
-    price: "from €15",
+    price: "from €79",
     scope: "Small, clearly defined updates after reviewing your website.",
     icon: "↗",
   },
@@ -17,7 +17,7 @@ export const services = [
     group: "Ongoing care",
     description:
       "Content updates and agreed website checks, with a clear monthly allowance.",
-    price: "from €30/month",
+    price: "from €49/month",
     scope:
       "Monthly limits, response times and supported systems agreed in writing.",
     icon: "◎",
@@ -64,7 +64,7 @@ export const services = [
     group: "Every enquiry in view",
     description:
       "Capture incoming enquiries and track the next action in a simple, organised workspace.",
-    price: "from €199",
+    price: "from €300",
     scope: "A simple lead workflow; custom dashboards are quoted separately.",
     icon: "▤",
   },
