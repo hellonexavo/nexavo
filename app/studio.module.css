@@ -2229,3 +2229,6 @@
     transform: none;
   }
 }
+
+/* YY Builds four-language selector */
+.languageLinks{display:flex;align-items:center;gap:4px;flex-wrap:nowrap}.languageLinks a{padding:7px 6px;border-radius:7px;border:1px solid transparent;font-size:11px;font-weight:700;color:#c3d1c4;white-space:nowrap}.languageLinks a:hover,.languageLinks a:focus-visible{border-color:#c5e3b3;color:#c5e3b3}@media(max-width:850px){.languageLinks{gap:0}.languageLinks a{padding:6px 4px;font-size:10px}}@media(max-width:440px){.languageLinks a{padding:6px 3px;font-size:9px}}
