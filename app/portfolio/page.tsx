@@ -35,6 +35,9 @@ export default function Portfolio() {
             <Link className={s.inlineLink} href="/business-website-demo">
               Explore the Business Website demo ↗
             </Link>
+            <Link className={s.inlineLink} href="/cad-portfolio-demo">
+              Explore the CAD Portfolio demo ↗
+            </Link>
           </div>
         </section>
         <section className={s.sectionTight}>
