@@ -32,6 +32,9 @@ export default function Portfolio() {
             <Link className={s.inlineLink} href="/booking-template">
               Explore the booking template ↗
             </Link>
+            <Link className={s.inlineLink} href="/business-website-demo">
+              Explore the Business Website demo ↗
+            </Link>
           </div>
         </section>
         <section className={s.sectionTight}>
