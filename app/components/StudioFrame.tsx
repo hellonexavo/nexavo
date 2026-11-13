@@ -27,6 +27,7 @@ export function StudioFooter() {
           </nav>
           <nav aria-label="Resources">
             <Link href="/booking-template">Booking template</Link>
+            <Link href="/business-website-demo">Business Website demo</Link>
             <Link href="/tools">Tools</Link>
             <Link href="/about">About Yurii</Link>
             <Link href="/contact">Contact</Link>
