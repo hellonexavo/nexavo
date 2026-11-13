@@ -267,6 +267,9 @@ export default function Home() {
             <Link className={s.inlineLink} href="/booking-template">
               Try the booking template ↗
             </Link>
+            <Link className={s.inlineLink} href="/business-website-demo">
+              View the Business Website demo ↗
+            </Link>
           </div>
         </div>
       </section>
