@@ -1,6 +1,6 @@
 {
-  "selected_at_utc": "2026-11-14T17:45:53.577802+00:00",
-  "source_checked_at_utc": "2026-11-14T17:45:53.526853+00:00",
+  "selected_at_utc": "2026-11-14T18:14:24.682355+00:00",
+  "source_checked_at_utc": "2026-11-14T18:14:24.621312+00:00",
   "not_an_earnings_statement": true,
   "candidate_count": 3,
   "best_candidates": [
@@ -10,9 +10,10 @@
       "requirements_url": "https://make.fun/api/competitions/free-model-aggregator-01/requirements",
       "prize_pool_usdc": 500.0,
       "deadline": "2026-11-16T02:30:00.000Z",
-      "entries_at_scan": 3165,
+      "entries_at_scan": 3198,
       "score": 35,
-      "status": "CANDIDATE_ONLY_NOT_APPLIED",
+      "status": "REQUIREMENTS_REVIEW_REQUIRED",
+      "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
       "must_verify": [
         "Exact deliverables and ownership / original code",
         "Submission and agent transcript requirements",
@@ -26,9 +27,10 @@
       "requirements_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "prize_pool_usdc": 500.0,
       "deadline": "2026-11-21T06:30:00.000Z",
-      "entries_at_scan": 2165,
+      "entries_at_scan": 2219,
       "score": 35,
-      "status": "CANDIDATE_ONLY_NOT_APPLIED",
+      "status": "REQUIREMENTS_REVIEW_REQUIRED",
+      "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
       "must_verify": [
         "Exact deliverables and ownership / original code",
         "Submission and agent transcript requirements",
@@ -42,9 +44,10 @@
       "requirements_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "prize_pool_usdc": 500.0,
       "deadline": "2026-11-24T17:00:00.000Z",
-      "entries_at_scan": 5736,
+      "entries_at_scan": 5780,
       "score": 31,
-      "status": "CANDIDATE_ONLY_NOT_APPLIED",
+      "status": "REQUIREMENTS_REVIEW_REQUIRED",
+      "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
       "must_verify": [
         "Exact deliverables and ownership / original code",
         "Submission and agent transcript requirements",
