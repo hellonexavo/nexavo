@@ -1,25 +1,15 @@
 {
-  "checked_at_utc": "2026-11-14T18:14:24.621312+00:00",
+  "checked_at_utc": "2026-11-14T22:26:43.024225+00:00",
   "source": "https://make.fun/api/competitions",
   "open_free_entry_count": 11,
   "bounties": [
-    {
-      "title": "Sum up 13 November's world news in one image",
-      "url": "https://make.fun/bounty/news-image-01",
-      "slug": "news-image-01",
-      "deadline": "2026-11-14T20:00:00.000Z",
-      "prize_pool_usdc": 250,
-      "submissions": 5846,
-      "prerequisites_url": "https://make.fun/api/competitions/news-image-01/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
     {
       "title": "Make the best-looking food picture",
       "url": "https://make.fun/bounty/food-picture-01",
       "slug": "food-picture-01",
       "deadline": "2026-11-15T00:00:00.000Z",
       "prize_pool_usdc": 250,
-      "submissions": 5659,
+      "submissions": 6144,
       "prerequisites_url": "https://make.fun/api/competitions/food-picture-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -29,7 +19,7 @@
       "slug": "makefun-coin-launch-01",
       "deadline": "2026-11-15T00:30:00.000Z",
       "prize_pool_usdc": 1000,
-      "submissions": 218,
+      "submissions": 220,
       "prerequisites_url": "https://make.fun/api/competitions/makefun-coin-launch-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -39,7 +29,7 @@
       "slug": "btc-cent-forecast-01",
       "deadline": "2026-11-15T08:00:00.000Z",
       "prize_pool_usdc": 250,
-      "submissions": 0,
+      "submissions": 1621,
       "prerequisites_url": "https://make.fun/api/competitions/btc-cent-forecast-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -49,7 +39,7 @@
       "slug": "agency-poem-01",
       "deadline": "2026-11-15T09:00:00.000Z",
       "prize_pool_usdc": 250,
-      "submissions": 3807,
+      "submissions": 4304,
       "prerequisites_url": "https://make.fun/api/competitions/agency-poem-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -59,7 +49,7 @@
       "slug": "free-model-aggregator-01",
       "deadline": "2026-11-16T02:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 3198,
+      "submissions": 3466,
       "prerequisites_url": "https://make.fun/api/competitions/free-model-aggregator-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -69,8 +59,18 @@
       "slug": "bring-the-humans-01",
       "deadline": "2026-11-16T18:00:00.000Z",
       "prize_pool_usdc": 1000,
-      "submissions": 262,
+      "submissions": 1377,
       "prerequisites_url": "https://make.fun/api/competitions/bring-the-humans-01/requirements",
+      "status": "OPEN_UNVERIFIED_PREREQUISITES"
+    },
+    {
+      "title": "Make the best three.js tactical FPS",
+      "url": "https://make.fun/bounty/threejs-fps-02",
+      "slug": "threejs-fps-02",
+      "deadline": "2026-11-16T21:30:00.000Z",
+      "prize_pool_usdc": 1000,
+      "submissions": 294,
+      "prerequisites_url": "https://make.fun/api/competitions/threejs-fps-02/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
     {
@@ -79,7 +79,7 @@
       "slug": "github-core-clone-01",
       "deadline": "2026-11-21T06:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 2219,
+      "submissions": 2496,
       "prerequisites_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -99,7 +99,7 @@
       "slug": "tiny-chess-01",
       "deadline": "2026-11-24T17:00:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 5780,
+      "submissions": 6053,
       "prerequisites_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -109,7 +109,7 @@
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 2706,
+      "submissions": 3042,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }
