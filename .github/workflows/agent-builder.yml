@@ -27,6 +27,8 @@ jobs:
           python-version: "3.12"
       - name: Run safety and builder tests
         run: python -m unittest discover -s tests -p 'test_build_candidate.py'
+      - name: Refresh queue classification from latest scan
+        run: python scripts/triage_bounties.py
       - name: Build candidate code from verified queue
         run: python scripts/build_candidate.py
       - name: Validate generated JavaScript and HTML
