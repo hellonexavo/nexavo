@@ -1,0 +1,32 @@
+name: YY Builds - verify AI inference runtime
+on:
+  push:
+    paths:
+      - '.github/workflows/agent-model-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  models: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test GitHub Models inference (no paid external API keys)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request, urllib.error
+          endpoint="https://models.github.ai/inference/chat/completions"
+          data=json.dumps({"model":"openai/gpt-4o-mini","messages":[{"role":"user","content":"Reply with the word READY only."}],"max_tokens":12}).encode()
+          req=urllib.request.Request(endpoint,data,{"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Content-Type":"application/json"})
+          try:
+              with urllib.request.urlopen(req,timeout=25) as response:
+                  result=json.load(response)
+              print("INFERENCE_READY",str(result["choices"][0]["message"]["content"])[:100])
+          except urllib.error.HTTPError as e:
+              print("INFERENCE_UNAVAILABLE",e.code,e.read(700).decode("utf-8","replace"))
+              raise SystemExit(1)
+          PY
