@@ -77,8 +77,7 @@ def main():
     data = json.loads(SOURCE.read_text(encoding="utf-8"))
     result = rank(data)
     DEST.parent.mkdir(parents=True, exist_ok=True)
-    DEST.write_text(json.dumps(result, indent=2, ensure_ascii=False)+"
-", encoding="utf-8")
+    DEST.write_text(json.dumps(result, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
     print(f"Prioritized {result['candidate_count']} potential bounties (no entries submitted).")
 
 if __name__ == "__main__":
