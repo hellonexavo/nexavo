@@ -19,7 +19,7 @@ class Tests(unittest.TestCase):
     def test_not_earnings(self):
         q=rank({"bounties":[self.item("Build an AI agent")]},NOW)
         self.assertTrue(q["not_an_earnings_statement"])
-        self.assertEqual(q["best_candidates"][0]["status"],"CANDIDATE_ONLY_NOT_APPLIED")
+        self.assertEqual(q["best_candidates"][0]["status"],"REQUIREMENTS_REVIEW_REQUIRED")
     def test_competition(self):
         fast=self.item("Build a website",count=4)
         crowded=self.item("Build a website",count=5000)
