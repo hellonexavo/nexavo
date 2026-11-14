@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-14T17:39:42.321067+00:00",
+  "checked_at_utc": "2026-11-14T17:45:53.526853+00:00",
   "source": "https://make.fun/api/competitions",
   "open_free_entry_count": 11,
   "bounties": [
@@ -9,7 +9,7 @@
       "slug": "news-image-01",
       "deadline": "2026-11-14T20:00:00.000Z",
       "prize_pool_usdc": 250,
-      "submissions": 5668,
+      "submissions": 5703,
       "prerequisites_url": "https://make.fun/api/competitions/news-image-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -19,7 +19,7 @@
       "slug": "food-picture-01",
       "deadline": "2026-11-15T00:00:00.000Z",
       "prize_pool_usdc": 250,
-      "submissions": 5575,
+      "submissions": 5596,
       "prerequisites_url": "https://make.fun/api/competitions/food-picture-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -49,7 +49,7 @@
       "slug": "agency-poem-01",
       "deadline": "2026-11-15T09:00:00.000Z",
       "prize_pool_usdc": 250,
-      "submissions": 3701,
+      "submissions": 3728,
       "prerequisites_url": "https://make.fun/api/competitions/agency-poem-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -59,7 +59,7 @@
       "slug": "free-model-aggregator-01",
       "deadline": "2026-11-16T02:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 3154,
+      "submissions": 3165,
       "prerequisites_url": "https://make.fun/api/competitions/free-model-aggregator-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -79,7 +79,7 @@
       "slug": "github-core-clone-01",
       "deadline": "2026-11-21T06:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 2151,
+      "submissions": 2165,
       "prerequisites_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -99,7 +99,7 @@
       "slug": "tiny-chess-01",
       "deadline": "2026-11-24T17:00:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 5724,
+      "submissions": 5736,
       "prerequisites_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -109,7 +109,7 @@
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 2631,
+      "submissions": 2653,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }

@@ -1,0 +1,56 @@
+{
+  "selected_at_utc": "2026-11-14T17:45:53.577802+00:00",
+  "source_checked_at_utc": "2026-11-14T17:45:53.526853+00:00",
+  "not_an_earnings_statement": true,
+  "candidate_count": 3,
+  "best_candidates": [
+    {
+      "title": "The best free AI model aggregator",
+      "source_url": "https://make.fun/bounty/free-model-aggregator-01",
+      "requirements_url": "https://make.fun/api/competitions/free-model-aggregator-01/requirements",
+      "prize_pool_usdc": 500.0,
+      "deadline": "2026-11-16T02:30:00.000Z",
+      "entries_at_scan": 3165,
+      "score": 35,
+      "status": "CANDIDATE_ONLY_NOT_APPLIED",
+      "must_verify": [
+        "Exact deliverables and ownership / original code",
+        "Submission and agent transcript requirements",
+        "Eligible country and actual payout network",
+        "Prize availability, competition rules and deadlines"
+      ]
+    },
+    {
+      "title": "Build a GitHub-compatible git forge",
+      "source_url": "https://make.fun/bounty/github-core-clone-01",
+      "requirements_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
+      "prize_pool_usdc": 500.0,
+      "deadline": "2026-11-21T06:30:00.000Z",
+      "entries_at_scan": 2165,
+      "score": 35,
+      "status": "CANDIDATE_ONLY_NOT_APPLIED",
+      "must_verify": [
+        "Exact deliverables and ownership / original code",
+        "Submission and agent transcript requirements",
+        "Eligible country and actual payout network",
+        "Prize availability, competition rules and deadlines"
+      ]
+    },
+    {
+      "title": "Build the strongest chess engine in 4 KB of Python",
+      "source_url": "https://make.fun/bounty/tiny-chess-01",
+      "requirements_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
+      "prize_pool_usdc": 500.0,
+      "deadline": "2026-11-24T17:00:00.000Z",
+      "entries_at_scan": 5736,
+      "score": 31,
+      "status": "CANDIDATE_ONLY_NOT_APPLIED",
+      "must_verify": [
+        "Exact deliverables and ownership / original code",
+        "Submission and agent transcript requirements",
+        "Eligible country and actual payout network",
+        "Prize availability, competition rules and deadlines"
+      ]
+    }
+  ]
+}
