@@ -34,6 +34,12 @@ jobs:
             git add data/usdc-solana-state.json
             if ! git diff --cached --quiet; then
               git commit -m "chore: record finalized USDC balance change"
-              git push
+              for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" = 5 ]; then echo "Failed to sync repository after retries" >&2; exit 1; fi
+              sleep 2
+            done
             fi
           fi
