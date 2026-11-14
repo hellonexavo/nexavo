@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - ".github/workflows/model-router-verify.yml"
+      - "bounty-work/model-router-backend/**"
   workflow_dispatch:
 permissions:
   contents: read
