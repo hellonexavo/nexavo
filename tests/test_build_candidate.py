@@ -21,7 +21,7 @@ class Collector(HTMLParser):
 
 class Tests(unittest.TestCase):
     def test_unknown_task_is_not_faked(self):
-        self.assertIsNone(choose({"best_candidates":[{"title":"Trade cryptocurrencies","status":"CANDIDATE_ONLY_NOT_APPLIED"}]}))
+        self.assertIsNone(choose({"best_candidates":[{"title":"Trade cryptocurrencies","status":"REQUIREMENTS_REVIEW_REQUIRED"}]}))
     def test_functioning_directory_markup(self):
         p=Collector()
         p.feed(render())
@@ -35,7 +35,7 @@ class Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root=pathlib.Path(d)
             (root/"data").mkdir()
-            (root/"data/bounty-candidates.json").write_text(json.dumps({"best_candidates":[{"title":"The best free AI model aggregator","status":"CANDIDATE_ONLY_NOT_APPLIED","source_url":"https://make.fun/bounty/free-model-aggregator-01"}]}))
+            (root/"data/bounty-candidates.json").write_text(json.dumps({"best_candidates":[{"title":"The best free AI model aggregator","status":"REQUIREMENTS_REVIEW_REQUIRED","source_url":"https://make.fun/bounty/free-model-aggregator-01"}]}))
             p=build(root)
             self.assertTrue((p/"index.html").exists())
             self.assertIn("NOT SUBMITTED",(p/"README.md").read_text())
