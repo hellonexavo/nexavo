@@ -5,6 +5,7 @@ on:
       - ".github/workflows/agent-builder.yml"
       - "scripts/build_candidate.py"
       - "tests/test_build_candidate.py"
+      - "scripts/triage_bounties.py"
   schedule:
     - cron: "43 8 * * *"
   workflow_dispatch:
