@@ -50,12 +50,12 @@ def rank(source, now=None):
                 score -= 12
             if reward >= 500:
                 score += 6
-            queue.append({
+            # A title is insufficient to assert eligibility or submission readiness.\n            requirements_gate = ("Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.")\n            queue.append({
                 "title": title, "source_url": item["url"],
                 "requirements_url": item["prerequisites_url"],
                 "prize_pool_usdc": reward, "deadline": item["deadline"],
                 "entries_at_scan": count, "score": score,
-                "status": "CANDIDATE_ONLY_NOT_APPLIED",
+                "status": "REQUIREMENTS_REVIEW_REQUIRED",\n                "requirements_gate": requirements_gate,
                 "must_verify": [
                     "Exact deliverables and ownership / original code",
                     "Submission and agent transcript requirements",
