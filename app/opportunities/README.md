@@ -1,0 +1,2 @@
+# YY Builds opportunities
+This route shows *open, free-entry* make.fun coding bounty listings; NOT income, not earnings, and not a guarantee of payout. Data is cached 30 minutes. Anyone can inspect source listings and their prerequisites. For unattended scanning, the GitHub Action checks every six hours, writes a JSON snapshot, and does not submit entries, move funds or touch wallets. To enable it, repository owner may need to allow GitHub Actions workflow write permissions. The dynamic website page works without Actions.
