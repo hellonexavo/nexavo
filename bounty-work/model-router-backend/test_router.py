@@ -47,6 +47,7 @@ class ApiTests(unittest.TestCase):
         r=c.getresponse();status=r.status;data=json.loads(r.read());c.close()
         return status,data
     def test_openai_compatible(self):
+        self.router.failures["p1"] = 1
         status,data=self.post("/v1/chat/completions",{"messages":[{"role":"user","content":"hello"}]})
         self.assertEqual(status,200)
         self.assertEqual(data["object"],"chat.completion")
