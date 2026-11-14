@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - '.github/workflows/bounty-watch.yml'
+      - 'scripts/triage_bounties.py'
+      - 'tests/test_triage_bounties.py'
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
@@ -19,13 +21,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Validate bounty triage logic
+        run: python -m unittest discover -s tests -p 'test_triage_bounties.py'
       - name: Scan public funded opportunities
         run: python scripts/bounty_watch.py
+      - name: Prioritize feasible coding opportunities
+        run: python scripts/triage_bounties.py
       - name: Save verified discovery snapshot
         run: |
           git config user.name "YY Builds Bot"
           git config user.email "yybuilds-bot@users.noreply.github.com"
-          git add data/open-bounties.json
+          git add data/open-bounties.json data/bounty-candidates.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: refresh AI bounty discovery"
             for attempt in 1 2 3 4 5; do
