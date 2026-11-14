@@ -1,5 +1,8 @@
 name: YY Builds — free AI bounty discovery
 on:
+  push:
+    paths:
+      - '.github/workflows/bounty-watch.yml'
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
