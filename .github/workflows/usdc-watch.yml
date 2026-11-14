@@ -1,0 +1,36 @@
+name: YY Builds - native Solana USDC monitor
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: yybuilds-usdc-monitor
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate monitor offline
+        run: python -m unittest discover -s tests -p 'test_watch_usdc.py'
+      - name: Check FINALIZED native Circle USDC balance via public Solana RPC
+        run: python scripts/watch_usdc.py
+      - name: Save baseline or balance change; no keys or wallet access
+        run: |
+          if [ -f data/usdc-solana-state.json ]; then
+            git config user.name "YY Builds Bot"
+            git config user.email "yybuilds-bot@users.noreply.github.com"
+            git add data/usdc-solana-state.json
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: record finalized USDC balance change"
+              git push
+            fi
+          fi
