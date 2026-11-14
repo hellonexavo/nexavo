@@ -50,12 +50,15 @@ def rank(source, now=None):
                 score -= 12
             if reward >= 500:
                 score += 6
-            # A title is insufficient to assert eligibility or submission readiness.\n            requirements_gate = ("Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.")\n            queue.append({
+            # A title is insufficient to assert eligibility or submission readiness.
+            requirements_gate = ("Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.")
+            queue.append({
                 "title": title, "source_url": item["url"],
                 "requirements_url": item["prerequisites_url"],
                 "prize_pool_usdc": reward, "deadline": item["deadline"],
                 "entries_at_scan": count, "score": score,
-                "status": "REQUIREMENTS_REVIEW_REQUIRED",\n                "requirements_gate": requirements_gate,
+                "status": "REQUIREMENTS_REVIEW_REQUIRED",
+                "requirements_gate": requirements_gate,
                 "must_verify": [
                     "Exact deliverables and ownership / original code",
                     "Submission and agent transcript requirements",
@@ -74,7 +77,8 @@ def main():
     data = json.loads(SOURCE.read_text(encoding="utf-8"))
     result = rank(data)
     DEST.parent.mkdir(parents=True, exist_ok=True)
-    DEST.write_text(json.dumps(result, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
+    DEST.write_text(json.dumps(result, indent=2, ensure_ascii=False)+"
+", encoding="utf-8")
     print(f"Prioritized {result['candidate_count']} potential bounties (no entries submitted).")
 
 if __name__ == "__main__":
