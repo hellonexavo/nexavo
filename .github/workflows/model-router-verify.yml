@@ -1,0 +1,24 @@
+name: YY Builds - real bounty backend tests
+on:
+  push:
+    paths:
+      - ".github/workflows/model-router-verify.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: yy-agent/model-router-backend
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test actual API server and twenty routed requests
+        run: |
+          cd bounty-work/model-router-backend
+          python -m unittest discover -s . -p 'test_router.py' -v
+          python -m py_compile router.py
