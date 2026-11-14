@@ -1,8 +1,10 @@
-name: YY Builds - autonomous code builder
+name: YY Builds - task prototype builder
 on:
   push:
     paths:
       - ".github/workflows/agent-builder.yml"
+      - "scripts/build_candidate.py"
+      - "tests/test_build_candidate.py"
   schedule:
     - cron: "43 8 * * *"
   workflow_dispatch:
@@ -45,7 +47,7 @@ jobs:
       - name: Upload deliverable for download independent of PR settings
         uses: actions/upload-artifact@v4
         with:
-          name: yybuilds-model-atlas-prototype
+          name: yybuilds-model-atlas-demo-not-contest-entry
           path: bounty-work/free-model-aggregator-01/
           retention-days: 14
       - name: Create safe code branch and optional draft PR
@@ -61,9 +63,9 @@ jobs:
           git config user.email "yybuilds-bot@users.noreply.github.com"
           git checkout -b "$branch"
           git add bounty-work/free-model-aggregator-01
-          git commit -m "feat: runnable model aggregator prototype for bounty review"
+          git commit -m "feat: portfolio-only model directory demo (not bounty-compliant)"
           git push --set-upstream origin "$branch"
           gh pr create --base main --head "$branch" --draft \
-            --title "Prototype: model aggregator — review before any bounty submission" \
-            --body "Automated reproducible candidate solution for https://make.fun/bounty/free-model-aggregator-01 . Local tests and JS syntax checks passed. Not submitted to the competition. Must verify its exact requirements and any genuine AI agent session evidence; no fabricated transcripts or payments." \
+            --title "Demo: model directory — NOT a make.fun entry" \
+            --body "Automated standalone website demo only. This is NOT the required AI model aggregator proxy server, does NOT satisfy make.fun rules and is NOT submitted. No verified prize or transcript." \
             || echo "Draft PR creation unavailable; code branch and artifact remain available."
