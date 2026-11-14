@@ -24,7 +24,12 @@ jobs:
           req=urllib.request.Request(endpoint,data,{"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Content-Type":"application/json"})
           try:
               with urllib.request.urlopen(req,timeout=25) as response:
-                  result=json.load(response)
+                  raw=response.read(4096)
+                  status=response.status
+                  content_type=response.headers.get("Content-Type","")
+              print("RESPONSE_DIAGNOSTICS",status,content_type,"bytes",len(raw),"preview",repr(raw[:120]))
+              if not raw.strip(): raise RuntimeError("Inference endpoint returned an empty response")
+              result=json.loads(raw)
               print("INFERENCE_READY",str(result["choices"][0]["message"]["content"])[:100])
           except urllib.error.HTTPError as e:
               print("INFERENCE_UNAVAILABLE",e.code,e.read(700).decode("utf-8","replace"))
