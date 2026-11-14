@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""YY Builds: autonomous deterministic, zero-key task->working code builder.
+"""YY Builds: autonomous deterministic, zero-key portfolio/demo builder.
 
-Only supported tasks are implemented. No remote submission or wallet access.
+This demo is NOT the make.fun challenge server; no remote submission or wallet access.
 """
 import json
 import pathlib
@@ -19,7 +19,7 @@ MODELS = [
 
 def choose(queue):
     for item in queue.get("best_candidates", []):
-        if item.get("title") == "The best free AI model aggregator" and item.get("status") == "CANDIDATE_ONLY_NOT_APPLIED":
+        if item.get("title") == "The best free AI model aggregator" and item.get("status") == "REQUIREMENTS_REVIEW_REQUIRED":
             return item
     return None
 
@@ -77,7 +77,7 @@ def build(root=ROOT):
         "Functional single-file model family directory with instant search, access filters, favorites, responsive design and links to official docs.\n\n"
         "## Run\n\nOpen `index.html` locally. No API keys or installation.\n\n"
         "## Bounty\n\nCandidate: "+task["source_url"]+"\n\n"
-        "**NOT SUBMITTED.** Prototype has not been validated against full competition requirements. "
+        "**NOT A VALID CONTEST ENTRY; NOT SUBMITTED.** The bounty requires a real proxy server with OpenAI and Anthropic compatible APIs, ten simulated providers and verified agent transcripts; this static directory is only a portfolio demo. "
         "Paid ranking may require original AI-agent transcripts, signed submissions and other conditions. "
         "No session logs or guaranteed prizes are claimed.\n",encoding="utf-8")
     print("BUILT",folder,"models",len(MODELS), "candidate",task["title"])
