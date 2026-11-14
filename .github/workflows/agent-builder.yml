@@ -1,0 +1,69 @@
+name: YY Builds - autonomous code builder
+on:
+  push:
+    paths:
+      - ".github/workflows/agent-builder.yml"
+  schedule:
+    - cron: "43 8 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: yybuilds-code-builder
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run safety and builder tests
+        run: python -m unittest discover -s tests -p 'test_build_candidate.py'
+      - name: Build candidate code from verified queue
+        run: python scripts/build_candidate.py
+      - name: Validate generated JavaScript and HTML
+        run: |
+          python - <<'PY'
+          import pathlib,re
+          from html.parser import HTMLParser
+          data=pathlib.Path("bounty-work/free-model-aggregator-01/index.html").read_text()
+          assert data.lower().startswith("<!doctype html>"), "Missing HTML doctype"
+          assert data.count('<article class="model"') >= 5, "Too few cards"
+          js=re.search(r"<script>(.*?)</script>",data,re.S)
+          assert js, "Missing JavaScript"
+          pathlib.Path("/tmp/yy-built-agent.js").write_text(js.group(1))
+          HTMLParser().feed(data)
+          print("HTML_VALIDATION_OK")
+          PY
+          node --check /tmp/yy-built-agent.js
+      - name: Upload deliverable for download independent of PR settings
+        uses: actions/upload-artifact@v4
+        with:
+          name: yybuilds-model-atlas-prototype
+          path: bounty-work/free-model-aggregator-01/
+          retention-days: 14
+      - name: Create safe code branch and optional draft PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="yy-agent/free-model-aggregator-01"
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            echo "Branch already created. No duplicate delivery."
+            exit 0
+          fi
+          git config user.name "YY Builds Task Bot"
+          git config user.email "yybuilds-bot@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add bounty-work/free-model-aggregator-01
+          git commit -m "feat: runnable model aggregator prototype for bounty review"
+          git push --set-upstream origin "$branch"
+          gh pr create --base main --head "$branch" --draft \
+            --title "Prototype: model aggregator — review before any bounty submission" \
+            --body "Automated reproducible candidate solution for https://make.fun/bounty/free-model-aggregator-01 . Local tests and JS syntax checks passed. Not submitted to the competition. Must verify its exact requirements and any genuine AI agent session evidence; no fabricated transcripts or payments." \
+            || echo "Draft PR creation unavailable; code branch and artifact remain available."
