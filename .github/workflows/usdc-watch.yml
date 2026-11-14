@@ -1,5 +1,8 @@
 name: YY Builds - native Solana USDC monitor
 on:
+  push:
+    paths:
+      - '.github/workflows/usdc-watch.yml'
   schedule:
     - cron: "*/15 * * * *"
   workflow_dispatch:
