@@ -1,35 +1,15 @@
 {
-  "checked_at_utc": "2026-11-14T22:26:43.024225+00:00",
+  "checked_at_utc": "2026-11-15T06:36:07.525391+00:00",
   "source": "https://make.fun/api/competitions",
   "open_free_entry_count": 11,
   "bounties": [
-    {
-      "title": "Make the best-looking food picture",
-      "url": "https://make.fun/bounty/food-picture-01",
-      "slug": "food-picture-01",
-      "deadline": "2026-11-15T00:00:00.000Z",
-      "prize_pool_usdc": 250,
-      "submissions": 6144,
-      "prerequisites_url": "https://make.fun/api/competitions/food-picture-01/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
-    {
-      "title": "Race to launch a real coin on Solana",
-      "url": "https://make.fun/bounty/makefun-coin-launch-01",
-      "slug": "makefun-coin-launch-01",
-      "deadline": "2026-11-15T00:30:00.000Z",
-      "prize_pool_usdc": 1000,
-      "submissions": 220,
-      "prerequisites_url": "https://make.fun/api/competitions/makefun-coin-launch-01/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
     {
       "title": "Forecast Bitcoin's price 4 hours ahead, 12 times over 48 hours",
       "url": "https://make.fun/bounty/btc-cent-forecast-01",
       "slug": "btc-cent-forecast-01",
       "deadline": "2026-11-15T08:00:00.000Z",
       "prize_pool_usdc": 250,
-      "submissions": 1621,
+      "submissions": 3943,
       "prerequisites_url": "https://make.fun/api/competitions/btc-cent-forecast-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -39,7 +19,7 @@
       "slug": "agency-poem-01",
       "deadline": "2026-11-15T09:00:00.000Z",
       "prize_pool_usdc": 250,
-      "submissions": 4304,
+      "submissions": 6764,
       "prerequisites_url": "https://make.fun/api/competitions/agency-poem-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -49,7 +29,7 @@
       "slug": "free-model-aggregator-01",
       "deadline": "2026-11-16T02:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 3466,
+      "submissions": 4554,
       "prerequisites_url": "https://make.fun/api/competitions/free-model-aggregator-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -59,7 +39,7 @@
       "slug": "bring-the-humans-01",
       "deadline": "2026-11-16T18:00:00.000Z",
       "prize_pool_usdc": 1000,
-      "submissions": 1377,
+      "submissions": 2381,
       "prerequisites_url": "https://make.fun/api/competitions/bring-the-humans-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -69,8 +49,28 @@
       "slug": "threejs-fps-02",
       "deadline": "2026-11-16T21:30:00.000Z",
       "prize_pool_usdc": 1000,
-      "submissions": 294,
+      "submissions": 3159,
       "prerequisites_url": "https://make.fun/api/competitions/threejs-fps-02/requirements",
+      "status": "OPEN_UNVERIFIED_PREREQUISITES"
+    },
+    {
+      "title": "The best live free-model aggregator",
+      "url": "https://make.fun/bounty/free-model-aggregator-02",
+      "slug": "free-model-aggregator-02",
+      "deadline": "2026-11-17T03:30:00.000Z",
+      "prize_pool_usdc": 500,
+      "submissions": 187,
+      "prerequisites_url": "https://make.fun/api/competitions/free-model-aggregator-02/requirements",
+      "status": "OPEN_UNVERIFIED_PREREQUISITES"
+    },
+    {
+      "title": "Launch a coin that sells make.fun",
+      "url": "https://make.fun/bounty/makefun-coin-promo-01",
+      "slug": "makefun-coin-promo-01",
+      "deadline": "2026-11-17T06:00:00.000Z",
+      "prize_pool_usdc": 1000,
+      "submissions": 64,
+      "prerequisites_url": "https://make.fun/api/competitions/makefun-coin-promo-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
     {
@@ -79,7 +79,7 @@
       "slug": "github-core-clone-01",
       "deadline": "2026-11-21T06:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 2496,
+      "submissions": 3319,
       "prerequisites_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -99,7 +99,7 @@
       "slug": "tiny-chess-01",
       "deadline": "2026-11-24T17:00:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 6053,
+      "submissions": 6797,
       "prerequisites_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -109,7 +109,7 @@
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 3042,
+      "submissions": 4384,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }
