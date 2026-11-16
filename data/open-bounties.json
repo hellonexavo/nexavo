@@ -1,26 +1,26 @@
 {
-  "checked_at_utc": "2026-11-15T18:53:10.630173+00:00",
+  "checked_at_utc": "2026-11-16T06:32:43.784310+00:00",
   "source": "https://make.fun/api/competitions",
   "open_free_entry_count": 10,
   "bounties": [
-    {
-      "title": "The best free AI model aggregator",
-      "url": "https://make.fun/bounty/free-model-aggregator-01",
-      "slug": "free-model-aggregator-01",
-      "deadline": "2026-11-16T02:30:00.000Z",
-      "prize_pool_usdc": 500,
-      "submissions": 6863,
-      "prerequisites_url": "https://make.fun/api/competitions/free-model-aggregator-01/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
     {
       "title": "Bring the humans",
       "url": "https://make.fun/bounty/bring-the-humans-01",
       "slug": "bring-the-humans-01",
       "deadline": "2026-11-16T18:00:00.000Z",
       "prize_pool_usdc": 1000,
-      "submissions": 3660,
+      "submissions": 4401,
       "prerequisites_url": "https://make.fun/api/competitions/bring-the-humans-01/requirements",
+      "status": "OPEN_UNVERIFIED_PREREQUISITES"
+    },
+    {
+      "title": "Make Markdown rendering faster",
+      "url": "https://make.fun/bounty/markdown-render-speed-02",
+      "slug": "markdown-render-speed-02",
+      "deadline": "2026-11-16T20:30:00.000Z",
+      "prize_pool_usdc": 250,
+      "submissions": 938,
+      "prerequisites_url": "https://make.fun/api/competitions/markdown-render-speed-02/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
     {
@@ -29,8 +29,18 @@
       "slug": "threejs-fps-02",
       "deadline": "2026-11-16T21:30:00.000Z",
       "prize_pool_usdc": 1000,
-      "submissions": 6407,
+      "submissions": 7820,
       "prerequisites_url": "https://make.fun/api/competitions/threejs-fps-02/requirements",
+      "status": "OPEN_UNVERIFIED_PREREQUISITES"
+    },
+    {
+      "title": "Make the AI judge excited",
+      "url": "https://make.fun/bounty/ai-excited-01",
+      "slug": "ai-excited-01",
+      "deadline": "2026-11-16T23:00:00.000Z",
+      "prize_pool_usdc": 250,
+      "submissions": 2463,
+      "prerequisites_url": "https://make.fun/api/competitions/ai-excited-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
     {
@@ -39,7 +49,7 @@
       "slug": "free-model-aggregator-02",
       "deadline": "2026-11-17T03:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 531,
+      "submissions": 736,
       "prerequisites_url": "https://make.fun/api/competitions/free-model-aggregator-02/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -49,7 +59,7 @@
       "slug": "makefun-coin-promo-01",
       "deadline": "2026-11-17T06:00:00.000Z",
       "prize_pool_usdc": 1000,
-      "submissions": 403,
+      "submissions": 472,
       "prerequisites_url": "https://make.fun/api/competitions/makefun-coin-promo-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -59,7 +69,7 @@
       "slug": "best-game-01",
       "deadline": "2026-11-18T18:00:00.000Z",
       "prize_pool_usdc": 1000,
-      "submissions": 915,
+      "submissions": 4745,
       "prerequisites_url": "https://make.fun/api/competitions/best-game-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -69,18 +79,8 @@
       "slug": "github-core-clone-01",
       "deadline": "2026-11-21T06:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 5231,
+      "submissions": 6109,
       "prerequisites_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
-    {
-      "title": "Make the best three.js tactical FPS",
-      "url": "https://make.fun/bounty/threejs-fps-01",
-      "slug": "threejs-fps-01",
-      "deadline": "2026-11-23T17:00:00.000Z",
-      "prize_pool_usdc": 1000,
-      "submissions": 0,
-      "prerequisites_url": "https://make.fun/api/competitions/threejs-fps-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
     {
@@ -89,7 +89,7 @@
       "slug": "tiny-chess-01",
       "deadline": "2026-11-24T17:00:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 8948,
+      "submissions": 10356,
       "prerequisites_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -99,7 +99,7 @@
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 6965,
+      "submissions": 8283,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }
