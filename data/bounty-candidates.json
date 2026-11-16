@@ -1,33 +1,16 @@
 {
-  "selected_at_utc": "2026-11-16T06:32:43.835861+00:00",
-  "source_checked_at_utc": "2026-11-16T06:32:43.784310+00:00",
+  "selected_at_utc": "2026-11-16T22:05:39.707182+00:00",
+  "source_checked_at_utc": "2026-11-16T22:05:39.650211+00:00",
   "not_an_earnings_statement": true,
-  "candidate_count": 3,
+  "candidate_count": 2,
   "best_candidates": [
-    {
-      "title": "The best live free-model aggregator",
-      "source_url": "https://make.fun/bounty/free-model-aggregator-02",
-      "requirements_url": "https://make.fun/api/competitions/free-model-aggregator-02/requirements",
-      "prize_pool_usdc": 500.0,
-      "deadline": "2026-11-17T03:30:00.000Z",
-      "entries_at_scan": 736,
-      "score": 39,
-      "status": "REQUIREMENTS_REVIEW_REQUIRED",
-      "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
-      "must_verify": [
-        "Exact deliverables and ownership / original code",
-        "Submission and agent transcript requirements",
-        "Eligible country and actual payout network",
-        "Prize availability, competition rules and deadlines"
-      ]
-    },
     {
       "title": "Build a GitHub-compatible git forge",
       "source_url": "https://make.fun/bounty/github-core-clone-01",
       "requirements_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "prize_pool_usdc": 500.0,
       "deadline": "2026-11-21T06:30:00.000Z",
-      "entries_at_scan": 6109,
+      "entries_at_scan": 7498,
       "score": 35,
       "status": "REQUIREMENTS_REVIEW_REQUIRED",
       "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
@@ -44,7 +27,7 @@
       "requirements_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "prize_pool_usdc": 500.0,
       "deadline": "2026-11-24T17:00:00.000Z",
-      "entries_at_scan": 10356,
+      "entries_at_scan": 12342,
       "score": 31,
       "status": "REQUIREMENTS_REVIEW_REQUIRED",
       "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
