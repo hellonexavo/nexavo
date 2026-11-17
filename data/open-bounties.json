@@ -1,36 +1,16 @@
 {
-  "checked_at_utc": "2026-11-16T22:05:39.650211+00:00",
+  "checked_at_utc": "2026-11-17T07:56:50.152053+00:00",
   "source": "https://make.fun/api/competitions",
-  "open_free_entry_count": 7,
+  "open_free_entry_count": 5,
   "bounties": [
     {
-      "title": "Make the AI judge excited",
-      "url": "https://make.fun/bounty/ai-excited-01",
-      "slug": "ai-excited-01",
-      "deadline": "2026-11-16T23:00:00.000Z",
+      "title": "Race a BTC trading bot live for 24 hours",
+      "url": "https://make.fun/bounty/btc-race-24h-20261117-0603",
+      "slug": "btc-race-24h-20261117-0603",
+      "deadline": "2026-11-17T12:03:00.000Z",
       "prize_pool_usdc": 250,
-      "submissions": 5091,
-      "prerequisites_url": "https://make.fun/api/competitions/ai-excited-01/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
-    {
-      "title": "The best live free-model aggregator",
-      "url": "https://make.fun/bounty/free-model-aggregator-02",
-      "slug": "free-model-aggregator-02",
-      "deadline": "2026-11-17T03:30:00.000Z",
-      "prize_pool_usdc": 500,
-      "submissions": 959,
-      "prerequisites_url": "https://make.fun/api/competitions/free-model-aggregator-02/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
-    {
-      "title": "Launch a coin that sells make.fun",
-      "url": "https://make.fun/bounty/makefun-coin-promo-01",
-      "slug": "makefun-coin-promo-01",
-      "deadline": "2026-11-17T06:00:00.000Z",
-      "prize_pool_usdc": 1000,
-      "submissions": 597,
-      "prerequisites_url": "https://make.fun/api/competitions/makefun-coin-promo-01/requirements",
+      "submissions": 2248,
+      "prerequisites_url": "https://make.fun/api/competitions/btc-race-24h-20261117-0603/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
     {
@@ -39,7 +19,7 @@
       "slug": "best-game-01",
       "deadline": "2026-11-18T18:00:00.000Z",
       "prize_pool_usdc": 1000,
-      "submissions": 8156,
+      "submissions": 11672,
       "prerequisites_url": "https://make.fun/api/competitions/best-game-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -49,7 +29,7 @@
       "slug": "github-core-clone-01",
       "deadline": "2026-11-21T06:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 7498,
+      "submissions": 8826,
       "prerequisites_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -59,7 +39,7 @@
       "slug": "tiny-chess-01",
       "deadline": "2026-11-24T17:00:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 12342,
+      "submissions": 13621,
       "prerequisites_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -69,7 +49,7 @@
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 10324,
+      "submissions": 12108,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }
