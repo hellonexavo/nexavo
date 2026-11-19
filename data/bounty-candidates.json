@@ -1,17 +1,17 @@
 {
-  "selected_at_utc": "2026-11-18T20:33:50.410671+00:00",
-  "source_checked_at_utc": "2026-11-18T20:33:50.350678+00:00",
+  "selected_at_utc": "2026-11-19T07:28:45.343144+00:00",
+  "source_checked_at_utc": "2026-11-19T07:28:45.301442+00:00",
   "not_an_earnings_statement": true,
   "candidate_count": 2,
   "best_candidates": [
     {
-      "title": "Build a GitHub-compatible git forge",
-      "source_url": "https://make.fun/bounty/github-core-clone-01",
-      "requirements_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
+      "title": "Build the strongest chess engine in 4 KB of Python",
+      "source_url": "https://make.fun/bounty/tiny-chess-01",
+      "requirements_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "prize_pool_usdc": 500.0,
-      "deadline": "2026-11-21T06:30:00.000Z",
-      "entries_at_scan": 13309,
-      "score": 35,
+      "deadline": "2026-11-24T17:00:00.000Z",
+      "entries_at_scan": 20334,
+      "score": 31,
       "status": "REQUIREMENTS_REVIEW_REQUIRED",
       "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
       "must_verify": [
@@ -22,13 +22,13 @@
       ]
     },
     {
-      "title": "Build the strongest chess engine in 4 KB of Python",
-      "source_url": "https://make.fun/bounty/tiny-chess-01",
-      "requirements_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
+      "title": "Build a GitHub-compatible git forge",
+      "source_url": "https://make.fun/bounty/github-core-clone-01",
+      "requirements_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "prize_pool_usdc": 500.0,
-      "deadline": "2026-11-24T17:00:00.000Z",
-      "entries_at_scan": 19288,
-      "score": 31,
+      "deadline": "2026-11-21T06:30:00.000Z",
+      "entries_at_scan": 14323,
+      "score": 20,
       "status": "REQUIREMENTS_REVIEW_REQUIRED",
       "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
       "must_verify": [

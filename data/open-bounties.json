@@ -1,25 +1,15 @@
 {
-  "checked_at_utc": "2026-11-18T20:33:50.350678+00:00",
+  "checked_at_utc": "2026-11-19T07:28:45.301442+00:00",
   "source": "https://make.fun/api/competitions",
-  "open_free_entry_count": 4,
+  "open_free_entry_count": 3,
   "bounties": [
-    {
-      "title": "Forecast GTA VI's launch-day Twitch viewers hour by hour",
-      "url": "https://make.fun/bounty/gta6-twitch-ccu-forecast-01",
-      "slug": "gta6-twitch-ccu-forecast-01",
-      "deadline": "2026-11-19T01:00:00.000Z",
-      "prize_pool_usdc": 250,
-      "submissions": 14480,
-      "prerequisites_url": "https://make.fun/api/competitions/gta6-twitch-ccu-forecast-01/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
     {
       "title": "Build a GitHub-compatible git forge",
       "url": "https://make.fun/bounty/github-core-clone-01",
       "slug": "github-core-clone-01",
       "deadline": "2026-11-21T06:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 13309,
+      "submissions": 14323,
       "prerequisites_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -29,7 +19,7 @@
       "slug": "tiny-chess-01",
       "deadline": "2026-11-24T17:00:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 19288,
+      "submissions": 20334,
       "prerequisites_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -39,7 +29,7 @@
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 17804,
+      "submissions": 18862,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }
