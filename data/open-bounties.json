@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-19T20:39:35.931018+00:00",
+  "checked_at_utc": "2026-11-20T07:19:10.431613+00:00",
   "source": "https://make.fun/api/competitions",
   "open_free_entry_count": 3,
   "bounties": [
@@ -9,7 +9,7 @@
       "slug": "github-core-clone-01",
       "deadline": "2026-11-21T06:30:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 15598,
+      "submissions": 16517,
       "prerequisites_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -19,7 +19,7 @@
       "slug": "tiny-chess-01",
       "deadline": "2026-11-24T17:00:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 21759,
+      "submissions": 22572,
       "prerequisites_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -29,7 +29,7 @@
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 19984,
+      "submissions": 20731,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }

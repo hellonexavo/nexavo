@@ -1,6 +1,6 @@
 {
-  "selected_at_utc": "2026-11-19T20:39:35.974409+00:00",
-  "source_checked_at_utc": "2026-11-19T20:39:35.931018+00:00",
+  "selected_at_utc": "2026-11-20T07:19:10.476026+00:00",
+  "source_checked_at_utc": "2026-11-20T07:19:10.431613+00:00",
   "not_an_earnings_statement": true,
   "candidate_count": 2,
   "best_candidates": [
@@ -10,7 +10,7 @@
       "requirements_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "prize_pool_usdc": 500.0,
       "deadline": "2026-11-24T17:00:00.000Z",
-      "entries_at_scan": 21759,
+      "entries_at_scan": 22572,
       "score": 31,
       "status": "REQUIREMENTS_REVIEW_REQUIRED",
       "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
@@ -27,8 +27,8 @@
       "requirements_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
       "prize_pool_usdc": 500.0,
       "deadline": "2026-11-21T06:30:00.000Z",
-      "entries_at_scan": 15598,
-      "score": 20,
+      "entries_at_scan": 16517,
+      "score": 12,
       "status": "REQUIREMENTS_REVIEW_REQUIRED",
       "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
       "must_verify": [
