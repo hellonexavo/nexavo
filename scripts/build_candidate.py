@@ -4,6 +4,7 @@
 This demo is NOT the make.fun challenge server; no remote submission or wallet access.
 """
 import json
+import os
 import pathlib
 from html import escape
 
@@ -68,7 +69,8 @@ def build(root=ROOT):
     queue=json.loads((root / "data/bounty-candidates.json").read_text())
     task=choose(queue)
     if task is None:
-        raise SystemExit("SKIP: No eligible supported task; no submission fabricated")
+        print("SKIP: No eligible supported task; no submission fabricated")
+        return None
     folder=root / "bounty-work" / "free-model-aggregator-01"
     folder.mkdir(parents=True,exist_ok=True)
     (folder/"index.html").write_text(render(),encoding="utf-8")
@@ -84,4 +86,7 @@ def build(root=ROOT):
     return folder
 
 if __name__ == "__main__":
-    build()
+    result = build()
+    if output_path := os.environ.get("GITHUB_OUTPUT"):
+        with open(output_path, "a", encoding="utf-8") as output:
+            print(f"built={str(result is not None).lower()}", file=output)

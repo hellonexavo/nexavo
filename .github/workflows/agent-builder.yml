@@ -31,8 +31,10 @@ jobs:
       - name: Refresh queue classification from latest scan
         run: python scripts/triage_bounties.py
       - name: Build candidate code from verified queue
+        id: candidate
         run: python scripts/build_candidate.py
       - name: Validate generated JavaScript and HTML
+        if: steps.candidate.outputs.built == 'true'
         run: |
           python - <<'PY'
           import pathlib,re
@@ -48,12 +50,14 @@ jobs:
           PY
           node --check /tmp/yy-built-agent.js
       - name: Upload deliverable for download independent of PR settings
+        if: steps.candidate.outputs.built == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: yybuilds-model-atlas-demo-not-contest-entry
           path: bounty-work/free-model-aggregator-01/
           retention-days: 14
       - name: Create safe code branch and optional draft PR
+        if: steps.candidate.outputs.built == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
