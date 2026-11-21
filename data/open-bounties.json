@@ -1,25 +1,15 @@
 {
-  "checked_at_utc": "2026-11-20T20:23:58.547436+00:00",
+  "checked_at_utc": "2026-11-21T07:11:54.322933+00:00",
   "source": "https://make.fun/api/competitions",
-  "open_free_entry_count": 3,
+  "open_free_entry_count": 2,
   "bounties": [
-    {
-      "title": "Build a GitHub-compatible git forge",
-      "url": "https://make.fun/bounty/github-core-clone-01",
-      "slug": "github-core-clone-01",
-      "deadline": "2026-11-21T06:30:00.000Z",
-      "prize_pool_usdc": 500,
-      "submissions": 18031,
-      "prerequisites_url": "https://make.fun/api/competitions/github-core-clone-01/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
     {
       "title": "Build the strongest chess engine in 4 KB of Python",
       "url": "https://make.fun/bounty/tiny-chess-01",
       "slug": "tiny-chess-01",
       "deadline": "2026-11-24T17:00:00.000Z",
       "prize_pool_usdc": 500,
-      "submissions": 23761,
+      "submissions": 24664,
       "prerequisites_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     },
@@ -29,7 +19,7 @@
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 21944,
+      "submissions": 22940,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }
