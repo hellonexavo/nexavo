@@ -42,11 +42,11 @@ jobs:
           queue = json.loads(Path("data/bounty-candidates.json").read_text())
           eligible = choose(queue) is not None
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
-              output.write(f"eligible={str(eligible).lower()}\\n")
+              output.write(f"eligible={str(eligible).lower()}\n")
           if not eligible:
               print("SKIP: No eligible supported task; this is not a build failure.")
               with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
-                  summary.write("No eligible supported task found. Prototype generation safely skipped.\\n")
+                  summary.write("No eligible supported task found. Prototype generation safely skipped.\n")
           PY
       - name: Build candidate code from verified queue
         if: steps.eligibility.outputs.eligible == 'true'
