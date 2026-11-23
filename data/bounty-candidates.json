@@ -1,6 +1,6 @@
 {
-  "selected_at_utc": "2026-11-23T07:42:02.074399+00:00",
-  "source_checked_at_utc": "2026-11-23T07:42:02.028503+00:00",
+  "selected_at_utc": "2026-11-23T23:55:22.550775+00:00",
+  "source_checked_at_utc": "2026-11-23T23:55:22.497340+00:00",
   "not_an_earnings_statement": true,
   "candidate_count": 1,
   "best_candidates": [
@@ -10,8 +10,8 @@
       "requirements_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
       "prize_pool_usdc": 500.0,
       "deadline": "2026-11-24T17:00:00.000Z",
-      "entries_at_scan": 28698,
-      "score": 16,
+      "entries_at_scan": 30401,
+      "score": 8,
       "status": "REQUIREMENTS_REVIEW_REQUIRED",
       "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
       "must_verify": [
