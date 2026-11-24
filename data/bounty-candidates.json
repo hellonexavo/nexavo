@@ -1,25 +1,7 @@
 {
-  "selected_at_utc": "2026-11-23T23:55:22.550775+00:00",
-  "source_checked_at_utc": "2026-11-23T23:55:22.497340+00:00",
+  "selected_at_utc": "2026-11-24T09:56:30.877696+00:00",
+  "source_checked_at_utc": "2026-11-24T09:56:30.840389+00:00",
   "not_an_earnings_statement": true,
-  "candidate_count": 1,
-  "best_candidates": [
-    {
-      "title": "Build the strongest chess engine in 4 KB of Python",
-      "source_url": "https://make.fun/bounty/tiny-chess-01",
-      "requirements_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
-      "prize_pool_usdc": 500.0,
-      "deadline": "2026-11-24T17:00:00.000Z",
-      "entries_at_scan": 30401,
-      "score": 8,
-      "status": "REQUIREMENTS_REVIEW_REQUIRED",
-      "requirements_gate": "Requires verified full brief, sandbox protocol, and genuine AI-session transcript before entering.",
-      "must_verify": [
-        "Exact deliverables and ownership / original code",
-        "Submission and agent transcript requirements",
-        "Eligible country and actual payout network",
-        "Prize availability, competition rules and deadlines"
-      ]
-    }
-  ]
+  "candidate_count": 0,
+  "best_candidates": []
 }
