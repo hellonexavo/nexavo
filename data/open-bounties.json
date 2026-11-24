@@ -1,25 +1,15 @@
 {
-  "checked_at_utc": "2026-11-24T09:56:30.840389+00:00",
+  "checked_at_utc": "2026-11-24T22:28:42.245421+00:00",
   "source": "https://make.fun/api/competitions",
-  "open_free_entry_count": 2,
+  "open_free_entry_count": 1,
   "bounties": [
-    {
-      "title": "Build the strongest chess engine in 4 KB of Python",
-      "url": "https://make.fun/bounty/tiny-chess-01",
-      "slug": "tiny-chess-01",
-      "deadline": "2026-11-24T17:00:00.000Z",
-      "prize_pool_usdc": 500,
-      "submissions": 31513,
-      "prerequisites_url": "https://make.fun/api/competitions/tiny-chess-01/requirements",
-      "status": "OPEN_UNVERIFIED_PREREQUISITES"
-    },
     {
       "title": "Build the best token launch radar",
       "url": "https://make.fun/bounty/token-radar-01",
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 30659,
+      "submissions": 31508,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }
