@@ -5,10 +5,14 @@ import { StudioFrame, ProjectCTA } from "./components/StudioFrame";
 import StudioWork from "./components/StudioWork";
 import StudioVideos from "./components/StudioVideos";
 import s from "./studio.module.css";
+import { services } from "./lib/services";
+
+const starterOfferIds = ["fixes", "crm", "landing"];
+const starterOffers = services.filter((service) => starterOfferIds.includes(service.id));
 export const metadata = {
-  title: "YY Builds | AI Workflows, Websites & Business Systems",
+  title: "YY Builds | Websites, Booking & Automation for Small Businesses",
   description:
-    "A Netherlands-based digital studio designing practical AI-powered document workflows, operations automation, websites and customer systems. Explore honest demos and our company roadmap.",
+    "Websites, enquiry forms, online booking and workflow automation for small businesses. View working demos and request a written quote from YY Builds.",
   alternates: { canonical: "/" },
 };
 export default function Home() {
@@ -18,29 +22,28 @@ export default function Home() {
         <div className={s.wrap}>
           <div className={s.heroTop}>
             <p className={s.eyebrow}>
-              AI WORKFLOWS & DIGITAL SYSTEMS / NETHERLANDS
+              DIGITAL STUDIO FOR SMALL BUSINESSES / NETHERLANDS
             </p>
-            <p className={s.availability}>Let’s build your next step</p>
+            <p className={s.availability}>Work directly with Yurii</p>
           </div>
           <div className={s.heroGrid}>
             <div className={s.heroCopy}>
               <h1>
-                Your business.
+                Websites, enquiry forms and online booking
                 <br />
-                Less busywork.
-                <br />
-                <em>More possibility.</em>
+                <em>for small businesses.</em>
               </h1>
               <p>
-                Distinctive websites. Easier bookings. Practical systems that
-                bring your enquiries, your team and your next steps together.
+                Need a new site, a fix to an existing one, or an easier way to
+                manage enquiries? Tell me what you need and I’ll send you a
+                written quote.
               </p>
               <div className={s.actions}>
                 <Link className={s.button} href="/contact">
-                  Discuss your project <span aria-hidden="true">↗</span>
+                  Request a quote <span aria-hidden="true">↗</span>
                 </Link>
                 <a className={s.inlineLink} href="#live-demo">
-                  See our approach <span aria-hidden="true">↓</span>
+                  See a working demo <span aria-hidden="true">↓</span>
                 </a>
               </div>
               <p className={s.heroNote}>
@@ -147,7 +150,7 @@ export default function Home() {
               {
                 number: "01",
                 icon: "↗",
-                title: "Show your business.",
+                title: "Websites & fixes",
                 copy: "A website that explains what you do and makes the next step obvious.",
                 points: [
                   "Business websites & landing pages",
@@ -160,20 +163,20 @@ export default function Home() {
               {
                 number: "02",
                 icon: "▦",
-                title: "Organise your work.",
+                title: "Forms, booking & CRM",
                 copy: "Bring enquiries, bookings and job progress into a clearer working process.",
                 points: [
                   "Lead forms & customer tracking",
                   "Booking & appointment requests",
                   "Job dashboards & operational tools",
                 ],
-                href: "/demos",
-                link: "Try the workspace",
+                href: "/services#booking",
+                link: "Explore booking and enquiries",
               },
               {
                 number: "03",
                 icon: "⌁",
-                title: "Connect the next step.",
+                title: "Automation & AI",
                 copy: "Reduce repetitive admin and help people discover what you offer.",
                 points: [
                   "Practical workflow automation",
@@ -204,8 +207,14 @@ export default function Home() {
           </div>
           <div className={s.solutionsFoot}>
             <p>
-              Already have a website? Small fixes start from €15. Website care
-              starts from €30/month.
+              {starterOffers.map((service, index) => (
+                <span key={service.id}>
+                  {index > 0 && " · "}
+                  <Link href={`/contact?service=${service.id}`}>
+                    {service.title} {service.price}
+                  </Link>
+                </span>
+              ))}
             </p>
             <Link className={s.inlineLink} href="/pricing">
               All services & starting prices ↗
@@ -255,6 +264,23 @@ export default function Home() {
               booking journeys across different industries.
             </p>
           </div>
+          <article className={s.solutionCard}>
+            <p className={s.eyebrow}>AUTOFLOW / AUTOSERVICE CONCEPT</p>
+            <h3>From choosing a service to requesting an appointment</h3>
+            <p>
+              A driver selects a service, describes the issue and requests a time.
+              In a live setup, the workshop can receive the request by email or in
+              its CRM and confirm the appointment.
+            </p>
+            <div className={s.actions}>
+              <Link className={s.inlineLink} href="/portfolio/autoflow">
+                Try the AutoFlow demo ↗
+              </Link>
+              <Link className={s.inlineLink} href="/contact?service=booking">
+                Request a similar setup ↗
+              </Link>
+            </div>
+          </article>
           <StudioWork />
           <p className={s.note}>
             Independently created demonstration projects. These are concepts,

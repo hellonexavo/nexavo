@@ -1,2 +1,5 @@
 import { redirect } from "next/navigation";
-export default function LegacyOrderRedirect(){redirect("/pricing");}
+
+export default function LegacyOrderRedirect() {
+  redirect("/contact");
+}
