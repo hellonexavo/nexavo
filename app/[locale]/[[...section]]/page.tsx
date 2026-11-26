@@ -2,8 +2,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import s from "./locale.module.css";
+import { enquiryFormUrl } from "../../lib/contact";
 const langs=["uk","pl","en","nl"] as const;
 type L=typeof langs[number];
+const enquiryLabels = {
+  uk: "Залишити заявку",
+  pl: "Otwórz formularz (po ukraińsku)",
+  en: "Open enquiry form (in Ukrainian)",
+  nl: "Open het aanvraagformulier (in het Oekraïens)",
+};
 const paths=["","services","pricing","investors","about","contact","demos","portfolio"] as const;
 type P=typeof paths[number];
 const tr={
@@ -30,7 +37,7 @@ return <div className={s.site} lang={l}><header className={s.header}><div classN
 {p==="pricing"&&<section className={s.light}><div className={s.wrap}><p className={s.eyebrow}>YY / PRICING</p><h1 className={s.title}>{d.prices}</h1><p className={s.sub}>{d.pricesText}</p><div className={s.prices}>{d.priceRows.map(([name,cost])=><div className={s.priceRow} key={name}><h3>{name}</h3><strong>{cost}</strong><Link href={link(l,"contact")}>{d.talk} ↗</Link></div>)}</div></div></section>}
 {p==="investors"&&<><section className={s.hero}><div className={s.wrap}><p className={s.eyebrow}>YY / COMPANY OVERVIEW · 2026</p><h1>{d.invest}</h1><p className={s.lead}>{d.investText}</p><Link className={s.button} href={link(l,"contact")}>{d.talk} ↗</Link><p className={s.noteDark}>{d.disclaimer}</p></div></section><section className={s.light}><div className={s.wrap}><div className={s.grid}>{headings(d.investRows)}</div><h2>{d.products}</h2><div className={s.grid}>{headings(d.productRows)}</div><p className={s.note}>{d.note}</p></div></section></>}
 {p==="about"&&<section className={s.light}><div className={s.wrap}><p className={s.eyebrow}>YY / ABOUT</p><h1 className={s.title}>{d.about}</h1><p className={s.sub}>{d.aboutText}</p></div></section>}
-{p==="contact"&&<section className={s.light}><div className={s.wrap}><p className={s.eyebrow}>YY / CONTACT</p><h1 className={s.title}>{d.contact}</h1><p className={s.sub}>{d.contactText}</p><div className={s.contact}><strong>yybuilds.contact@gmail.com</strong><a className={s.darkButton} href="mailto:yybuilds.contact@gmail.com?subject=YY%20Builds%20project%20enquiry">{d.email} ↗</a><p>{d.emailNote}</p></div></div></section>}
+{p==="contact"&&<section className={s.light}><div className={s.wrap}><p className={s.eyebrow}>YY / CONTACT</p><h1 className={s.title}>{d.contact}</h1><p className={s.sub}>{d.contactText}</p><div className={s.contact}><a className={s.darkButton} href={enquiryFormUrl}>{enquiryLabels[l]} ↗</a><a href="mailto:yybuilds.contact@gmail.com?subject=YY%20Builds%20project%20enquiry">{d.email} ↗</a><p>{d.emailNote}</p></div></div></section>}
 {(p==="demos"||p==="portfolio")&&<section className={s.light}><div className={s.wrap}><p className={s.eyebrow}>YY / SHOWCASE</p><h1 className={s.title}>{p==="demos"?d.demos:d.portfolio}</h1><p className={s.sub}>{p==="demos"?d.demosText:d.portfolioText}</p><Link className={s.darkButton} href={"/"+p}>{d.view} ↗</Link></div></section>}
 </main><footer className={s.footer}><div className={s.wrap}><strong>YY<span>.</span> BUILDS</strong><p>{d.foot}</p><a href="mailto:yybuilds.contact@gmail.com">yybuilds.contact@gmail.com</a><p className={s.small}>{d.disclaimer}</p><div className={s.bottomLinks}>{paths.map((z,i)=><Link href={link(l,z)} key={z}>{d.nav[i]}</Link>)}</div></div></footer></div>;
 }

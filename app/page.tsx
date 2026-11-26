@@ -5,6 +5,10 @@ import { StudioFrame, ProjectCTA } from "./components/StudioFrame";
 import StudioWork from "./components/StudioWork";
 import StudioVideos from "./components/StudioVideos";
 import s from "./studio.module.css";
+import { services } from "./lib/services";
+
+const starterOfferIds = ["fixes", "crm", "landing"];
+const starterOffers = services.filter((service) => starterOfferIds.includes(service.id));
 export const metadata = {
   title: "YY Builds | AI Workflows, Websites & Business Systems",
   description:
@@ -37,7 +41,7 @@ export default function Home() {
               </p>
               <div className={s.actions}>
                 <Link className={s.button} href="/contact">
-                  Discuss your project <span aria-hidden="true">↗</span>
+                  Send a project enquiry <span aria-hidden="true">↗</span>
                 </Link>
                 <a className={s.inlineLink} href="#live-demo">
                   See our approach <span aria-hidden="true">↓</span>
@@ -204,8 +208,14 @@ export default function Home() {
           </div>
           <div className={s.solutionsFoot}>
             <p>
-              Already have a website? Small fixes start from €15. Website care
-              starts from €30/month.
+              {starterOffers.map((service, index) => (
+                <span key={service.id}>
+                  {index > 0 && " · "}
+                  <Link href={`/contact?service=${service.id}`}>
+                    {service.title} {service.price}
+                  </Link>
+                </span>
+              ))}
             </p>
             <Link className={s.inlineLink} href="/pricing">
               All services & starting prices ↗
