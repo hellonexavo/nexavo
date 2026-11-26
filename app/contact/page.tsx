@@ -1,6 +1,5 @@
 import { StudioFrame } from "../components/StudioFrame";
-import { enquiryFormUrl } from "../lib/contact";
-import { services } from "../lib/services";
+import ProjectBrief from "../components/ProjectBrief";
 import s from "../studio.module.css";
 export const metadata = {
   title: "Discuss Your Project | YY Builds",
@@ -13,8 +12,7 @@ export default async function Contact({
 }: {
   searchParams: Promise<{ service?: string }>;
 }) {
-  const { service } = await searchParams;
-  const selectedService = services.find((item) => item.id === service);
+  const params = await searchParams;
   return (
     <StudioFrame>
       <div className={s.wrap}>
@@ -57,21 +55,7 @@ export default async function Contact({
               welcome.
             </p>
           </aside>
-          <section className={s.briefForm} aria-labelledby="enquiry-heading">
-            <h2 id="enquiry-heading">Send a project enquiry</h2>
-            <p>
-              {selectedService
-                ? `Tell me what you need for ${selectedService.title}. Include the service name in your description if it isn’t listed in the form.`
-                : "Choose a service, enter your reply email and briefly describe what you need."}
-            </p>
-            <a className={s.darkButton} href={enquiryFormUrl}>
-              Open enquiry form <span aria-hidden="true">↗</span>
-            </a>
-            <p className={s.formHint}>
-              Opens Google Forms in Ukrainian. Please leave out passwords,
-              payment details and confidential customer information.
-            </p>
-          </section>
+          <ProjectBrief initialService={params.service || ""} />
         </div>
       </div>
     </StudioFrame>

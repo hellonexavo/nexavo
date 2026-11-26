@@ -1,6 +1,3 @@
-export const enquiryFormUrl =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfpZsnTOhyaeM36cFbjcXHG9NiQv0d9ucbyCXwZtkUvoJ27FA/viewform";
-
 export const contactDetails = {
   email: "yybuilds.contact@gmail.com",
   telegram: "@yybuilds",
