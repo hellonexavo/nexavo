@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-26T21:35:04.759281+00:00",
+  "checked_at_utc": "2026-11-27T08:37:49.942424+00:00",
   "source": "https://make.fun/api/competitions",
   "open_free_entry_count": 1,
   "bounties": [
@@ -9,7 +9,7 @@
       "slug": "token-radar-01",
       "deadline": "2026-12-14T10:00:00.000Z",
       "prize_pool_usdc": 1325,
-      "submissions": 35127,
+      "submissions": 35815,
       "prerequisites_url": "https://make.fun/api/competitions/token-radar-01/requirements",
       "status": "OPEN_UNVERIFIED_PREREQUISITES"
     }
